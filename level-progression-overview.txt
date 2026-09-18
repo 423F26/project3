@@ -1,0 +1,8 @@
+level 1 - what is coding
+level 2 - using text commands to move avatar
+level 3 - looping
+level 4 - solving a maze
+level 5 - if statements
+level 6 - functions
+level 7 - while loops
+...
