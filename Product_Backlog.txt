@@ -1,0 +1,8 @@
+1. Get basic webpage / menu functionality
+2. Create full general outline for content on each level
+3. Create 15 levels total (writing, coding, fleshed out visuals)
+4. Finishing the style of website as a whole
+5. Create the reward creatures given by the levels
+6. Create account login functionality for student
+7. Create account login functionality for admin (?)
+8. Figure out hosting
