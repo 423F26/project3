@@ -1,2 +1,3 @@
 Sept 18, 26: Wrote tasks down on product backlog - Ridley (30m)
 Sept 23 26: Added remaining level buttons to the homepage & worked on drop down menu - Becca (1hr)
+Sept 25 26: Added a reward button to level 1, that displays a character - Becca (40m)
