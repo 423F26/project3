@@ -1,1 +1,3 @@
+
 This line came from feature2
+this line came from feature1
