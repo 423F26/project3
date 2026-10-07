@@ -33,3 +33,50 @@ button{
         transform: scale(1); opacity: 1;
     }
 }
+.info-box{
+    background-color: #ffa94d;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 18px;
+    animation: slideIn 0.6s ease-out;
+}
+
+#commands-intro{
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100vw); opacity: 0;
+    }
+    100% {
+        transform: translateX(0); opacity: 1;
+    }
+}
+
+/* 8 columns x 5 rows of 60px squares */
+#play-area{
+    position: relative;
+    width: 480px;
+    height: 300px;
+    margin: 20px auto;
+    background-color: #c3f0ca;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    border: 4px solid #2f9e44;
+    border-radius: 8px;
+}
+
+#player{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: left 0.15s, top 0.15s;
+}
