@@ -1,53 +1,166 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Zoo Coding</title>
+
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Welcome to the Coding Zoo!</h1>
-    <h2>Your coding adventure begins here!</h2> 
 
-    <form action="/action_page.php">
-      <label for="levels">Choose a level:</label>
-      <select onchange="if (this.value) window.location.href=this.value">
-        <option value="level1.html">Level 1</option>
-        <option value="level2.html">Level 2</option>
-        <option value="level3.html">Level 3</option>
-        <option value="level4.html">Level 4</option>
-        <option value="level5.html">Level 5</option>
-        <option value="level6.html">Level 6</option>
-        <option value="level7.html">Level 7</option>
-        <option value="level8.html">Level 8</option>
-        <option value="level9.html">Level 9</option>
-        <option value="level10.html">Level 10</option>
-        <option value="level11.html">Level 11<option>
-        <option value="level12.html">Level 12</option>
-        <option value="level13.html">Level 13</option>
-        <option value="level14.html">Level 14</option>
-        <option value="level15.html">Level 15</option>
-      </select>
-      <br><br>
-    </form>
+  </head>
+  <body>
 
-    <button><a href="level1.html">Level 1</a></button>
-    <button><a href="level2.html">Level 2</a></button>
-    <button><a href="level3.html">Level 3</a></button>
-    <button><a href="level4.html">Level 4</a></button>
-    <button><a href="level5.html">Level 5</a></button>
-    <button><a href="level6.html">Level 6</a></button>
-    <button><a href="level7.html">Level 7</a></button>
-    <button><a href="level8.html">Level 8</a></button>
-    <button><a href="level9.html">Level 9</a></button>
-    <button><a href="level10.html">Level 10</a></button>
-    <button><a href="level11.html">Level 11</a></button>
-    <button><a href="level12.html">Level 12</a></button>
-    <button><a href="level13.html">Level 13</a></button>
-    <button><a href="level14.html">Level 14</a></button>
-    <button><a href="level15.html">Level 15</a></button>
-    
-    
-</body>
+    <header>
+
+      <header class="navbar">
+        <div class="logo" aria-label="Zoo Coding home">
+          🦁
+        </div>
+
+        <div class="site-title">Zoo Coding</div>
+
+        <div class="menu-container">
+          <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+            <span>▦</span>
+          </button>
+
+          <nav class="dropdown-menu" id="dropdownMenu" hidden>
+            <a href="index.html">Levels</a>
+            <a href="FAQ.html">FAQ</a>
+            <button type="button" id="loginButton">Log In</button>
+          </nav>
+        </div>
+      </header>
+
+    </header>
+
+    <main>
+      <section class="welcome">
+        <h1>Your Coding Adventure Awaits!</h1>
+        <p>
+          Explore the zoo, complete coding challenges,
+          and discover something new at every level.
+        </p>
+      </section>
+
+      <section class="adventure-area" id="levels">
+        <div class="landscape-placeholder">
+
+          <div class="level-map">
+
+            <a href="level1.html" class="level-marker level-1">
+              <span class="level-number">1</span>
+              <span class="level-name">What Is Coding?</span>
+            </a>
+
+            <a href="level2.html" class="level-marker level-2">
+              <span class="level-number">2</span>
+              <span class="level-name">Using Text Commands to Move Avatar</span>
+            </a>
+
+            <a href="level3.html" class="level-marker level-3">
+              <span class="level-number">3</span>
+              <span class="level-name">Looping </span>
+            </a>
+
+            <a href="level4.html" class="level-marker level-4">
+              <span class="level-number">4</span>
+              <span class="level-name">Solving a Maze</span>
+            </a>
+
+            <a href="level5.html" class="level-marker level-5">
+              <span class="level-number">5</span>
+              <span class="level-name">If/Then Statements</span>
+            </a>
+
+            <a href="level6.html" class="level-marker level-6">
+              <span class="level-number">6</span>
+              <span class="level-name">Else Statements</span>
+            </a>
+
+            <a href="level7.html" class="level-marker level-7">
+              <span class="level-number">7</span>
+              <span class="level-name">Functions</span>
+            </a>
+
+            <a href="level8.html" class="level-marker level-8">
+              <span class="level-number">8</span>
+              <span class="level-name">While Loops</span>
+            </a>
+
+            <a href="level9.html" class="level-marker level-9">
+              <span class="level-number">9</span>
+              <span class="level-name">Debugging</span>
+            </a>
+
+            <a href="level10.html" class="level-marker level-10">
+              <span class="level-number">10</span>
+              <span class="level-name">User Input</span>
+            </a>
+
+            <a href="level11.html" class="level-marker level-11">
+              <span class="level-number">11</span>
+              <span class="level-name">Booleans &Conditions</span>
+            </a>
+
+            <a href="level12.html" class="level-marker level-12">
+              <span class="level-number">12</span>
+              <span class="level-name">Cybersecurity</span>
+            </a>
+
+            <a href="level13.html" class="level-marker level-13">
+              <span class="level-number">13</span>
+              <span class="level-name">Problem Solving with Algorithms</span>
+            </a>
+
+            <a href="level14.html" class="level-marker level-14">
+              <span class="level-number">14</span>
+              <span class="level-name">Artificial Intelligence</span>
+            </a>
+
+            <a href="level15.html" class="level-marker level-15">
+              <span class="level-number">15</span>
+              <span class="level-name">Choose Your Own Adventure</span>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <script>
+    const menuButton = document.getElementById("menuButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const loginButton = document.getElementById("loginButton");
+
+menuButton.addEventListener("click", () => {
+  const isOpen = !dropdownMenu.hidden;
+
+  dropdownMenu.hidden = isOpen;
+  menuButton.setAttribute("aria-expanded", String(!isOpen));
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".menu-container")) {
+    dropdownMenu.hidden = true;
+    menuButton.setAttribute("aria-expanded", "false");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    dropdownMenu.hidden = true;
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.focus();
+  }
+});
+  </script>
+
+  </body>
 </html>

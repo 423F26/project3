@@ -1,79 +1,374 @@
-h1{
-    text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: tomato;
 
+/* Global */
+
+* {
+    box-sizing: border-box;
 }
 
-h2{
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background-color: #fff8e8;
+    color: #234c38;
+}
+
+/* Nav Bar */
+
+.navbar {
+    height: 76px;
+    background-color: #234c38;
+    color: #fff8e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    width: 44px;
+    font-size: 34px;
+    cursor: pointer;
+}
+
+.site-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.menu-container {
+    position: relative;
+    margin-left: auto;
+}
+
+.menu-button {
+    background: transparent;
+    color: #fff8e8;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-button:hover,
+.menu-button:focus-visible {
+    background-color: #37694d;
+    outline: 2px solid #f4d58d;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 54px;
+    right: 0;
+    width: 180px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 16px;
+    color: #234c38;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background-color: #e7f0df;
+}
+
+.dropdown-menu[hidden] {
+    display: none;
+}
+
+/* Welcome */
+
+.welcome {
+    text-align: center;
+    padding: 42px 20px 30px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.welcome h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    color: #234c38;
+    margin: 0 0 14px;
+}
+
+.welcome p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #59725f;
+    margin: 0 auto;
+    max-width: 620px;
+}
+
+/* General headings */
+
+h1,
+h2 {
     text-align: center;
 }
 
-img{
+h1 {
+    color: #234c38;
+}
+
+h2 {
+    color: #234c38;
+}
+
+/* Zoo Map */
+
+.adventure-area {
+    width: 100%;
+    padding: 0 28px 36px;
+}
+
+.landscape-placeholder {
+    position: relative;
+    width: 100%;
+    min-height: 1500px;
+    padding: 35px 20px;
+    background-color: #e7efdf;
+    border: 3px dashed #b7cbb0;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.level-map {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 850px;
+    min-height: 1400px;
+    margin: 0 auto;
+}
+
+/* Level buttons */
+
+.level-marker {
+    position: absolute;
+    width: 190px;
+    min-height: 100px;
+    padding: 12px;
+    border: 3px solid #ffffff;
+    border-radius: 18px;
+    background-color: #fff8e8;
+    color: #234c38;
+    box-shadow: 0 4px 10px rgba(35, 76, 56, 0.16);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    text-align: center;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.level-marker:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(35, 76, 56, 0.22);
+}
+
+.level-marker:focus-visible {
+    outline: 3px solid #d39a42;
+    outline-offset: 4px;
+}
+
+.level-marker {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.level-number {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #387650;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.level-name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.35;
+}
+
+/* Main page level positions */
+
+.level-1  { top: 0;    left: 5%; }
+.level-2  { top: 95px; right: 5%; }
+.level-3  { top: 190px; left: 5%; }
+.level-4  { top: 285px; right: 5%; }
+.level-5  { top: 380px; left: 5%; }
+.level-6  { top: 475px; right: 5%; }
+.level-7  { top: 570px; left: 5%; }
+.level-8  { top: 665px; right: 5%; }
+.level-9  { top: 760px; left: 5%; }
+.level-10 { top: 855px; right: 5%; }
+.level-11 { top: 950px; left: 5%; }
+.level-12 { top: 1045px; right: 5%; }
+.level-13 { top: 1140px; left: 5%; }
+.level-14 { top: 1235px; right: 5%; }
+.level-15 { top: 1330px; left: 5%; }
+
+/* Winding path */
+
+.winding-path {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.path-segment {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    border: 16px solid #b7a17a;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.path-1 {
+    top: 35px;
+    left: 28%;
+    transform: rotate(25deg);
+}
+
+.path-2 {
+    top: 190px;
+    left: 28%;
+    transform: rotate(-25deg);
+}
+
+.path-3 {
+    top: 345px;
+    left: 28%;
+    transform: rotate(25deg);
+}
+
+.path-4 {
+    top: 500px;
+    left: 28%;
+    transform: rotate(-25deg);
+}
+
+.path-5 {
+    top: 655px;
+    left: 28%;
+    transform: rotate(25deg);
+}
+
+.path-6 {
+    top: 810px;
+    left: 28%;
+    transform: rotate(-25deg);
+}
+
+.path-7 {
+    top: 965px;
+    left: 28%;
+    transform: rotate(25deg);
+}
+
+/* ========================================
+   CODING GAME — HEADINGS & IMAGES
+======================================== */
+
+img {
     width: 100px;
     height: auto;
 }
 
-button{
+/* General buttons: retain the original game layout */
+
+button {
     display: grid;
     margin: auto;
 }
 
-#reward-container{
-    display: none;
-    text-align: center;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* Restore flex layout for the level markers */
+
+.level-marker {
+    display: flex;
+    margin: 0;
 }
 
-@keyframes popIn {
-    0% {
-        transform: scale(0); opacity: 0;
-}
-    100% {
-        transform: scale(1); opacity: 1;
-    }
-}
-.info-box{
-    background-color: #ffa94d;
+/* ========================================
+   CODING GAME — INFORMATION BOX
+======================================== */
+
+.info-box {
+    background-color: #e7f0df;
+    color: #234c38;
     max-width: 600px;
     margin: 20px auto;
     padding: 16px 24px;
     border-radius: 16px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid #b7cbb0;
+    box-shadow: 0 6px 12px rgba(35, 76, 56, 0.15);
     text-align: center;
     font-size: 18px;
     animation: slideIn 0.6s ease-out;
 }
 
-#commands-intro{
-    display: none;
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100vw); opacity: 0;
-    }
-    100% {
-        transform: translateX(0); opacity: 1;
-    }
-}
+/* ========================================
+   CODING GAME — PLAY AREA
+======================================== */
 
 /* 8 columns x 5 rows of 60px squares */
-#play-area{
+
+#play-area {
     position: relative;
     width: 480px;
+    max-width: 100%;
     height: 300px;
     margin: 20px auto;
-    background-color: #c3f0ca;
+    background-color: #e7efdf;
     background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+        linear-gradient(to right, rgba(35, 76, 56, 0.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(35, 76, 56, 0.14) 1px, transparent 1px);
     background-size: 60px 60px;
-    border: 4px solid #2f9e44;
+    border: 4px solid #387650;
     border-radius: 8px;
+    overflow: hidden;
 }
 
-#player{
+#player {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -81,3 +376,47 @@ button{
     transition: left 0.15s, top 0.15s;
 }
 
+<<<<<<< Updated upstream
+=======
+/* ========================================
+   CODING GAME — REWARDS & INTRO
+======================================== */
+
+#reward-container {
+    display: none;
+    text-align: center;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#commands-intro {
+    display: none;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+>>>>>>> Stashed changes
