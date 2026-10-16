@@ -13,13 +13,17 @@
         <button id="reward-button">I did it!</button>
     <div id="reward-container">
         <h2>You unlocked a new character!</h2>
-        <div id="Penguin"><img src="Level2-Penguin.png"></div>
+        <div id="character"><img src="Level2-Penguin.png"></div>
     </div>
 
     <div id = 'gamescreen'>
-        <div id="Penguin"><img src="Level2-Penguin.png"></div>
+        <div id="penguin"><img src="Level2-Penguin.png"></div>
     </div>
     
+
+    <input type="text" id="commandInput" placeholder="Enter a command">
+    <button id="submitButton">Submit</button>
+
     <script>
         const button = document.getElementById('reward-button');
         const rewardContainer = document.getElementById('reward-container');
@@ -31,21 +35,18 @@
 
         });
 
-        const commandInput = document.getElementById('command-input');
-        const commandOutput = document.getElementById('command-output');
-
-        let posX = 230;
+        let posX = 180;
         let posY = 180;
         const stepSize = 30;
 
-        const penguin = document.getElementById('Penguin');
+        const penguin = document.getElementById('penguin');
         const commandInput = document.getElementById('commandInput');
         const submitButton = document.getElementById('submitButton');
 
         function movePenguin(direction) {
-            const command = direction.toLowerCase();
-            direction.value = '';
-            switch (direction) {
+            const command = direction.toLowerCase().trim();
+  
+            switch (command) {
                 case 'up':
                     posY -= stepSize;
                     break;
@@ -58,9 +59,14 @@
                 case 'right':
                     posX += stepSize;
                     break;
+
+                default:
+                    break;
             }
             penguin.style.left = posX + 'px';
             penguin.style.top = posY + 'px';
+
+            commandInput.value = '';
         }
 
         submitButton.addEventListener('click', () => {
@@ -75,6 +81,27 @@
         
 
     </script>
+
+    <style>
+        #penguin{
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: left 0.15s, top 0.15s;
+        }
+        #gamescreen{
+            position: relative;
+            width: 500px;
+            height: 600px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+        #penguin img{
+            width: 100px;
+            height: auto;
+        }
+    </style>
 
     
 </body>
