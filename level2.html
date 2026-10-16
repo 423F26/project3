@@ -9,6 +9,73 @@
 <body>
     <h1>Level 2</h1>
     <button><a href="index.html">Back to the home page</a></button>
+
+        <button id="reward-button">I did it!</button>
+    <div id="reward-container">
+        <h2>You unlocked a new character!</h2>
+        <div id="Penguin"><img src="Level2-Penguin.png"></div>
+    </div>
+
+    <div id = 'gamescreen'>
+        <div id="Penguin"><img src="Level2-Penguin.png"></div>
+    </div>
+    
+    <script>
+        const button = document.getElementById('reward-button');
+        const rewardContainer = document.getElementById('reward-container');
+        button.addEventListener('click', () => {
+            rewardContainer.style.display = 'block';
+
+            button.disabled = true;
+            button.innerText = "Reward unlocked!";
+
+        });
+
+        const commandInput = document.getElementById('command-input');
+        const commandOutput = document.getElementById('command-output');
+
+        let posX = 230;
+        let posY = 180;
+        const stepSize = 30;
+
+        const penguin = document.getElementById('Penguin');
+        const commandInput = document.getElementById('commandInput');
+        const submitButton = document.getElementById('submitButton');
+
+        function movePenguin(direction) {
+            const command = direction.toLowerCase();
+            direction.value = '';
+            switch (direction) {
+                case 'up':
+                    posY -= stepSize;
+                    break;
+                case 'down':
+                    posY += stepSize;
+                    break;
+                case 'left':
+                    posX -= stepSize;
+                    break;
+                case 'right':
+                    posX += stepSize;
+                    break;
+            }
+            penguin.style.left = posX + 'px';
+            penguin.style.top = posY + 'px';
+        }
+
+        submitButton.addEventListener('click', () => {
+            movePenguin(commandInput.value);
+        });
+        commandInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                movePenguin(commandInput.value);
+            }
+        });
+
+        
+
+    </script>
+
     
 </body>
 </html>
