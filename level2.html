@@ -110,6 +110,19 @@
 
         
 
+        function unlockReward() {
+            let unlockRewards = JSON.parse(localStorage.getItem('unlockRewards')) || [];
+            unlockRewards.push('level2');
+            localStorage.setItem('unlockRewards', JSON.stringify(unlockRewards));
+
+            if(!unlockRewards.includes(Level2-Penguin.png)){
+                ulockRewards.push(Level2-Penguin.png);
+                localStorage.setItem('unlockRewards', JSON.stringify(unlockRewards));
+            }
+        }
+
+
+
     </script>
 
     <style>
