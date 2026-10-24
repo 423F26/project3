@@ -160,6 +160,24 @@ document.addEventListener("keydown", (event) => {
     menuButton.focus();
   }
 });
+
+
+const unlockRewards = 
+  JSON.parse(localStorage.getItem('unlockRewards')) || [];
+  unlockRewards.push('level2');
+  localStorage.setItem('unlockRewards', JSON.stringify(unlockRewards));
+  console.log(unlockedRewards);
+
+
+const world = document.getElementById('world');
+unlockedRewards.forEach(reward => {
+  const img = document.createElement('img');
+  img.src = 'rewards/${reward}.png';
+  img.classList.add('reward');
+  world.appendChild(img);
+});
+
+
   </script>
 
   </body>
