@@ -1,5 +1,5 @@
-# Second Grade Coding Teaching Tool
-** This is a level progression based game that was created for second graders to learn the basics of coding. We wanted to make it fun and engaging.
+# Fifth Grade Coding Teaching Tool
+** This is a level progression based game that was created for fifth graders to learn the basics of coding. We wanted to make it fun and engaging.
 
 # Set Up
 ** Technologies Used
