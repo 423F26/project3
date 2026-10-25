@@ -17,8 +17,8 @@ Zoo Coding is a 5th grade level coding game, teaching students the basics of com
 
 # Documentation
 
-- [Developer documentation:](Docs/Developer.md)
-- [User documentation:](docs/index.html)
+- [Developer documentation](docs/Developer.md)
+- [User documentation](docs/index.html)
 
 # Requirements
   Access to internet, any modern browser, and a laptop or desktop
