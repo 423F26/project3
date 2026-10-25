@@ -17,8 +17,8 @@ Zoo Coding is a 5th grade level coding game, teaching students the basics of com
 
 # Documentation
 
--Developer documentation: Docs/Developer.md
--User documentation: docs/index.html
+- [Developer documentation:](Docs/Developer.md)
+- [User documentation:](docs/index.html)
 
 # Requirements
   Access to internet, any modern browser, and a laptop or desktop
@@ -26,9 +26,9 @@ Zoo Coding is a 5th grade level coding game, teaching students the basics of com
 # Contributing
 #### Report a bug OR Request a change
 
--Open an issue on GitHub to report a bug or suggest an improvement.
--Create a branch for your changes and test them locally.
--Submit a pull request describing your changes and linking any related issues.
--A teammate will review your pull request. Address feedback and ensure the application runs correctly before merging.
+- Open an issue on GitHub to report a bug or suggest an improvement.
+- Create a branch for your changes and test them locally.
+- Submit a pull request describing your changes and linking any related issues.
+- A teammate will review your pull request. Address feedback and ensure the application runs correctly before merging.
 
 
