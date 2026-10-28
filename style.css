@@ -242,72 +242,7 @@ h2 {
 .level-14 { top: 1235px; right: 5%; }
 .level-15 { top: 1330px; left: 5%; }
 
-/* Winding path */
-
-.winding-path {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.path-segment {
-    position: absolute;
-    width: 150px;
-    height: 100px;
-    border: 16px solid #b7a17a;
-    border-radius: 50%;
-    box-sizing: border-box;
-}
-
-.path-1 {
-    top: 35px;
-    left: 28%;
-    transform: rotate(25deg);
-}
-
-.path-2 {
-    top: 190px;
-    left: 28%;
-    transform: rotate(-25deg);
-}
-
-.path-3 {
-    top: 345px;
-    left: 28%;
-    transform: rotate(25deg);
-}
-
-.path-4 {
-    top: 500px;
-    left: 28%;
-    transform: rotate(-25deg);
-}
-
-.path-5 {
-    top: 655px;
-    left: 28%;
-    transform: rotate(25deg);
-}
-
-.path-6 {
-    top: 810px;
-    left: 28%;
-    transform: rotate(-25deg);
-}
-
-.path-7 {
-    top: 965px;
-    left: 28%;
-    transform: rotate(25deg);
-}
-
-/* ========================================
-   CODING GAME — HEADINGS & IMAGES
-======================================== */
+/* Headings & Images */
 
 img {
     width: 100px;
@@ -328,9 +263,7 @@ button {
     margin: 0;
 }
 
-/* ========================================
-   CODING GAME — INFORMATION BOX
-======================================== */
+/* Info Box */
 
 .info-box {
     background-color: #e7f0df;
@@ -345,12 +278,6 @@ button {
     font-size: 18px;
     animation: slideIn 0.6s ease-out;
 }
-
-/* ========================================
-   CODING GAME — PLAY AREA
-======================================== */
-
-/* 8 columns x 5 rows of 60px squares */
 
 #play-area {
     position: relative;
@@ -375,48 +302,3 @@ button {
     object-fit: contain;
     transition: left 0.15s, top 0.15s;
 }
-
-<<<<<<< Updated upstream
-=======
-/* ========================================
-   CODING GAME — REWARDS & INTRO
-======================================== */
-
-#reward-container {
-    display: none;
-    text-align: center;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-#commands-intro {
-    display: none;
-}
-
-/* ========================================
-   ANIMATIONS
-======================================== */
-
-@keyframes popIn {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100vw);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
->>>>>>> Stashed changes
