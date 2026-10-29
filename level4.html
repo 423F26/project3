@@ -33,6 +33,171 @@
         </header>
     <h1>Level 4: Solve A Maze!</h1>
     <button><a href="index.html">Back to the home page</a></button>
+
+    <canvas id="maze"></canvas>
+
+    <!--<div id="redpanda"><img src="Level4-RedPanda.png"></div>
+-->
+    <script>
+
+        const cols = 20;
+        const rows = 20;
+        const cellSize = 25;
+        const grid = [];
+        let current;
+        const stack = [];
+
+        class Cell{
+            constructor(x, y){
+                this.x = x;
+                this.y = y;
+                this.walls = [true, true, true, true];
+                this.visited = false;
+            }
+            index(x, y){
+                if(x < 0 || y < 0 || x > cols-1 || y > rows-1){
+                    return -1;
+                }
+                return x + y * cols;   
+            }
+            checkNeighbors(){
+                const neighbors = [];
+                const top = grid[this.index(this.x, this.y - 1)];
+                const right = grid[this.index(this.x + 1, this.y)];
+                const bottom = grid[this.index(this.x, this.y + 1)];
+                const left = grid[this.index(this.x - 1, this.y)];
+                [top, right, bottom, left].forEach(cell => {
+                    if(cell && !cell.visited) neighbors.push(cell);
+                });
+
+                if(neighbors.length > 0 ){
+                    const r = Math.floor(Math.random()*neighbors.length);
+                    return neighbors[r];
+                }
+                return undefined;
+            }
+        }
+
+        const canvas = document.getElementById("maze");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = cols * cellSize;
+        canvas.height = rows * cellSize;
+
+        for(let y = 0; y < rows; y++){
+            for(let x = 0; x < cols; x++){
+                grid.push(new Cell(x, y));
+            }
+        }
+
+        current = grid[0];
+
+        function removeWalls(a,b){
+            const x = a.x - b.x;
+            const y = a.y -b.y;
+
+            if(x===1){
+                a.walls[3] = false;
+                b.walls[1] = false;
+            }
+            else if(x===-1){
+                a.walls[1] = false;
+                b.walls[3] = false;
+            }
+            if(y===1){
+                a.walls[0] = false;
+                b.walls[2] = false;
+            }
+            else if(y===-1){
+                a.walls[2] = false;
+                b.walls[0] = false;
+            }
+
+        }
+
+        function drawCell(cell){
+            const x = cell.x * cellSize;
+            const y = cell.y * cellSize;
+
+            if(cell.visited){
+                ctx.fillStyle = "#8EBF67";
+                ctx.fillRect(x,y, cellSize, cellSize);
+            }
+
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+
+            if(cell.walls[0]){
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + cellSize, y);
+                ctx.stroke();
+            }
+            if(cell.walls[1]){
+                ctx.beginPath();
+                ctx.moveTo(x + cellSize, y);
+                ctx.lineTo(x + cellSize, y + cellSize);
+                ctx.stroke();
+            }
+            if(cell.walls[2]){
+                ctx.beginPath();
+                ctx.moveTo(x + cellSize, y + cellSize);
+                ctx.lineTo(x, y + cellSize);
+                ctx.stroke();
+            }
+            if(cell.walls[3]){
+                ctx.beginPath();
+                ctx.moveTo(x, y + cellSize);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            }
+        }
+
+            function step(){
+                current.visited = true;
+                const next = current.checkNeighbors();
+                if(next){
+                    next.visited = true;
+                    stack.push(current);
+                    removeWalls(current, next);
+                    current = next;
+                }
+                else if(stack.length > 0){
+                    current = stack.pop();
+                }
+            }
+            function draw(){
+                requestAnimationFrame(draw);
+                step();
+                ctx.clearRect(0,0, canvas.width, canvas.height);
+                grid.forEach(drawCell);
+            }
+            draw();
+        /*
+        const redpanda = document.getElementById('redpanda');
+        const commandsIntro = document.getElementById('commands-intro');
+        const cellSize = 60;
+        const columns = 8;
+        const rows = 5;
+        let x = 0;
+        let y = 0;
+        let canMove = true;
+*/
+
+    </script>
+
+    <style>
+        #maze{
+            border: 1px solid black;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #000000;
+        }
+    </style>
+
+
+
+
     
 <script type="module" src="js/auth-guard.js"></script>
 </body>
