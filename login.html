@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In - Zoo Coding</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+
+  <main class="login-card">
+    <div class="login-logo" aria-hidden="true">🦁</div>
+    <h1>Zoo Coding</h1>
+    <p class="tagline">Log in to start your coding adventure!</p>
+
+    <form id="auth-form">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="6+ characters" required>
+
+      <button type="submit" id="submit-btn">Log In</button>
+    </form>
+
+    <p id="error" role="alert"></p>
+
+    <p class="toggle">
+      <span id="toggle-text">Don't have an account?</span>
+      <a href="#" id="toggle-link">Sign up</a>
+    </p>
+  </main>
+
+  <div class="grass"></div>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

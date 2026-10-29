@@ -65,6 +65,29 @@ body {
     outline: 2px solid #f4d58d;
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 16px;
+    font-size: 14px;
+}
+
+.user-info button {
+    background: transparent;
+    color: #fff8e8;
+    border: 2px solid #fff8e8;
+    border-radius: 10px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.user-info button:hover,
+.user-info button:focus-visible {
+    background-color: #37694d;
+    outline: 2px solid #f4d58d;
+}
+
 .dropdown-menu {
     position: absolute;
     top: 54px;
