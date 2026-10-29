@@ -1,16 +1,16 @@
-level 1 - what is coding
-level 2 - using text commands to move avatar
-level 3 - looping (for loops?)
-level 4 - solving a maze (combines levels 2-3)
-level 5 - if/then statements
-level 6 - else statements
-level 7 - functions
-level 8 - while loops
-level 9 - debugging? (have them purposely mess up code and then figure out how to fix it)
+level 1 - what is coding (D)
+level 2 - using text commands to move avatar (B)
+level 3 - looping (for loops?) (R)
+level 4 - solving a maze (combines levels 2-3) (B)
+level 5 - if/then statements (R) 
+level 6 - else statements (D)
+level 7 - functions (B)
+level 8 - while loops (D)
+level 9 - debugging? (have them purposely mess up code and then figure out how to fix it) (R)
               *This could also be explaining the differences in coding language syntax*
-level 10 - user input
-level 11 - booleans & conditions
-level 12 - cybersecurity
-level 13 - problem solving with algorithms
-level 14 - artificial intelligence
-level 15 - choose your own adventure type open-ended coding (sandbox?)
+level 10 - user input (R)
+level 11 - booleans & conditions (D)
+level 12 - cybersecurity (B)
+level 13 - problem solving with algorithms (B)
+level 14 - artificial intelligence (R)
+level 15 - choose your own adventure type open-ended coding (sandbox?) (B, D, R)

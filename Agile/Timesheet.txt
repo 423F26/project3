@@ -1,5 +1,0 @@
-Sept 18, 26: Wrote tasks down on product backlog - Ridley (30m)
-Sept 23 26: Added remaining level buttons to the homepage & worked on drop down menu - Becca (1hr)
-Sept 25 26: Added a reward button to level 1, that displays a character - Becca (40m)
-Oct 8 26: Researched curriculum for 5th grade CS to create a full list of our 15 levels. + Updated level progression doc (2hr)
-Oct 16 26: Updated home page, added Nav bar, added more universal styling to make the pages clean and concise (3hr)
