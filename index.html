@@ -182,7 +182,12 @@ unlockedRewards.forEach(reward => {
   world.appendChild(img);
 });
 
-
+if(localStorage.getItem("redPandaUnloked") === "true") {
+  const img = document.createElement('img');
+  img.src = 'rewards/Level4-RedPanda.png';
+  img.classList.add('reward');
+  world.appendChild(img);
+}
   </script>
 
     <script type="module" src="js/auth-guard.js"></script>

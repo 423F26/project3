@@ -43,6 +43,12 @@
 -->
     <script>
         document.getElementById('submitButton').addEventListener('click', runCommand);
+        document.getElementById('command').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                runCommand();
+            }
+            
+        })
 
         const cols = 20;
         const rows = 20;
@@ -176,17 +182,18 @@
             }
             function draw(){
                 requestAnimationFrame(draw);
-                step();
+                
+                if(!mazeComplete){
+                    step();
+                }
                 ctx.clearRect(0,0, canvas.width, canvas.height);
                 grid.forEach(drawCell);
 
                 
 
-                if(!mazeComplete){
-                    step();
-                }
 
                 drawGoal();
+                drawStart();
                 updatePanda();
                 
             }
@@ -201,7 +208,7 @@
 
             const panda = document.createElement('img');
             panda.src = 'rewards/Level4-RedPanda.png';
-            panda.style.position = 'absolute';
+            panda.style.position = 'fixed';
             panda.style.left = redPanda.x + 'px';
             panda.style.top = redPanda.y + 'px';
             panda.style.zIndex = "1000";
@@ -251,30 +258,68 @@
                         return;
                     }
                     redPanda.x ++;
+                    if (
+    redPanda.x < 0 ||
+    redPanda.x >= cols ||
+    redPanda.y < 0 ||
+    redPanda.y >= rows
+){
+    alert("Cannot leave the maze!");
+    return;
+}
                 } else if (direction === "left"){
                     if(currentCell.walls[3]){
                         alert("You hit a wall!");
                         return;
                     }
                     redPanda.x --;
+                    if (
+    redPanda.x < 0 ||
+    redPanda.x >= cols ||
+    redPanda.y < 0 ||
+    redPanda.y >= rows
+){
+    alert("Cannot leave the maze!");
+    return;
+}
                 } else if (direction === "down"){
                     if(currentCell.walls[2]){
                         alert("You hit a wall!");
                         return;
                     }
-                    redPanda.y --;
+                    redPanda.y ++;
+                    if (
+    redPanda.x < 0 ||
+    redPanda.x >= cols ||
+    redPanda.y < 0 ||
+    redPanda.y >= rows
+){
+    alert("Cannot leave the maze!");
+    return;
+}
                 } else if (direction === "up"){
                     if(currentCell.walls[0]){
                         alert("You hit a wall!");
                         return;
                     }
-                    redPanda.y ++;
+                    redPanda.y --;
+                    if (
+    redPanda.x < 0 ||
+    redPanda.x >= cols ||
+    redPanda.y < 0 ||
+    redPanda.y >= rows
+){
+    alert("Cannot leave the maze!");
+    return;
+}
                 }
             }
 
             if(redPanda.x === goal.x && redPanda.y === goal.y){
-            alert("Maze complete!");
+            localStorage.setItem("redPandaUnlocked", "true");
+            alert("Maze complete! Red Panda unlocked!");
         }
+        updatePanda();
         }
 
         const goal = {
@@ -282,8 +327,18 @@
             y: rows -1
         };
 
+
+        function drawStart(){
+            ctx.fillStyle = "#FFCC00";
+            ctx.fillRect(
+                5,
+                5,
+                cellSize -10,
+                cellSize -10    
+            );
+        }
         function drawGoal(){
-            ctx.fillStyle = "#8EBF67";
+            ctx.fillStyle = "#FFCC00";
             ctx.fillRect(
                 goal.x* cellSize +5,
                 goal.y* cellSize +5,
@@ -291,21 +346,6 @@
                 cellSize -10    
             );
         }
-
-        
-
-
-        
-        /*
-        const redpanda = document.getElementById('redpanda');
-        const commandsIntro = document.getElementById('commands-intro');
-        const cellSize = 60;
-        const columns = 8;
-        const rows = 5;
-        let x = 0;
-        let y = 0;
-        let canMove = true;
-*/
 
     </script>
 
