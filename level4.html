@@ -34,11 +34,15 @@
     <h1>Level 4: Solve A Maze!</h1>
     <button><a href="index.html">Back to the home page</a></button>
 
+    <input type="text" id="command" placeholder="Enter a command">
+    <button id="submitButton">Submit</button>
+
     <canvas id="maze"></canvas>
 
     <!--<div id="redpanda"><img src="Level4-RedPanda.png"></div>
 -->
     <script>
+        document.getElementById('submitButton').addEventListener('click', runCommand);
 
         const cols = 20;
         const rows = 20;
@@ -165,14 +169,133 @@
                 else if(stack.length > 0){
                     current = stack.pop();
                 }
+
+                if(stack.length === 0 && !current.checkNeighbors()){
+                    mazeComplete = true;
+                }
             }
             function draw(){
                 requestAnimationFrame(draw);
                 step();
                 ctx.clearRect(0,0, canvas.width, canvas.height);
                 grid.forEach(drawCell);
+
+                
+
+                if(!mazeComplete){
+                    step();
+                }
+
+                drawGoal();
+                updatePanda();
+                
             }
+
+
+            let mazeComplete = false;
+
+        const redPanda = {
+            x:0,
+            y:0
+        };
+
+            const panda = document.createElement('img');
+            panda.src = 'rewards/Level4-RedPanda.png';
+            panda.style.position = 'absolute';
+            panda.style.left = redPanda.x + 'px';
+            panda.style.top = redPanda.y + 'px';
+            panda.style.zIndex = "1000";
+            document.body.appendChild(panda);
+
             draw();
+
+        function updatePanda() {
+
+            const rect = canvas.getBoundingClientRect();
+
+             panda.style.left =
+                (rect.left + window.scrollX +
+                redPanda.x * cellSize + 2) + "px";
+
+            panda.style.top =
+                  (rect.top + window.scrollY +
+                redPanda.y * cellSize + 2) + "px";
+
+            panda.style.width = (cellSize - 4) + "px";
+            panda.style.height = (cellSize - 4) + "px";
+}
+
+        function runCommand(){
+            const input = document.getElementById('command').value;
+            const match = input.match(/([a-z]+)\((\d+)\)/i);
+            if(!match){
+                alert('Invalid command');
+                return;
+            }
+
+            const direction = match[1].toLowerCase();
+            const spaces = parseInt(match[2]);
+
+            movePanda(direction, spaces);
+
+        }
+
+        function movePanda(direction, spaces){
+            for(let i = 0; i < spaces; i++){
+                const currentCell = 
+                grid[redPanda.x + redPanda.y * cols];
+
+                if(direction === "right"){
+                    if(currentCell.walls[1]){
+                        alert("You hit a wall!");
+                        return;
+                    }
+                    redPanda.x ++;
+                } else if (direction === "left"){
+                    if(currentCell.walls[3]){
+                        alert("You hit a wall!");
+                        return;
+                    }
+                    redPanda.x --;
+                } else if (direction === "down"){
+                    if(currentCell.walls[2]){
+                        alert("You hit a wall!");
+                        return;
+                    }
+                    redPanda.y --;
+                } else if (direction === "up"){
+                    if(currentCell.walls[0]){
+                        alert("You hit a wall!");
+                        return;
+                    }
+                    redPanda.y ++;
+                }
+            }
+
+            if(redPanda.x === goal.x && redPanda.y === goal.y){
+            alert("Maze complete!");
+        }
+        }
+
+        const goal = {
+            x: cols -1,
+            y: rows -1
+        };
+
+        function drawGoal(){
+            ctx.fillStyle = "#8EBF67";
+            ctx.fillRect(
+                goal.x* cellSize +5,
+                goal.y* cellSize +5,
+                cellSize -10,
+                cellSize -10    
+            );
+        }
+
+        
+
+
+        
         /*
         const redpanda = document.getElementById('redpanda');
         const commandsIntro = document.getElementById('commands-intro');
