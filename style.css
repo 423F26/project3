@@ -302,3 +302,432 @@ button {
     object-fit: contain;
     transition: left 0.15s, top 0.15s;
 }
+
+
+/* LEVEL 3 */
+
+.level3-page {
+    text-align: center;
+}
+
+.level3-page main {
+    padding: 20px;
+}
+
+.level3-page #lesson-intro,
+.level3-page #challenge-box,
+.level3-page #reward-container {
+    width: 750px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.level3-page .lesson-step {
+    padding: 15px;
+}
+
+.level3-page .lesson-step p {
+    line-height: 1.7;
+    margin: 20px auto;
+}
+
+.level3-page .lesson-step ul {
+    width: 550px;
+    margin: 20px auto;
+    text-align: left;
+    line-height: 1.7;
+}
+
+.level3-page .lesson-step li {
+    margin-bottom: 15px;
+}
+
+.level3-page #lesson-progress,
+.level3-page #progress {
+    font-weight: bold;
+    color: #234c38;
+}
+
+.level3-page .code-example {
+    width: 400px;
+    margin: 20px auto;
+    padding: 18px;
+    background: #f1f5ed;
+    border-radius: 8px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.level3-page .next-lesson-button,
+.level3-page #start-challenges-button,
+.level3-page #submitButton,
+.level3-page #reward-button {
+    display: block;
+    margin: 20px auto;
+}
+
+.level3-page .next-lesson-button:hover,
+.level3-page #start-challenges-button:hover,
+.level3-page #submitButton:hover,
+.level3-page #reward-button:hover {
+    background: #356b4e;
+}
+
+.level3-page #commandInput {
+    width: 400px;
+    height: 130px;
+    padding: 12px;
+    margin: 15px;
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+    vertical-align: middle;
+    resize: none;
+}
+
+.level3-page #feedback {
+    min-height: 25px;
+    font-weight: bold;
+}
+
+/* GAME BOARD */
+
+.level3-page #gamescreen {
+    position: relative;
+    width: 700px;
+    height: 410px;
+    margin: 20px auto;
+    border: 2px solid #234c38;
+    border-radius: 8px;
+    background: white;
+    overflow: hidden;
+}
+
+.level3-page #penguin {
+    position: absolute;
+    left: 180px;
+    top: 180px;
+    width: 60px;
+    height: 60px;
+    transition: left 0.6s ease, top 0.6s ease, transform 0.8s ease;
+}
+
+.level3-page #penguin img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.level3-page #destination {
+    position: absolute;
+    left: 280px;
+    top: 280px;
+    font-size: 35px;
+}
+
+.level3-page #character img {
+    width: 150px;
+    height: auto;
+}
+
+.level3-page [hidden] {
+    display: none !important;
+}
+
+.level3-page #submitButton,
+.level3-page .next-lesson-button {
+    display: block;
+    margin: 15px auto;
+}
+
+.level3-page #reward-button {
+    display: block;
+    margin: 20px auto;
+}
+
+/* LEVEL 3 BUTTON STYLING */
+
+.level3-page .next-lesson-button,
+.level3-page #start-challenges-button,
+.level3-page #submitButton,
+.level3-page #reward-button,
+.level3-page #next-level-button {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 25px;
+    background: #234c38;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.level3-page .next-lesson-button:hover,
+.level3-page #start-challenges-button:hover,
+.level3-page #submitButton:hover,
+.level3-page #reward-button:hover,
+.level3-page #next-level-button:hover {
+    background: #356b4e;
+}
+
+/* Keep hidden buttons hidden */
+.level3-page button[hidden] {
+    display: none !important;
+}
+
+/* Show the reward button when JavaScript unhides it */
+.level3-page #reward-button:not([hidden]) {
+    display: block;
+}
+
+
+/* =================================
+   LEVEL 5
+================================= */
+
+.level5-page {
+    text-align: center;
+}
+
+.level5-page main {
+    padding: 20px;
+}
+
+/* LESSON AND CHALLENGES */
+
+.level5-page #lesson-intro,
+.level5-page #challenge-box,
+.level5-page #reward-container {
+    width: 750px;
+    max-width: 95%;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.level5-page #lesson-intro {
+    background: #eef7e8;
+}
+
+.level5-page #lesson-intro p,
+.level5-page #challenge-box p {
+    line-height: 1.7;
+}
+
+.level5-page #lesson-intro ul {
+    width: 550px;
+    max-width: 95%;
+    margin: 20px auto;
+    text-align: left;
+    line-height: 1.7;
+}
+
+.level5-page #lesson-intro li {
+    margin-bottom: 12px;
+}
+
+/* CODE EXAMPLES */
+
+.level5-page .code-example {
+    width: 400px;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 18px;
+    background: #263238;
+    color: white;
+    border-radius: 8px;
+    text-align: left;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+/* CHALLENGE AREA */
+
+.level5-page #progress {
+    font-weight: bold;
+    color: #387b35;
+}
+
+.level5-page #commandInput {
+    width: 400px;
+    max-width: 95%;
+    padding: 12px;
+    font-size: 16px;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+.level5-page #feedback {
+    min-height: 24px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* GAME BOARD */
+
+.level5-page #game-area {
+    width: 750px;
+    max-width: 95%;
+    margin: 30px auto;
+}
+
+.level5-page #gamescreen {
+    position: relative;
+    width: 700px;
+    max-width: 100%;
+    height: 410px;
+    margin: 20px auto;
+    border: 2px solid #234c38;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f4f8e9;
+    box-sizing: border-box;
+}
+
+.level5-page #scene {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 25px 12px;
+    box-sizing: border-box;
+    font-size: 42px;
+}
+
+.level5-page .scene-item {
+    text-align: center;
+    font-size: 38px;
+}
+
+.level5-page .scene-label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #263238;
+}
+
+.level5-page #penguin {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 180px;
+    top: 180px;
+    transition: left .4s, top .4s, transform .4s;
+    z-index: 2;
+}
+
+.level5-page #penguin img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.level5-page #action-display {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 12px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #245b2a;
+}
+
+/* REWARD */
+
+.level5-page #reward-container {
+    border: 2px solid gold;
+    text-align: center;
+}
+
+.level5-page .reward-animal {
+    font-size: 90px;
+}
+
+/* BUTTONS */
+
+.level5-page #submitButton,
+.level5-page #reward-button,
+.level5-page #next-level-button {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 25px;
+    background: #234c38;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.level5-page #submitButton:hover,
+.level5-page #reward-button:hover,
+.level5-page #next-level-button:hover {
+    background: #356b4e;
+}
+
+.level5-page button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* KEEP HIDDEN ELEMENTS HIDDEN */
+
+.level5-page [hidden] {
+    display: none !important;
+}
+
+.level5-page #lesson-next-button,
+.level5-page #next-challenge-button {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 25px;
+    background: #234c38;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.level5-page #lesson-next-button:hover,
+.level5-page #next-challenge-button:hover {
+    background: #356b4e;
+}
+
+/* LEVEL 5 LESSON NEXT BUTTONS */
+
+.level5-page .lesson-next-button {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 25px;
+    background: #234c38;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.level5-page .lesson-next-button:hover {
+    background: #356b4e;
+}

@@ -1,38 +1,594 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 3</title>
+    <title>Level 3 - Zoo Coding</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+<body class="level3-page">
 
-            <div class="site-title">Zoo Coding</div>
+<header class="navbar">
+    <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+    <div class="site-title">Zoo Coding</div>
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+    <div class="menu-container">
+        <button class="menu-button" id="menuButton" aria-label="Open navigation menu">
+            <span>▦</span>
+        </button>
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+            <a href="index.html">Levels</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="index.html">Home</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <h1>Level 3: Loops!</h1>
+
+    <button class="back-home-button" onclick="window.location.href='index.html'">
+        Back to the home page
+    </button>
+
+
+    <!-- LESSON -->
+
+    <section id="lesson-intro">
+
+        <h2>🐧 Let's Learn About Loops!</h2>
+
+        <p id="lesson-progress">Lesson 1 of 4</p>
+
+        <div class="lesson-step">
+            <h3>What is a loop?</h3>
+
+            <p>
+                Sometimes we want to tell the computer to do something
+                repeatedly without writing the same instructions multiple times.
+            </p>
+
+            <p>
+                For example, our penguin might want to move forward 5 spaces.
+                Instead of writing "right()" five times, we can use a loop!
+            </p>
+
+            <button class="next-lesson-button">Next</button>
+        </div>
+
+        <div class="lesson-step" hidden>
+            <h3>How do we write a loop?</h3>
+
+            <p>
+                We use the word <strong>repeat</strong> to tell the computer
+                how many times to do something.
+            </p>
+
+            <div class="code-example">repeat(5) {
+    right()
+}</div>
+
+            <p>This tells the penguin to move right 5 times!</p>
+
+            <button class="next-lesson-button">Next</button>
+        </div>
+
+        <div class="lesson-step" hidden>
+            <h3>What do the symbols mean?</h3>
+
+            <ul>
+                <li>
+                    <strong>( ) Parentheses:</strong>
+                    These hold the number of times to repeat something.
+                </li>
+
+                <li>
+                    <strong>{ } Curly brackets:</strong>
+                    These hold the instructions we want the computer to repeat.
+                </li>
+
+                <li>
+                    <strong>right():</strong>
+                    This tells our penguin which action to do!
+                </li>
+            </ul>
+
+            <button class="next-lesson-button">Next</button>
+        </div>
+
+        <div class="lesson-step" hidden>
+            <h3>Why use loops?</h3>
+
+            <p><strong>Without a loop:</strong></p>
+
+            <div class="code-example">right()
+right()
+right()
+right()
+right()</div>
+
+            <p><strong>With a loop:</strong></p>
+
+            <div class="code-example">repeat(5) {
+    right()
+}</div>
+
+            <p>
+                Instead of writing the same command five times,
+                we can write it once inside a loop!
+            </p>
+
+            <strong>Pretty cool, right? Let's give it a try!</strong>
+
+            <button id="start-challenges-button">Start Challenges!</button>
+        </div>
+
+    </section>
+
+
+    <!-- CHALLENGES -->
+
+    <section id="challenge-box" hidden>
+
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title">Challenge 1: Move the Penguin!</h2>
+
+        <p id="challenge-prompt">
+            Make the penguin move forward 5 spaces using a loop!
+        </p>
+
+        <p>
+            Remember to use repeat(), curly brackets {},
+            and a movement command!
+        </p>
+
+        <div class="code-example" id="hint">repeat(number) {
+    command()
+}</div>
+
+        <textarea
+            id="commandInput"
+            placeholder="Enter your code here"
+            rows="5"></textarea>
+
+        <button id="submitButton">Run Code!</button>
+
+        <p id="feedback" aria-live="polite"></p>
+
+    </section>
+
+
+    <!-- GAME BOARD AND REWARD AREA -->
+
+    <section id="game-area" hidden>
+
+        <h3 id="game-instructions">Help the penguin complete its challenges!</h3>
+
+        <div id="gamescreen">
+
+            <div id="penguin">
+                <img src="rewards/Level2-Penguin.png" alt="Penguin">
             </div>
-        </header>
-    <h1>Level 3: For Loops!</h1>
-    <button><a href="index.html">Back to the home page</a></button>
-    
+
+            <div id="destination">🏠</div>
+
+        </div>
+
+        <!-- APPEARS AFTER THE THIRD CHALLENGE -->
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD REPLACES THE GAME BOARD -->
+
+        <section id="reward-container" hidden>
+
+            <h2>You unlocked a new character!</h2>
+
+            <div id="character">
+                <img src="rewards/level3-koala.png" alt="New zoo animal">
+            </div>
+
+            <p>Congratulations! You completed Level 3!</p>
+
+            <button id="next-level-button"
+                onclick="window.location.href='level4.html'">
+                Next Level
+            </button>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<script>
+
+// NAVIGATION MENU
+
+const menuButton = document.getElementById("menuButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+menuButton.addEventListener("click", () => {
+    dropdownMenu.hidden = !dropdownMenu.hidden;
+});
+
+
+// LESSON STEPS
+
+const lessonSteps = document.querySelectorAll(".lesson-step");
+const lessonProgress = document.getElementById("lesson-progress");
+
+let currentLesson = 0;
+
+document.querySelectorAll(".next-lesson-button").forEach(button => {
+    button.addEventListener("click", () => {
+        lessonSteps[currentLesson].hidden = true;
+        currentLesson++;
+
+        lessonSteps[currentLesson].hidden = false;
+        lessonProgress.innerText = `Lesson ${currentLesson + 1} of 4`;
+    });
+});
+
+
+// START CHALLENGES
+
+const lessonIntro = document.getElementById("lesson-intro");
+const challengeBox = document.getElementById("challenge-box");
+const gameArea = document.getElementById("game-area");
+
+document.getElementById("start-challenges-button").addEventListener("click", () => {
+    lessonIntro.hidden = true;
+    challengeBox.hidden = false;
+    gameArea.hidden = false;
+
+    showChallenge();
+});
+
+
+// GAME ELEMENTS
+
+const penguin = document.getElementById("penguin");
+const gamescreen = document.getElementById("gamescreen");
+const gameInstructions = document.getElementById("game-instructions");
+
+const commandInput = document.getElementById("commandInput");
+const submitButton = document.getElementById("submitButton");
+const feedback = document.getElementById("feedback");
+
+const challengeTitle = document.getElementById("challenge-title");
+const challengePrompt = document.getElementById("challenge-prompt");
+const progress = document.getElementById("progress");
+const hint = document.getElementById("hint");
+const destination = document.getElementById("destination");
+
+const rewardButton = document.getElementById("reward-button");
+const rewardContainer = document.getElementById("reward-container");
+
+
+// GAME VARIABLES
+
+let currentChallenge = 0;
+let isAdvancing = false;
+
+const startX = 180;
+const startY = 180;
+const stepSize = 50;
+
+let posX = startX;
+let posY = startY;
+
+
+// CHALLENGE INFORMATION
+
+const challenges = [
+
+    {
+        title: "Challenge 1: Move the Penguin!",
+        prompt: "Make the penguin move forward 5 spaces using a loop!",
+        hint: "repeat(number) {\n    right()\n}",
+
+        check: (x, y, spins) =>
+            x === startX + 5 * stepSize &&
+            y === startY &&
+            spins === 0
+    },
+
+    {
+        title: "Challenge 2: Make the Penguin Spin!",
+        prompt: "Make the penguin spin around 4 times using a loop!",
+        hint: "repeat(number) {\n    spin()\n}",
+
+        check: (x, y, spins) =>
+            x === startX &&
+            y === startY &&
+            spins === 4
+    },
+
+    {
+        title: "Challenge 3: Find the Penguin's Home!",
+        prompt: "Move right 2 spaces and down 2 spaces using a loop!",
+        hint: "repeat(number) {\n    right()\n    down()\n}",
+
+        check: (x, y, spins) =>
+            x === startX + 2 * stepSize &&
+            y === startY + 2 * stepSize &&
+            spins === 0
+    }
+
+];
+
+
+// RESET PENGUIN
+
+function resetPenguin() {
+    posX = startX;
+    posY = startY;
+
+    penguin.style.left = posX + "px";
+    penguin.style.top = posY + "px";
+    penguin.style.transform = "rotate(0deg)";
+}
+
+
+// RUN STUDENT CODE
+
+function runCode(code) {
+
+    const lines = code.trim().replace(/\r\n/g, "\n").split("\n");
+
+    // Check the opening line
+
+    const loop = lines[0].match(/^repeat\((\d+)\) \{$/);
+
+    if (!loop || lines.length < 3) {
+        return {
+            success: false,
+            message: "Check your loop format! Make sure repeat(number) { is on the first line."
+        };
+    }
+
+    const repeatCount = Number(loop[1]);
+
+    if (repeatCount < 1 || repeatCount > 20) {
+        return {
+            success: false,
+            message: "Your loop needs a number between 1 and 20!"
+        };
+    }
+
+    // Check the closing bracket
+
+    if (lines[lines.length - 1] !== "}") {
+        return {
+            success: false,
+            message: "Your closing curly bracket } needs its own line."
+        };
+    }
+
+    // Check each command and its indentation
+
+    const commands = [];
+
+    for (let i = 1; i < lines.length - 1; i++) {
+
+        const command = lines[i].match(/^    (right|left|up|down|spin)\(\)$/);
+
+        if (!command) {
+            return {
+                success: false,
+                message: "Check your commands! Each command needs 4 spaces before it and its own line."
+            };
+        }
+
+        commands.push(command[1]);
+    }
+
+    if (commands.length > 10) {
+        return {
+            success: false,
+            message: "Try using fewer instructions inside your loop!"
+        };
+    }
+
+    // RUN THE LOOP
+
+    let x = startX;
+    let y = startY;
+    let spins = 0;
+
+    for (let i = 0; i < repeatCount; i++) {
+
+        for (const command of commands) {
+
+            switch (command) {
+
+                case "right":
+                    x += stepSize;
+                    break;
+
+                case "left":
+                    x -= stepSize;
+                    break;
+
+                case "up":
+                    y -= stepSize;
+                    break;
+
+                case "down":
+                    y += stepSize;
+                    break;
+
+                case "spin":
+                    spins++;
+                    break;
+            }
+        }
+    }
+
+    // MOVE THE PENGUIN
+
+    posX = x;
+    posY = y;
+
+    penguin.style.left = posX + "px";
+    penguin.style.top = posY + "px";
+    penguin.style.transform = `rotate(${spins * 360}deg)`;
+
+    // CHECK THE ANSWER
+
+    const challenge = challenges[currentChallenge];
+    const completed = challenge.check(x, y, spins);
+
+    return {
+        success: completed,
+        message: completed
+            ? "Great job! You did it! 🎉"
+            : "Not quite! Try again!"
+    };
+}
+
+
+// SHOW CHALLENGE
+
+function showChallenge() {
+
+    const challenge = challenges[currentChallenge];
+
+    progress.innerText =
+        `Challenge ${currentChallenge + 1} of 3`;
+
+    challengeTitle.innerText = challenge.title;
+    challengePrompt.innerText = challenge.prompt;
+    hint.innerText = challenge.hint;
+
+    feedback.innerText = "";
+    commandInput.value = "";
+
+    commandInput.disabled = false;
+    submitButton.disabled = false;
+
+    destination.hidden = currentChallenge !== 2;
+}
+
+
+// SUBMIT CODE
+
+function submitCode() {
+
+    if (isAdvancing) return;
+
+    const studentCode = commandInput.value;
+
+    if (studentCode.trim() === "") {
+        feedback.style.color = "red";
+        feedback.innerText = "Please enter some code first!";
+        return;
+    }
+
+    resetPenguin();
+
+    const result = runCode(studentCode);
+
+    feedback.innerText = result.message;
+    feedback.style.color = result.success ? "green" : "red";
+
+    commandInput.value = "";
+
+    if (result.success) {
+
+        isAdvancing = true;
+        commandInput.disabled = true;
+        submitButton.disabled = true;
+
+        setTimeout(() => {
+
+            currentChallenge++;
+
+            if (currentChallenge < challenges.length) {
+                resetPenguin();
+                showChallenge();
+            } else {
+                showReward();
+            }
+
+            isAdvancing = false;
+
+        }, 1500);
+    }
+}
+
+submitButton.addEventListener("click", submitCode);
+
+commandInput.addEventListener("keydown", event => {
+    if (event.key === "Enter" && event.ctrlKey) {
+        submitCode();
+    }
+});
+
+
+// SHOW REWARD BUTTON AFTER ALL CHALLENGES
+
+function showReward() {
+
+    progress.innerText = "All challenges completed!";
+    challengeTitle.innerText = "You did it! 🎉";
+
+    challengePrompt.innerText =
+        "You learned how to use loops! You're becoming a coding expert!";
+
+    hint.hidden = true;
+    commandInput.hidden = true;
+    submitButton.hidden = true;
+
+    feedback.innerText =
+        "Congratulations! You completed all 3 challenges!";
+
+    feedback.style.color = "green";
+
+    // REMOVE THE PENGUIN GAME BOARD
+
+    gamescreen.hidden = true;
+    gameInstructions.hidden = true;
+
+    // SHOW THE REWARD BUTTON IN ITS PLACE
+
+    rewardButton.hidden = false;
+}
+
+
+// UNLOCK REWARD
+
+rewardButton.addEventListener("click", () => {
+
+    rewardButton.hidden = true;
+    rewardContainer.hidden = false;
+
+    // SAVE THE UNLOCKED CHARACTER
+
+    let unlockRewards =
+        JSON.parse(localStorage.getItem("unlockRewards")) || [];
+
+    if (!unlockRewards.includes("level3")) {
+        unlockRewards.push("level3");
+
+        localStorage.setItem(
+            "unlockRewards",
+            JSON.stringify(unlockRewards)
+        );
+    }
+
+});
+
+</script>
+
+<script type="module" src="js/auth-guard.js"></script>
+
 </body>
 </html>
