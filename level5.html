@@ -1,39 +1,616 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
+    <title>Level 5 - Zoo Coding</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+<body class="level5-page">
 
-            <div class="site-title">Zoo Coding</div>
+<header class="navbar">
+    <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+    <div class="site-title">Zoo Coding</div>
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+    <div class="menu-container">
+        <button class="menu-button" id="menuButton" aria-label="Open navigation menu">
+            <span>▦</span>
+        </button>
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+            <a href="index.html">Levels</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="index.html">Home</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <h1>Level 5: If / Then Statements!</h1>
+
+    <button class="back-home-button" onclick="window.location.href='index.html'">
+        Back to the home page
+    </button>
+
+
+    <!-- LESSON -->
+
+    <section id="lesson-intro">
+
+        <!-- STEP 1 -->
+
+        <div id="lesson-step-1">
+
+            <h2>🐧 Let's Learn About If / Then Statements!</h2>
+
+            <p>
+                Computers can make decisions! An <strong>if statement</strong>
+                checks whether something is true. If it is true, the computer
+                follows the instructions inside the curly brackets.
+            </p>
+
+            <h3>Here's how it works:</h3>
+
+            <div class="code-example">if (hungry) {
+    eat()
+}</div>
+
+            <p>
+                This means: <strong>IF</strong> the penguin is hungry,
+                <strong>THEN</strong> it will eat. If the penguin is not hungry,
+                it will skip that instruction.
+            </p>
+
+            <button class="lesson-next-button" id="lesson-next-1">
+                Next
+            </button>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div id="lesson-step-2" hidden>
+
+            <h2>What Do the Parts Mean?</h2>
+
+            <ul>
+                <li><strong>if</strong> tells the computer to check a condition.</li>
+                <li><strong>( ) Parentheses</strong> hold the condition being checked.</li>
+                <li><strong>{ } Curly brackets</strong> hold the action to perform when the condition is true.</li>
+                <li><strong>eat()</strong> is the action the computer should perform.</li>
+            </ul>
+
+            <button class="lesson-next-button" id="lesson-next-2">
+                Next
+            </button>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div id="lesson-step-3" hidden>
+
+            <h2>One More Example!</h2>
+
+            <div class="code-example">if (raining) {
+    umbrella()
+}</div>
+
+            <p>
+                The penguin only gets an umbrella if it is raining.
+                That's how code can help a computer make decisions!
+            </p>
+
+            <strong>
+                Ready to help the penguin make some decisions?
+                Let's try three challenges!
+            </strong>
+
+            <button class="lesson-next-button" id="lesson-next-3">
+                Next: Start Challenges
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHALLENGES -->
+
+    <section id="challenge-box" hidden>
+
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title">Challenge 1: The Hungry Penguin!</h2>
+
+        <p id="challenge-prompt">
+            The penguin is hungry! Write an if statement that checks
+            whether it is hungry and makes it eat.
+        </p>
+
+        <p>
+            Use <strong>if</strong>, parentheses, curly brackets,
+            and the correct action.
+        </p>
+
+        <div class="code-example" id="hint">if (hungry) {
+    eat()
+}</div>
+
+        <textarea
+            id="commandInput"
+            rows="4"
+            placeholder="Enter your code here"></textarea>
+
+        <button id="submitButton">Run Code!</button>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>
+            Next Challenge
+        </button>
+
+    </section>
+
+
+    <!-- GAME BOARD AND REWARD -->
+
+    <section id="game-area" hidden>
+
+        <h3 id="game-instructions">
+            Watch what happens when the penguin checks its condition!
+        </h3>
+
+        <div id="gamescreen">
+
+            <div id="scene">
+
+                <div class="scene-item" id="condition-icon">
+                    <span class="scene-emoji">🐟</span>
+                    <span class="scene-label" id="condition-label">Hungry: YES</span>
+                </div>
+
+                <div class="scene-item" id="goal-icon">
+                    <span class="scene-emoji">🍽️</span>
+                    <span class="scene-label">Penguin's action</span>
+                </div>
+
             </div>
-        </header>
-    <h1>Level 5: If/Then Statements!</h1>
-    <button><a href="index.html">Back to the home page</a></button>
-    
+
+            <div id="penguin">
+                <img src="rewards/Level2-Penguin.png" alt="Penguin">
+            </div>
+
+            <div id="action-display" aria-live="polite">
+                Waiting for your code...
+            </div>
+
+        </div>
+
+
+        <!-- COMPLETION BUTTON -->
+
+        <button id="reward-button" hidden>
+            I did it!
+        </button>
+
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+
+            <h2>You unlocked a new character!</h2>
+
+            <div class="reward-animal">
+                <img src="rewards/level5-lion.webp" alt="Lion character">
+            </div>
+
+            <p>Congratulations! You completed Level 5!</p>
+
+            <button id="next-level-button"
+                onclick="window.location.href='level6.html'">
+                Next Level
+            </button>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<script>
+
+// NAVIGATION MENU
+
+const menuButton = document.getElementById("menuButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+menuButton.addEventListener("click", () => {
+    dropdownMenu.hidden = !dropdownMenu.hidden;
+});
+
+
+// PAGE ELEMENTS
+
+const lessonIntro = document.getElementById("lesson-intro");
+const lessonStep1 = document.getElementById("lesson-step-1");
+const lessonStep2 = document.getElementById("lesson-step-2");
+const lessonStep3 = document.getElementById("lesson-step-3");
+
+const lessonNext1 = document.getElementById("lesson-next-1");
+const lessonNext2 = document.getElementById("lesson-next-2");
+const lessonNext3 = document.getElementById("lesson-next-3");
+
+const challengeBox = document.getElementById("challenge-box");
+const gameArea = document.getElementById("game-area");
+
+
+// GAME ELEMENTS
+
+const penguin = document.getElementById("penguin");
+const commandInput = document.getElementById("commandInput");
+const submitButton = document.getElementById("submitButton");
+const feedback = document.getElementById("feedback");
+
+const challengeTitle = document.getElementById("challenge-title");
+const challengePrompt = document.getElementById("challenge-prompt");
+const progress = document.getElementById("progress");
+const hint = document.getElementById("hint");
+
+const conditionEmoji = document.querySelector("#condition-icon .scene-emoji");
+const conditionLabel = document.getElementById("condition-label");
+const goalEmoji = document.querySelector("#goal-icon .scene-emoji");
+
+const actionDisplay = document.getElementById("action-display");
+const gameInstructions = document.getElementById("game-instructions");
+const gamescreen = document.getElementById("gamescreen");
+
+const nextChallengeButton = document.getElementById("next-challenge-button");
+const rewardButton = document.getElementById("reward-button");
+const rewardContainer = document.getElementById("reward-container");
+
+
+// CHALLENGES
+
+const challenges = [
+
+    {
+        title: "Challenge 1: The Hungry Penguin!",
+        prompt: "The penguin is hungry! Write an if statement that checks whether it is hungry and makes it eat.",
+        hint: "if (hungry) {\n    eat()\n}",
+        expected: [
+            { condition: "hungry", action: "eat" }
+        ],
+        scene: ["🐟", "Hungry: YES", "🍽️"],
+        result: "Yum! The penguin ate its fish because hungry was true! 🐟"
+    },
+
+    {
+        title: "Challenge 2: Does It Need an Umbrella?",
+        prompt: "The sun is shining and it is NOT raining. Write an if statement that checks for rain and gives the penguin an umbrella only if it is raining.",
+        hint: "if (raining) {\n    umbrella()\n}",
+        expected: [
+            { condition: "raining", action: "umbrella" }
+        ],
+        scene: ["☀️", "Raining: NO", "☂️"],
+        result: "Great thinking! Raining was false, so the penguin correctly skipped the umbrella. ☀️"
+    },
+
+    {
+        title: "Challenge 3: Two Things to Check!",
+        prompt: "The penguin is hungry AND tired. Write two separate if statements: if it is hungry, make it eat; if it is tired, make it sleep.",
+        hint: "if (hungry) {\n    eat()\n}\n\nif (tired) {\n    sleep()\n}",
+        expected: [
+            { condition: "hungry", action: "eat" },
+            { condition: "tired", action: "sleep" }
+        ],
+        scene: ["🐟💤", "Hungry: YES • Tired: YES", "🍽️ 🛏️"],
+        result: "Amazing! The penguin checked both conditions, ate, and then went to sleep! 🎉"
+    }
+
+];
+
+let currentChallenge = 0;
+let isAdvancing = false;
+
+
+// MOVE THROUGH THE LESSON
+
+lessonNext1.addEventListener("click", () => {
+    lessonStep1.hidden = true;
+    lessonStep2.hidden = false;
+});
+
+lessonNext2.addEventListener("click", () => {
+    lessonStep2.hidden = true;
+    lessonStep3.hidden = false;
+});
+
+
+// START THE CHALLENGES
+
+lessonNext3.addEventListener("click", () => {
+
+    lessonIntro.hidden = true;
+    challengeBox.hidden = false;
+    gameArea.hidden = false;
+
+    showChallenge();
+
+});
+
+
+// SHOW CHALLENGE
+
+function showChallenge() {
+
+    const challenge = challenges[currentChallenge];
+
+    progress.innerText = `Challenge ${currentChallenge + 1} of 3`;
+
+    challengeTitle.innerText = challenge.title;
+    challengePrompt.innerText = challenge.prompt;
+    hint.innerText = challenge.hint;
+
+    conditionEmoji.innerText = challenge.scene[0];
+    conditionLabel.innerText = challenge.scene[1];
+    goalEmoji.innerText = challenge.scene[2];
+
+    feedback.innerText = "";
+    commandInput.value = "";
+
+    commandInput.disabled = false;
+    submitButton.disabled = false;
+
+    submitButton.hidden = false;
+    hint.hidden = false;
+    commandInput.hidden = false;
+
+    nextChallengeButton.hidden = true;
+
+    penguin.style.left = "180px";
+    penguin.style.top = "180px";
+    penguin.style.transform = "rotate(0deg)";
+
+    actionDisplay.innerText = "Waiting for your code...";
+}
+
+
+// CHECK STUDENT CODE
+
+function checkCode(code) {
+
+    const statements = [];
+    const pattern = /\s*if\s*\(\s*([a-z]+)\s*\)\s*\{\s*([a-z]+)\s*\(\s*\)\s*\}/iy;
+
+    let position = 0;
+
+    while (position < code.length) {
+
+        pattern.lastIndex = position;
+
+        const match = pattern.exec(code);
+
+        if (!match) {
+
+            if (code.slice(position).trim() === "") {
+                break;
+            }
+
+            return {
+                success: false,
+                message: "Check your spelling, parentheses, and curly brackets!"
+            };
+        }
+
+        const condition = match[1].toLowerCase();
+        const action = match[2].toLowerCase();
+
+        const allowedConditions = ["hungry", "raining", "tired"];
+        const allowedActions = ["eat", "umbrella", "sleep"];
+
+        if (!allowedConditions.includes(condition)) {
+            return {
+                success: false,
+                message: "Try a condition we learned: hungry, raining, or tired."
+            };
+        }
+
+        if (!allowedActions.includes(action)) {
+            return {
+                success: false,
+                message: "Try an action we learned: eat(), umbrella(), or sleep()."
+            };
+        }
+
+        statements.push({ condition, action });
+
+        position = pattern.lastIndex;
+    }
+
+    if (statements.length === 0) {
+        return {
+            success: false,
+            message: "Start with an if statement!"
+        };
+    }
+
+    const challenge = challenges[currentChallenge];
+
+    const correct =
+        statements.length === challenge.expected.length &&
+        statements.every((statement, index) =>
+            statement.condition === challenge.expected[index].condition &&
+            statement.action === challenge.expected[index].action
+        );
+
+    if (!correct) {
+        return {
+            success: false,
+            message: "Not quite! Check which condition and action the challenge needs. Try again!"
+        };
+    }
+
+    return {
+        success: true,
+        message: challenge.result
+    };
+}
+
+
+// SHOW WHAT THE PENGUIN DOES
+
+function showResult() {
+
+    if (currentChallenge === 0) {
+        penguin.style.left = "330px";
+        actionDisplay.innerText = "🐧 The penguin ate its fish!";
+    }
+
+    if (currentChallenge === 1) {
+        actionDisplay.innerText = "🐧 No umbrella needed — it isn't raining!";
+    }
+
+    if (currentChallenge === 2) {
+        penguin.style.left = "300px";
+        penguin.style.top = "245px";
+        actionDisplay.innerText = "🐧 Ate the fish, then went to sleep!";
+    }
+}
+
+
+// SUBMIT CODE
+
+function submitCode() {
+
+    if (isAdvancing) return;
+
+    if (commandInput.value.trim() === "") {
+        feedback.style.color = "red";
+        feedback.innerText = "Please enter some code first!";
+        return;
+    }
+
+    const result = checkCode(commandInput.value);
+
+    feedback.innerText = result.message;
+    feedback.style.color = result.success ? "green" : "red";
+
+    if (result.success) {
+
+        showResult();
+
+        isAdvancing = true;
+
+        commandInput.disabled = true;
+        submitButton.disabled = true;
+
+        nextChallengeButton.innerText =
+            currentChallenge === challenges.length - 1
+                ? "Finish Challenges"
+                : "Next Challenge";
+
+        nextChallengeButton.hidden = false;
+    }
+}
+
+submitButton.addEventListener("click", submitCode);
+
+commandInput.addEventListener("keydown", event => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        submitCode();
+    }
+});
+
+
+// MOVE TO THE NEXT CHALLENGE
+
+function nextChallenge() {
+
+    if (!isAdvancing) return;
+
+    currentChallenge++;
+
+    if (currentChallenge < challenges.length) {
+        showChallenge();
+    } else {
+        showReward();
+    }
+
+    isAdvancing = false;
+}
+
+nextChallengeButton.addEventListener("click", nextChallenge);
+
+
+// SHOW REWARD
+
+function showReward() {
+
+    progress.innerText = "All challenges completed!";
+    challengeTitle.innerText = "You did it! 🎉";
+
+    challengePrompt.innerText =
+        "You learned how to use if / then statements. You're becoming a coding expert!";
+
+    hint.hidden = true;
+    commandInput.hidden = true;
+    submitButton.hidden = true;
+    nextChallengeButton.hidden = true;
+
+    feedback.innerText =
+        "Congratulations! You completed all 3 challenges!";
+
+    feedback.style.color = "green";
+
+    // HIDE THE GAME BOARD
+
+    gamescreen.hidden = true;
+    gameInstructions.hidden = true;
+
+    // SHOW THE COMPLETION BUTTON
+
+    rewardButton.hidden = false;
+}
+
+
+// UNLOCK REWARD
+
+rewardButton.addEventListener("click", () => {
+
+    rewardButton.hidden = true;
+    rewardContainer.hidden = false;
+
+    let unlockRewards = [];
+
+    try {
+        unlockRewards =
+            JSON.parse(localStorage.getItem("unlockRewards")) || [];
+    } catch (error) {
+        unlockRewards = [];
+    }
+
+    if (!unlockRewards.includes("level5")) {
+        unlockRewards.push("level5");
+
+        localStorage.setItem(
+            "unlockRewards",
+            JSON.stringify(unlockRewards)
+        );
+    }
+
+});
+
+</script>
+
 <script type="module" src="js/auth-guard.js"></script>
+
 </body>
 </html>
