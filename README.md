@@ -3,9 +3,9 @@
 
 Zoo Coding is a 5th grade level coding game, teaching students the basics of computer science & programming.
 
--**Interaction**: Students interact with the game to explore coding concepts and practice programming fundamentals through gameplay and challenges.
--**Progress**: Students can work through the game at their own pace, building their understanding of coding concepts as they advance through the experience.
--**Collectables**: Students can collect in-game rewards (Zoo Animals) as they play, adding an element of discovery and motivation to the learning experience.
+- **Interaction**: Students interact with the game to explore coding concepts and practice programming fundamentals through gameplay and challenges.
+- **Progress**: Students can work through the game at their own pace, building their understanding of coding concepts as they advance through the experience.
+- **Collectables**: Students can collect in-game rewards (Zoo Animals) as they play, adding an element of discovery and motivation to the learning experience.
 
 
 **Status**: Beta Demo. Visit [Zoo Coding](https://elementary-coding-game.web.app/)
