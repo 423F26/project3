@@ -1,39 +1,745 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 9 - Zoo Coding</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+  <body class="lesson-page">
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+      <div class="site-title">Zoo Coding</div>
 
-            <div class="site-title">Zoo Coding</div>
+      <div class="menu-container">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+        >
+          <span>▦</span>
+        </button>
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+          <a href="index.html">Levels</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+    </header>
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
+    <main>
+      <h1>Level 9: While Loops!</h1>
+
+      <button
+        class="back-home-button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Back to the home page
+      </button>
+
+      <!-- LESSON -->
+
+      <section id="lesson-intro">
+        <!-- STEP 1 -->
+
+        <div class="lesson-step" id="lesson-step-1">
+          <p class="lesson-progress">Step 1 of 4</p>
+          <h2>🐨 Doing Things Over and Over</h2>
+
+          <p>
+            Your animal has 4 leaves to eat. We could write
+            <code>eat()</code> four times... but what if it had 100 leaves?
+            That would be a LOT of typing!
+          </p>
+
+          <p>
+            A <strong>while loop</strong> tells the computer to
+            <strong>keep repeating</strong> some code
+            <strong>as long as</strong> something is true.
+          </p>
+
+          <div class="code-example">while (leaves > 0) {
+    eat()
+}</div>
+
+          <p>
+            This means: <strong>WHILE</strong> there are more than 0 leaves,
+            keep eating!
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="lesson-step" id="lesson-step-2" hidden>
+          <p class="lesson-progress">Step 2 of 4</p>
+          <h2>What Do the Parts Mean?</h2>
+
+          <ul>
+            <li>
+              <strong>while</strong> tells the computer to repeat.
+            </li>
+            <li>
+              <strong>( ) Parentheses</strong> hold the condition. The loop
+              keeps going while it is <strong>true</strong>.
+            </li>
+            <li>
+              <strong>leaves</strong> is a <strong>variable</strong>: a name
+              that holds a number that can change.
+            </li>
+            <li>
+              <strong>&gt;</strong> means "greater than" and
+              <strong>&lt;</strong> means "less than".
+            </li>
+            <li>
+              <strong>{ } Curly brackets</strong> hold the code to repeat.
+            </li>
+          </ul>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="lesson-step" id="lesson-step-3" hidden>
+          <p class="lesson-progress">Step 3 of 4</p>
+          <h2>Check, Run, Check Again!</h2>
+
+          <p>
+            Every time around the loop, the computer
+            <strong>checks the condition first</strong>:
+          </p>
+
+          <div class="code-example">leaves = 2:  2 > 0 is TRUE  → eat()
+leaves = 1:  1 > 0 is TRUE  → eat()
+leaves = 0:  0 > 0 is FALSE → stop!</div>
+
+          <p>
+            Each <code>eat()</code> makes <strong>leaves</strong> go down by 1.
+            When the condition finally becomes <strong>false</strong>, the loop
+            stops.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div class="lesson-step" id="lesson-step-4" hidden>
+          <p class="lesson-progress">Step 4 of 4</p>
+          <h2>⚠️ Watch Out for Forever Loops!</h2>
+
+          <p>
+            If the condition <strong>never</strong> becomes false, the loop
+            never stops! Programmers call this an
+            <strong>infinite loop</strong>.
+          </p>
+
+          <div class="code-example">while (leaves >= 0) {
+    eat()
+}
+// leaves can't go below 0, so this is ALWAYS true!</div>
+
+          <p>
+            Always make sure the code inside your loop moves things closer to
+            making the condition false.
+          </p>
+
+          <strong>
+            Ready to help your animal? Let's try three challenges! Each one gives
+            you a little less help than the one before.
+          </strong>
+
+          <button class="lesson-next-button">Next: Start Challenges</button>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+
+      <section id="challenge-box" hidden>
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title"></h2>
+
+        <p id="challenge-prompt"></p>
+
+        <p id="challenge-hint-label">Hint:</p>
+        <div class="code-example" id="hint"></div>
+
+        <textarea
+          id="commandInput"
+          rows="4"
+          placeholder="Enter your code here"
+        ></textarea>
+
+        <button id="submitButton">Run Code!</button>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>Next Challenge</button>
+      </section>
+
+      <!-- GAME BOARD AND REWARD -->
+
+      <section id="game-area" hidden>
+        <h3 id="game-instructions">
+          Watch the loop check its condition each time around!
+        </h3>
+
+        <div id="gamescreen">
+          <div id="scene">
+            <div class="scene-item">
+              <span class="scene-label" id="variable-label"></span>
+              <div id="counter-display"></div>
+              <span class="scene-label" id="goal-label"></span>
             </div>
-        </header>
-    <h1>Level 9: Debugging!</h1>
-    <button><a href="index.html">Back to the home page</a></button>
-    
-<script type="module" src="js/auth-guard.js"></script>
-</body>
+          </div>
+
+          <div id="loop-log" aria-live="polite"></div>
+
+          <div id="actor" data-character="70">
+            
+          </div>
+
+          <div id="action-display" aria-live="polite">
+            Waiting for your code...
+          </div>
+        </div>
+
+        <!-- COMPLETION BUTTON -->
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+          <h2>You unlocked a new character!</h2>
+
+          <div class="reward-animal" data-reward-for="9"></div>
+
+          <p>Congratulations! You completed Level 9!</p>
+
+          <button
+            id="next-level-button"
+            onclick="window.location.href = 'level10.html'"
+          >
+            Next Level
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      // NAVIGATION MENU
+
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.hidden = !dropdownMenu.hidden;
+      });
+
+      // PAGE ELEMENTS
+
+      const lessonIntro = document.getElementById("lesson-intro");
+      const lessonSteps = document.querySelectorAll(".lesson-step");
+      const challengeBox = document.getElementById("challenge-box");
+      const gameArea = document.getElementById("game-area");
+
+      // GAME ELEMENTS
+
+      const actor = document.getElementById("actor");
+      const commandInput = document.getElementById("commandInput");
+      const submitButton = document.getElementById("submitButton");
+      const feedback = document.getElementById("feedback");
+
+      const challengeTitle = document.getElementById("challenge-title");
+      const challengePrompt = document.getElementById("challenge-prompt");
+      const progress = document.getElementById("progress");
+      const hint = document.getElementById("hint");
+      const hintLabel = document.getElementById("challenge-hint-label");
+
+      const variableLabel = document.getElementById("variable-label");
+      const counterDisplay = document.getElementById("counter-display");
+      const goalLabel = document.getElementById("goal-label");
+      const loopLog = document.getElementById("loop-log");
+
+      const actionDisplay = document.getElementById("action-display");
+      const gameInstructions = document.getElementById("game-instructions");
+      const gamescreen = document.getElementById("gamescreen");
+
+      const nextChallengeButton = document.getElementById(
+        "next-challenge-button",
+      );
+      const rewardButton = document.getElementById("reward-button");
+      const rewardContainer = document.getElementById("reward-container");
+
+      // CHALLENGES
+      // Each challenge has one variable and one action that changes it.
+      // min / max stop the variable at a limit (you can't eat leaves that
+      // aren't there), which is what makes a wrong condition loop forever.
+
+      const challenges = [
+        {
+          title: "Challenge 1: Leaf Snack!",
+          prompt:
+            "Your animal has 4 leaves. Write a while loop that keeps calling eat() as long as leaves is greater than 0.",
+          hint: "while (leaves > 0) {\n    eat()\n}",
+          variable: "leaves",
+          start: 4,
+          goal: 0,
+          action: "eat",
+          change: -1,
+          min: 0,
+          emoji: "🍃",
+          goalText: "Goal: 0 leaves left",
+          moveActor: (value) => ({ left: "calc(50% - 35px)", top: "230px" }),
+          stepText: "Munch! Your animal ate a leaf.",
+          doneText: "All the leaves are gone. What a happy animal!",
+        },
+
+        {
+          title: "Challenge 2: Climb the Tree!",
+          prompt:
+            "Your animal is at the bottom of the tree (height is 0). The top is height 5. Write a while loop that keeps calling climb() while height is less than 5.",
+          hint: "while (height < 5) {\n    ______()\n}",
+          variable: "height",
+          start: 0,
+          goal: 5,
+          action: "climb",
+          change: 1,
+          max: 5,
+          emoji: "🌳",
+          goalText: "Goal: reach height 5 (the top!)",
+          moveActor: (value) => ({
+            left: "calc(80% - 35px)",
+            top: `${290 - value * 42}px`,
+          }),
+          stepText: "Up we go! Your animal climbed higher.",
+          doneText: "Your animal made it to the top of the tree!",
+        },
+
+        {
+          title: "Challenge 3: Your Turn!",
+          prompt:
+            "Your animal's basket is empty (bamboo is 0). It needs exactly 6 pieces of bamboo. Write a while loop that keeps calling collect() until it has 6. Each collect() adds 1 bamboo.",
+          hint: "while (______ < _) {\n    ______()\n}",
+          variable: "bamboo",
+          start: 0,
+          goal: 6,
+          action: "collect",
+          change: 1,
+          emoji: "🎋",
+          goalText: "Goal: exactly 6 bamboo",
+          moveActor: (value) => ({
+            left: `calc(${30 + Math.min(value, 8) * 8}% - 35px)`,
+            top: "230px",
+          }),
+          stepText: "Got one! Your animal collected some bamboo.",
+          doneText: "The basket is full of bamboo!",
+        },
+      ];
+
+      // If the loop runs more than this many times, call it an infinite loop.
+      const MAX_LOOPS = 12;
+      const STEP_DELAY = 600;
+
+      let currentChallenge = 0;
+      let isAdvancing = false;
+      let isRunning = false;
+
+      // MOVE THROUGH THE LESSON
+
+      lessonSteps.forEach((step, index) => {
+        step.querySelector(".lesson-next-button").addEventListener("click", () => {
+          step.hidden = true;
+
+          if (index + 1 < lessonSteps.length) {
+            lessonSteps[index + 1].hidden = false;
+          } else {
+            startChallenges();
+          }
+        });
+      });
+
+      // START THE CHALLENGES
+
+      function startChallenges() {
+        lessonIntro.hidden = true;
+        challengeBox.hidden = false;
+        gameArea.hidden = false;
+
+        showChallenge();
+      }
+
+      // SHOW CHALLENGE
+
+      function showChallenge() {
+        const challenge = challenges[currentChallenge];
+
+        progress.innerText = `Challenge ${currentChallenge + 1} of ${challenges.length}`;
+
+        challengeTitle.innerText = challenge.title;
+        challengePrompt.innerText = challenge.prompt;
+        hint.innerText = challenge.hint;
+
+        feedback.innerText = "";
+        commandInput.value = "";
+
+        commandInput.disabled = false;
+        submitButton.disabled = false;
+
+        submitButton.hidden = false;
+        hint.hidden = false;
+        hintLabel.hidden = false;
+        commandInput.hidden = false;
+
+        nextChallengeButton.hidden = true;
+
+        resetScene();
+      }
+
+      function resetScene() {
+        const challenge = challenges[currentChallenge];
+
+        drawValue(challenge.start);
+        goalLabel.innerText = challenge.goalText;
+        loopLog.innerHTML = "";
+        actionDisplay.innerText = "Waiting for your code...";
+      }
+
+      // Show the variable's current value on the game board.
+      function drawValue(value) {
+        const challenge = challenges[currentChallenge];
+
+        variableLabel.innerText = `${challenge.variable} = ${value}`;
+
+        // Leaves and bamboo show one emoji per item; the tree is always one tree.
+        counterDisplay.innerText =
+          challenge.variable === "height"
+            ? challenge.emoji
+            : challenge.emoji.repeat(value);
+
+        const position = challenge.moveActor(value);
+        actor.style.left = position.left;
+        actor.style.top = position.top;
+      }
+
+      function addLog(text) {
+        const line = document.createElement("div");
+        line.textContent = text;
+        loopLog.appendChild(line);
+        loopLog.scrollTop = loopLog.scrollHeight;
+      }
+
+      // READ THE STUDENT'S CODE
+      // Returns { variable, operator, number, action } or { error }.
+
+      function parseCode(code) {
+        const pattern =
+          /^\s*while\s*\(\s*([a-z]+)\s*(<=|>=|==|!=|<|>)\s*(\d+)\s*\)\s*\{\s*([a-z]+)\s*\(\s*\)\s*;?\s*\}\s*$/i;
+
+        const match = code.match(pattern);
+
+        if (match) {
+          return {
+            variable: match[1].toLowerCase(),
+            operator: match[2],
+            number: Number(match[3]),
+            action: match[4].toLowerCase(),
+          };
+        }
+
+        if (!/^\s*while/i.test(code)) {
+          return { error: "Start your loop with the word while!" };
+        }
+
+        if (/=>|=</.test(code)) {
+          return {
+            error: "Almost! Write the symbols as >= or <= (the = goes second).",
+          };
+        }
+
+        if (/\(\s*[a-z]+\s*=\s*\d/i.test(code)) {
+          return {
+            error: "A single = changes a value. To compare, use <, >, or ==.",
+          };
+        }
+
+        return {
+          error: "Check your spelling, parentheses ( ), and curly brackets { }!",
+        };
+      }
+
+      function compare(value, operator, number) {
+        switch (operator) {
+          case "<": return value < number;
+          case ">": return value > number;
+          case "<=": return value <= number;
+          case ">=": return value >= number;
+          case "==": return value === number;
+          case "!=": return value !== number;
+        }
+      }
+
+      // RUN THE LOOP ONE STEP AT A TIME
+      // Builds the list of steps first, then plays them back with a delay
+      // so the student can watch each check.
+
+      function simulate(parsed) {
+        const challenge = challenges[currentChallenge];
+        const steps = [];
+        let value = challenge.start;
+        let loops = 0;
+        let stuckLoops = 0;
+
+        while (true) {
+          const check = compare(value, parsed.operator, parsed.number);
+
+          steps.push({
+            value,
+            log: `${value} ${parsed.operator} ${parsed.number} is ${check ? "TRUE → " + parsed.action + "()" : "FALSE → stop"}`,
+          });
+
+          if (!check) break;
+
+          // The value can't change any more but the loop keeps going: forever!
+          if (stuckLoops >= 2) {
+            return { steps, loops, infinite: true, value };
+          }
+
+          // The value keeps changing but the loop went way too far.
+          if (loops >= MAX_LOOPS) {
+            return { steps, loops, runaway: true, value };
+          }
+
+          const before = value;
+          value += challenge.change;
+          if (challenge.min !== undefined) value = Math.max(challenge.min, value);
+          if (challenge.max !== undefined) value = Math.min(challenge.max, value);
+          if (value === before) stuckLoops++;
+          loops++;
+        }
+
+        return { steps, loops, value };
+      }
+
+      function playSteps(result, done) {
+        const challenge = challenges[currentChallenge];
+        let index = 0;
+
+        function next() {
+          const step = result.steps[index];
+
+          drawValue(step.value);
+          addLog(`Check: ${step.log}`);
+
+          if (index > 0) actionDisplay.innerText = challenge.stepText;
+
+          index++;
+
+          if (index < result.steps.length) {
+            setTimeout(next, STEP_DELAY);
+          } else {
+            setTimeout(done, STEP_DELAY / 2);
+          }
+        }
+
+        next();
+      }
+
+      // CHECK STUDENT CODE AND DECIDE WHAT TO SAY
+
+      function judge(parsed, result) {
+        const challenge = challenges[currentChallenge];
+
+        if (result.infinite) {
+          return {
+            success: false,
+            message: `Uh oh, infinite loop! 🔁 ${challenge.variable} can't change any more, but "${challenge.variable} ${parsed.operator} ${parsed.number}" is still true, so the loop would never stop. We stopped it for you!`,
+          };
+        }
+
+        if (result.runaway) {
+          return {
+            success: false,
+            message: `Whoa, that loop ran more than ${MAX_LOOPS} times and went way past the goal of ${challenge.goal}! We stopped it for you. Check the number in your condition.`,
+          };
+        }
+
+        if (result.loops === 0) {
+          return {
+            success: false,
+            message: `The loop never ran! "${challenge.variable} ${parsed.operator} ${parsed.number}" was already false at the start. Should it be < or > ?`,
+          };
+        }
+
+        if (result.value !== challenge.goal) {
+          return {
+            success: false,
+            message: `The loop stopped with ${challenge.variable} = ${result.value}, but the goal is ${challenge.goal}. Check the number and the symbol in your condition.`,
+          };
+        }
+
+        return {
+          success: true,
+          message: `Great loop! It ran ${result.loops} times, then the condition became false and it stopped. 🎉`,
+        };
+      }
+
+      // SUBMIT CODE
+
+      function submitCode() {
+        if (isAdvancing || isRunning) return;
+
+        const challenge = challenges[currentChallenge];
+
+        if (commandInput.value.trim() === "") {
+          feedback.style.color = "red";
+          feedback.innerText = "Please enter some code first!";
+          return;
+        }
+
+        resetScene();
+
+        const parsed = parseCode(commandInput.value);
+
+        if (parsed.error) {
+          showFeedback({ success: false, message: parsed.error });
+          return;
+        }
+
+        if (parsed.variable !== challenge.variable) {
+          showFeedback({
+            success: false,
+            message: `This challenge's variable is called "${challenge.variable}". Use it in your condition.`,
+          });
+          return;
+        }
+
+        if (parsed.action !== challenge.action) {
+          showFeedback({
+            success: false,
+            message: `Inside the loop, use the action ${challenge.action}().`,
+          });
+          return;
+        }
+
+        // Valid code: run it and let the student watch.
+        isRunning = true;
+        commandInput.disabled = true;
+        submitButton.disabled = true;
+        feedback.innerText = "Running your loop...";
+        feedback.style.color = "#387b35";
+
+        const result = simulate(parsed);
+
+        playSteps(result, () => {
+          isRunning = false;
+
+          const outcome = judge(parsed, result);
+
+          if (outcome.success) {
+            actionDisplay.innerText = challenge.doneText;
+          }
+
+          showFeedback(outcome);
+        });
+      }
+
+      function showFeedback(result) {
+        feedback.innerText = result.message;
+        feedback.style.color = result.success ? "green" : "red";
+
+        if (result.success) {
+          isAdvancing = true;
+
+          commandInput.disabled = true;
+          submitButton.disabled = true;
+
+          nextChallengeButton.innerText =
+            currentChallenge === challenges.length - 1
+              ? "Finish Challenges"
+              : "Next Challenge";
+
+          nextChallengeButton.hidden = false;
+        } else {
+          commandInput.disabled = false;
+          submitButton.disabled = false;
+        }
+      }
+
+      submitButton.addEventListener("click", submitCode);
+
+      // Enter runs the code, Shift + Enter adds a new line.
+      commandInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          submitCode();
+        }
+      });
+
+      // MOVE TO THE NEXT CHALLENGE
+
+      function nextChallenge() {
+        if (!isAdvancing) return;
+
+        currentChallenge++;
+
+        if (currentChallenge < challenges.length) {
+          showChallenge();
+        } else {
+          showReward();
+        }
+
+        isAdvancing = false;
+      }
+
+      nextChallengeButton.addEventListener("click", nextChallenge);
+
+      // SHOW REWARD
+
+      function showReward() {
+        progress.innerText = "All challenges completed!";
+        challengeTitle.innerText = "You did it! 🎉";
+
+        challengePrompt.innerText =
+          "You learned how to use while loops to repeat code until a condition becomes false. Fantastic!";
+
+        hint.hidden = true;
+        hintLabel.hidden = true;
+        commandInput.hidden = true;
+        submitButton.hidden = true;
+        nextChallengeButton.hidden = true;
+
+        feedback.innerText = "Congratulations! You completed all 3 challenges!";
+        feedback.style.color = "green";
+
+        // HIDE THE GAME BOARD
+
+        gamescreen.hidden = true;
+        gameInstructions.hidden = true;
+
+        // SHOW THE COMPLETION BUTTON
+
+        rewardButton.hidden = false;
+      }
+
+      // UNLOCK REWARD
+
+      rewardButton.addEventListener("click", () => {
+        rewardButton.hidden = true;
+        rewardContainer.hidden = false;
+
+        // Save progress so the next level unlocks
+        import("./js/progress.js").then((p) => p.completeLevel(9));
+      });
+    </script>
+
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/character.js"></script>
+  </body>
 </html>

@@ -37,11 +37,25 @@
 
     <canvas id="maze"></canvas>
 
-    <p>
-        Welcome to Level 4: Solve A Maze!
-        Unfortunately the red panda is stuck in a maze. Can you help it escape?
+    <!-- REWARD (shown when the maze is solved) -->
 
-        You can move the red panda by typing commands like up(), down(), left(), and right().
+    <section id="reward-container" hidden>
+        <h2>Maze complete! You unlocked a new character!</h2>
+
+        <div class="reward-animal" data-reward-for="4"></div>
+
+        <p>Congratulations! You completed Level 4!</p>
+
+        <button id="next-level-button" onclick="window.location.href = 'level5.html'">
+            Next Level
+        </button>
+    </section>
+
+    <p id="maze-intro">
+        Welcome to Level 4: Solve A Maze!
+        Unfortunately your animal is stuck in a maze. Can you help it escape?
+
+        You can move your animal by typing commands like up(), down(), left(), and right().
 
         Now that you understand loops and commands, it's time to solve a maze!
 
@@ -53,9 +67,10 @@
     <script>
 
 
-        const cols = 20;
-        const rows = 20;
-        const cellSize = 30;
+        // Maze size: 10 x 10 squares, each 40px (400px wide in total)
+        const cols = 10;
+        const rows = 10;
+        const cellSize = 40;
         const grid = [];
         let current;
         const stack = [];
@@ -214,8 +229,8 @@
             y: rows - 1
         };
 
-        const panda = document.createElement('img');
-        panda.src = 'rewards/Level4-RedPanda.png';
+        const panda = document.createElement('div');
+        panda.dataset.character = String(cellSize - 4);
         panda.style.position = 'absolute';
         panda.style.zIndex = "1000";
         document.body.appendChild(panda);
@@ -248,8 +263,12 @@
             'left()': { dx: -1, dy: 0, wall: 3 }
         };
 
+        let mazeSolved = false;
+
         function movePanda(input) {
             commandInput.value = '';
+
+            if (mazeSolved) return;
 
             if (!mazeComplete) {
                 alert("The maze is still being built!");
@@ -275,7 +294,18 @@
 
             if (redPanda.x === goal.x && redPanda.y === goal.y) {
                 localStorage.setItem("redPandaUnlocked", "true");
-                setTimeout(() => alert("Maze complete! Red Panda unlocked!"), 50);
+
+                mazeSolved = true;
+
+                // Save progress so the next level unlocks
+                import("./js/progress.js").then(p => p.completeLevel(4));
+
+                // Show the new character and the Next Level button
+                commandInput.disabled = true;
+                submitButton.disabled = true;
+                const rewardContainer = document.getElementById('reward-container');
+                rewardContainer.hidden = false;
+                rewardContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
@@ -336,7 +366,7 @@
             font-family: inherit;
         }
 
-        p {
+        #maze-intro {
             text-align: center;
             width: 300px;
             position: absolute;
@@ -345,13 +375,38 @@
             transform: translate(-50%, -50%);
 
         }
+        #reward-container {
+            width: 400px;
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 24px;
+            text-align: center;
+            background: white;
+            border: 2px solid gold;
+            border-radius: 14px;
+            box-sizing: border-box;
+        }
+
+        #next-level-button {
+            display: block;
+            margin: 15px auto 0;
+            padding: 12px 25px;
+            background: #234c38;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        #next-level-button:hover {
+            background: #356b4e;
+        }
     </style>
 
-
-
-
-
     <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/character.js"></script>
 </body>
 
 </html>

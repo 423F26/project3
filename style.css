@@ -514,22 +514,22 @@ button {
 
 
 /* =================================
-   LEVEL 5
+   LEVEL 5 (also shared by levels 7, 9, 11 via .lesson-page)
 ================================= */
 
-.level5-page {
+:is(.level5-page, .lesson-page) {
     text-align: center;
 }
 
-.level5-page main {
+:is(.level5-page, .lesson-page) main {
     padding: 20px;
 }
 
 /* LESSON AND CHALLENGES */
 
-.level5-page #lesson-intro,
-.level5-page #challenge-box,
-.level5-page #reward-container {
+:is(.level5-page, .lesson-page) #lesson-intro,
+:is(.level5-page, .lesson-page) #challenge-box,
+:is(.level5-page, .lesson-page) #reward-container {
     width: 750px;
     max-width: 95%;
     margin: 30px auto;
@@ -539,16 +539,16 @@ button {
     box-sizing: border-box;
 }
 
-.level5-page #lesson-intro {
+:is(.level5-page, .lesson-page) #lesson-intro {
     background: #eef7e8;
 }
 
-.level5-page #lesson-intro p,
-.level5-page #challenge-box p {
+:is(.level5-page, .lesson-page) #lesson-intro p,
+:is(.level5-page, .lesson-page) #challenge-box p {
     line-height: 1.7;
 }
 
-.level5-page #lesson-intro ul {
+:is(.level5-page, .lesson-page) #lesson-intro ul {
     width: 550px;
     max-width: 95%;
     margin: 20px auto;
@@ -556,13 +556,13 @@ button {
     line-height: 1.7;
 }
 
-.level5-page #lesson-intro li {
+:is(.level5-page, .lesson-page) #lesson-intro li {
     margin-bottom: 12px;
 }
 
 /* CODE EXAMPLES */
 
-.level5-page .code-example {
+:is(.level5-page, .lesson-page) .code-example {
     width: 400px;
     max-width: 95%;
     margin: 20px auto;
@@ -581,12 +581,12 @@ button {
 
 /* CHALLENGE AREA */
 
-.level5-page #progress {
+:is(.level5-page, .lesson-page) #progress {
     font-weight: bold;
     color: #387b35;
 }
 
-.level5-page #commandInput {
+:is(.level5-page, .lesson-page) #commandInput {
     width: 400px;
     max-width: 95%;
     padding: 12px;
@@ -595,7 +595,7 @@ button {
     box-sizing: border-box;
 }
 
-.level5-page #feedback {
+:is(.level5-page, .lesson-page) #feedback {
     min-height: 24px;
     margin: 15px 0;
     font-weight: bold;
@@ -603,13 +603,13 @@ button {
 
 /* GAME BOARD */
 
-.level5-page #game-area {
+:is(.level5-page, .lesson-page) #game-area {
     width: 750px;
     max-width: 95%;
     margin: 30px auto;
 }
 
-.level5-page #gamescreen {
+:is(.level5-page, .lesson-page) #gamescreen {
     position: relative;
     width: 700px;
     max-width: 100%;
@@ -622,7 +622,7 @@ button {
     box-sizing: border-box;
 }
 
-.level5-page #scene {
+:is(.level5-page, .lesson-page) #scene {
     position: absolute;
     inset: 0;
     display: flex;
@@ -633,19 +633,19 @@ button {
     font-size: 42px;
 }
 
-.level5-page .scene-item {
+:is(.level5-page, .lesson-page) .scene-item {
     text-align: center;
     font-size: 38px;
 }
 
-.level5-page .scene-label {
+:is(.level5-page, .lesson-page) .scene-label {
     display: block;
     font-size: 14px;
     font-weight: bold;
     color: #263238;
 }
 
-.level5-page #penguin {
+:is(.level5-page, .lesson-page) #penguin {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -655,13 +655,13 @@ button {
     z-index: 2;
 }
 
-.level5-page #penguin img {
+:is(.level5-page, .lesson-page) #penguin img {
     width: 60px;
     height: 60px;
     object-fit: contain;
 }
 
-.level5-page #action-display {
+:is(.level5-page, .lesson-page) #action-display {
     position: absolute;
     left: 10px;
     right: 10px;
@@ -674,20 +674,20 @@ button {
 
 /* REWARD */
 
-.level5-page #reward-container {
+:is(.level5-page, .lesson-page) #reward-container {
     border: 2px solid gold;
     text-align: center;
 }
 
-.level5-page .reward-animal {
+:is(.level5-page, .lesson-page) .reward-animal {
     font-size: 90px;
 }
 
 /* BUTTONS */
 
-.level5-page #submitButton,
-.level5-page #reward-button,
-.level5-page #next-level-button {
+:is(.level5-page, .lesson-page) #submitButton,
+:is(.level5-page, .lesson-page) #reward-button,
+:is(.level5-page, .lesson-page) #next-level-button {
     display: block;
     margin: 15px auto;
     padding: 12px 25px;
@@ -700,25 +700,25 @@ button {
     font-family: inherit;
 }
 
-.level5-page #submitButton:hover,
-.level5-page #reward-button:hover,
-.level5-page #next-level-button:hover {
+:is(.level5-page, .lesson-page) #submitButton:hover,
+:is(.level5-page, .lesson-page) #reward-button:hover,
+:is(.level5-page, .lesson-page) #next-level-button:hover {
     background: #356b4e;
 }
 
-.level5-page button:disabled {
+:is(.level5-page, .lesson-page) button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
 
 /* KEEP HIDDEN ELEMENTS HIDDEN */
 
-.level5-page [hidden] {
+:is(.level5-page, .lesson-page) [hidden] {
     display: none !important;
 }
 
-.level5-page #lesson-next-button,
-.level5-page #next-challenge-button {
+:is(.level5-page, .lesson-page) #lesson-next-button,
+:is(.level5-page, .lesson-page) #next-challenge-button {
     display: block;
     margin: 15px auto;
     padding: 12px 25px;
@@ -731,14 +731,14 @@ button {
     font-family: inherit;
 }
 
-.level5-page #lesson-next-button:hover,
-.level5-page #next-challenge-button:hover {
+:is(.level5-page, .lesson-page) #lesson-next-button:hover,
+:is(.level5-page, .lesson-page) #next-challenge-button:hover {
     background: #356b4e;
 }
 
 /* LEVEL 5 LESSON NEXT BUTTONS */
 
-.level5-page .lesson-next-button {
+:is(.level5-page, .lesson-page) .lesson-next-button {
     display: block;
     margin: 25px auto 0;
     padding: 12px 25px;
@@ -751,6 +751,373 @@ button {
     font-family: inherit;
 }
 
-.level5-page .lesson-next-button:hover {
+:is(.level5-page, .lesson-page) .lesson-next-button:hover {
     background: #356b4e;
+}
+
+/* Level progress states */
+
+.level-marker.locked {
+    background-color: #e4e4e4;
+    color: #8a8a8a;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.75;
+}
+
+.level-marker.locked:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.level-marker.locked .level-number {
+    background-color: #9a9a9a;
+}
+
+.level-marker.locked .level-number::after {
+    content: "🔒";
+    position: absolute;
+    margin: -30px 0 0 34px;
+    font-size: 16px;
+}
+
+.level-marker.completed .level-number {
+    background-color: #d39a42;
+}
+
+.level-marker.completed .level-number::after {
+    content: "✓";
+    position: absolute;
+    margin: -30px 0 0 34px;
+    font-size: 16px;
+    color: #387650;
+}
+
+.level-marker.current {
+    border-color: #d39a42;
+    box-shadow: 0 0 0 4px rgba(211, 154, 66, 0.35);
+}
+
+/* =================================
+   SHARED LESSON PAGE EXTRAS (levels 7, 9, 11)
+================================= */
+
+.lesson-page #lesson-intro {
+    position: relative;
+}
+
+.lesson-page .lesson-progress {
+    font-weight: bold;
+    color: #387b35;
+    margin-top: 0;
+}
+
+.lesson-page #challenge-hint-label {
+    font-size: 14px;
+    color: #4f6b58;
+    margin-bottom: -10px;
+}
+
+.lesson-page #actor {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 315px;
+    top: 200px;
+    transition: left .4s, top .4s, transform .4s;
+    z-index: 2;
+}
+
+.lesson-page #actor img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.lesson-page .branch-box {
+    display: inline-block;
+    min-width: 130px;
+    padding: 10px 14px;
+    border: 3px dashed #b7cbb0;
+    border-radius: 12px;
+    background: white;
+    font-size: 15px;
+    font-weight: bold;
+    color: #263238;
+    transition: border-color .3s, background .3s, opacity .3s;
+}
+
+.lesson-page .branch-box .scene-emoji {
+    display: block;
+    font-size: 38px;
+}
+
+.lesson-page .branch-box.ran {
+    border: 3px solid #387b35;
+    background: #e2f3d8;
+}
+
+.lesson-page .branch-box.skipped {
+    opacity: 0.4;
+}
+
+.lesson-page #counter-display {
+    font-size: 34px;
+    letter-spacing: 4px;
+    min-height: 48px;
+}
+
+.lesson-page #loop-log {
+    position: absolute;
+    left: 12px;
+    top: 110px;
+    width: 230px;
+    max-height: 230px;
+    overflow-y: auto;
+    text-align: left;
+    font-family: monospace;
+    font-size: 13px;
+    color: #263238;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 6px 10px;
+    box-sizing: border-box;
+}
+
+.lesson-page #loop-log:empty {
+    display: none;
+}
+
+.lesson-page .truth-table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 15px;
+    background: white;
+}
+
+.lesson-page .truth-table th,
+.lesson-page .truth-table td {
+    border: 1px solid #b7cbb0;
+    padding: 6px 12px;
+}
+
+.lesson-page .truth-table th {
+    background: #e7f0df;
+}
+
+.lesson-page .truth-table .yes { color: #2e7d32; font-weight: bold; }
+.lesson-page .truth-table .no { color: #c62828; font-weight: bold; }
+
+.lesson-page #table-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    padding: 0 12px;
+}
+
+@media (max-width: 720px) {
+    .lesson-page #loop-log {
+        position: static;
+        width: auto;
+        margin: 8px;
+    }
+}
+
+/* =================================
+   HOME PAGE: YOUR ZOO
+================================= */
+
+.your-zoo {
+    max-width: 850px;
+    margin: 0 auto 20px;
+    padding: 16px 20px;
+    text-align: center;
+    background: #fff8e8;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(35, 76, 56, 0.16);
+    box-sizing: border-box;
+}
+
+.your-zoo h2 {
+    margin: 0 0 10px;
+    color: #234c38;
+}
+
+.zoo-help {
+    margin: 0 0 12px;
+    color: #4f6b58;
+}
+
+#character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    gap: 10px;
+}
+
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 0;
+    padding: 8px 4px;
+    min-height: 86px;
+    border: 3px solid #e7f0df;
+    border-radius: 14px;
+    background: white;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.character-card:hover:not(:disabled) {
+    transform: translateY(-3px);
+    border-color: #b7cbb0;
+}
+
+.character-card:focus-visible {
+    outline: 3px solid #d39a42;
+    outline-offset: 2px;
+}
+
+.character-card.equipped {
+    border-color: #d39a42;
+    background: #fff3d6;
+    box-shadow: 0 0 0 3px rgba(211, 154, 66, 0.3);
+}
+
+.character-card.locked {
+    background: #ececec;
+    cursor: not-allowed;
+}
+
+.character-card.locked .card-emoji {
+    font-size: 26px;
+    opacity: 0.6;
+}
+
+.card-emoji {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.card-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #234c38;
+}
+
+.character-card.locked .card-label {
+    color: #8a8a8a;
+}
+
+#equipped-message {
+    min-height: 22px;
+    margin: 12px 0 0;
+    font-weight: bold;
+    color: #234c38;
+}
+
+/* =================================
+   EQUIPPED CHARACTER IN LEVELS (js/character.js)
+================================= */
+
+[data-character] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-emoji {
+    display: block;
+    line-height: 1;
+    user-select: none;
+}
+
+.reward-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #234c38;
+}
+
+[data-reward-for] > span {
+    display: block;
+    font-size: 80px;
+    line-height: 1.1;
+}
+
+/* =================================
+   CODE BOARD (js/code-board.js) — levels 2, 6, 8
+================================= */
+
+.code-board {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    background-color: #e7efdf;
+    background-image:
+        linear-gradient(to right, rgba(35, 76, 56, 0.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(35, 76, 56, 0.14) 1px, transparent 1px);
+    border: 4px solid #387650;
+    border-radius: 8px;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+.code-board .board-player {
+    position: absolute;
+    z-index: 2;
+    transition: left 0.25s, top 0.25s;
+}
+
+.code-board .board-player.bonk {
+    animation: bonk 0.4s;
+}
+
+@keyframes bonk {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px) rotate(-8deg); }
+    75% { transform: translateX(6px) rotate(8deg); }
+}
+
+.code-board .board-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.code-board .board-item.collected {
+    opacity: 0;
+    transform: scale(1.6);
+}
+
+.lesson-page .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.lesson-page .button-row button {
+    margin: 15px 0;
+}
+
+.lesson-page .secondary-button {
+    padding: 12px 25px;
+    background: white;
+    color: #234c38;
+    border: 2px solid #234c38;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.lesson-page .secondary-button:hover {
+    background: #e7f0df;
 }

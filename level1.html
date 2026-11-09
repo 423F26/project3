@@ -1,127 +1,619 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Level 1</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 1 - Zoo Coding</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Level 1 only: things on the arrow-key board */
+      .board-item {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        line-height: 1;
+        transition: opacity 0.2s, transform 0.2s;
+      }
 
-    <body>
+      .board-item.collected {
+        opacity: 0;
+        transform: scale(1.6);
+      }
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+      #player {
+        z-index: 2;
+      }
 
-            <div class="site-title">Zoo Coding</div>
+      #play-area {
+        outline: none;
+      }
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+      #play-area:focus-visible {
+        box-shadow: 0 0 0 4px #d39a42;
+      }
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
-            </div>
-        </header>
+      #move-counter {
+        font-weight: bold;
+        color: #234c38;
+      }
 
-        <h1>Level 1: What is Coding?</h1>
-        <button><a href="index.html">Back to the home page</a></button>
-        <p>Coding is the language that we use to talk to computers and tell them
-            what to do. A computer, by itself, doesn't understand english words
-            phrases like "Hows it going today?" or
-            "Could you please clean my shoes?" Instead, we use coding languages
-            that use very specific commands which a computer can understand
-            better. For example, teling our character here to move up, down,
-            left, or right.</p>
+      /* On-screen arrows for touch screens */
+      #arrow-pad {
+        display: grid;
+        grid-template-columns: repeat(3, 52px);
+        grid-template-rows: repeat(2, 52px);
+        gap: 6px;
+        justify-content: center;
+        margin: 10px auto;
+      }
 
-        <div class="info-box" id="arrow-instructions">
-            <h2>Try moving the character around with the arrow keys!</h2>
-            <p>Press <strong>Enter</strong> when you're ready to move on.</p>
+      #arrow-pad button {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        border: none;
+        border-radius: 10px;
+        background: #234c38;
+        color: white;
+        cursor: pointer;
+      }
+
+      #arrow-pad button:hover {
+        background: #356b4e;
+      }
+
+      #arrow-pad .up {
+        grid-column: 2;
+      }
+
+      #arrow-pad .left {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      #arrow-pad .down {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      #arrow-pad .right {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      .key {
+        display: inline-block;
+        min-width: 26px;
+        padding: 2px 6px;
+        border: 2px solid #234c38;
+        border-bottom-width: 4px;
+        border-radius: 6px;
+        background: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body class="lesson-page">
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+      <div class="site-title">Zoo Coding</div>
+
+      <div class="menu-container">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+        >
+          <span>▦</span>
+        </button>
+
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+          <a href="index.html">Levels</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h1>Level 1: What Is Coding?</h1>
+
+      <button
+        class="back-home-button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Back to the home page
+      </button>
+
+      <!-- LESSON -->
+
+      <section id="lesson-intro">
+        <!-- STEP 1 -->
+
+        <div class="lesson-step" id="lesson-step-1">
+          <p class="lesson-progress">Step 1 of 4</p>
+          <h2>💻 Talking to Computers</h2>
+
+          <p>
+            <strong>Coding</strong> is the language we use to talk to
+            computers and tell them what to do.
+          </p>
+
+          <p>
+            A computer doesn't understand English sentences like
+            <em>"How's it going today?"</em> or
+            <em>"Could you please clean my shoes?"</em> Instead, we use
+            <strong>coding languages</strong> with very specific
+            <strong>commands</strong> that a computer can understand.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
         </div>
 
-        <div id="play-area">
-            <img id="player"
-                src="https://cdn.pixabay.com/photo/2021/03/02/17/26/pixel-6063246_960_720.png"
-                alt="Pixel Guy">
+        <!-- STEP 2 -->
+
+        <div class="lesson-step" id="lesson-step-2" hidden>
+          <p class="lesson-progress">Step 2 of 4</p>
+          <h2>🤖 Computers Follow Instructions Exactly</h2>
+
+          <p>
+            Imagine telling a robot to "make a sandwich." It wouldn't know
+            where to start! You would have to give it every single step:
+          </p>
+
+          <div class="code-example">1. Get two slices of bread
+2. Open the peanut butter
+3. Spread peanut butter on one slice
+4. Put the slices together</div>
+
+          <p>
+            Computers are the same. They do <strong>exactly</strong> what you
+            tell them, one step at a time, in order. A list of steps like
+            this is called a <strong>program</strong>.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
         </div>
 
-        <div class="info-box" id="commands-intro">
-            <h2>Nice moves!</h2>
-            <p>You just moved the character by pressing keys. Programmers
-                usually give a computer instructions by typing
-                <strong>commands</strong> instead. Next, you'll move the
-                character by typing commands like <code>up()</code>,
-                <code>down()</code>, <code>left()</code>, and
-                <code>right()</code>. Each command moves the character one space
-                in that direction. For example, <code>right()</code> moves the
-                character one space to the right.</p>
+        <!-- STEP 3 -->
+
+        <div class="lesson-step" id="lesson-step-3" hidden>
+          <p class="lesson-progress">Step 3 of 4</p>
+          <h2>⬆️ Your First Commands</h2>
+
+          <p>
+            In this level, the arrow keys on your keyboard are your commands!
+            Each press tells your animal to move <strong>one space</strong>.
+          </p>
+
+          <ul>
+            <li><span class="key">↑</span> moves up one space</li>
+            <li><span class="key">↓</span> moves down one space</li>
+            <li><span class="key">←</span> moves left one space</li>
+            <li><span class="key">→</span> moves right one space</li>
+          </ul>
+
+          <p>
+            Want to go 3 spaces to the right? Press <span class="key">→</span>
+            three times. One instruction for each step!
+          </p>
+
+          <button class="lesson-next-button">Next</button>
         </div>
 
-        <button id="reward-button">I did it!</button>
-        <div id="reward-container">
-            <h2>You unlocked a new character!</h2>
-            <div class="character"><img src="AdobeStock_1242520161.jpeg"></div>
+        <!-- STEP 4 -->
+
+        <div class="lesson-step" id="lesson-step-4" hidden>
+          <p class="lesson-progress">Step 4 of 4</p>
+          <h2>🎮 Time to Practice!</h2>
+
+          <p>
+            You'll guide your animal around the zoo using the arrow keys. We'll
+            count how many commands you give, so try to find the shortest
+            path!
+          </p>
+
+          <p>
+            No keyboard? You can tap the arrow buttons under the board instead.
+          </p>
+
+          <strong>Ready? Let's try three challenges!</strong>
+
+          <button class="lesson-next-button">Next: Start Challenges</button>
         </div>
-        <script>
-        const button = document.getElementById('reward-button');
-        const rewardContainer = document.getElementById('reward-container');
-        button.addEventListener('click', () => {
-            rewardContainer.style.display = 'block';
+      </section>
 
-            button.disabled = true;
-            button.innerText = "Reward unlocked!";
+      <!-- CHALLENGES -->
 
+      <section id="challenge-box" hidden>
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title"></h2>
+
+        <p id="challenge-prompt"></p>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>Next Challenge</button>
+      </section>
+
+      <!-- GAME BOARD AND REWARD -->
+
+      <section id="game-area" hidden>
+        <p id="move-counter">Commands given: 0</p>
+
+        <div
+          id="play-area"
+          tabindex="0"
+          aria-label="Game board. Use the arrow keys to move."
+        >
+          <div id="player" data-character="56"></div>
+        </div>
+
+        <div id="arrow-pad">
+          <button class="up" data-key="ArrowUp" aria-label="Up">↑</button>
+          <button class="left" data-key="ArrowLeft" aria-label="Left">←</button>
+          <button class="down" data-key="ArrowDown" aria-label="Down">↓</button>
+          <button class="right" data-key="ArrowRight" aria-label="Right">→</button>
+        </div>
+
+        <!-- WHAT'S NEXT + COMPLETION BUTTON -->
+
+        <div class="info-box" id="commands-intro" hidden>
+          <h2>Nice moves!</h2>
+          <p>
+            You just moved your animal by pressing keys. Programmers usually
+            give a computer instructions by <strong>typing commands</strong>
+            instead. In the next level, you'll move by typing commands like
+            <code>up()</code>, <code>down()</code>, <code>left()</code>, and
+            <code>right()</code>.
+          </p>
+        </div>
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+          <h2>You unlocked a new character!</h2>
+
+          <div class="reward-animal" data-reward-for="1"></div>
+
+          <p>Congratulations! You completed Level 1!</p>
+
+          <button
+            id="next-level-button"
+            onclick="window.location.href = 'level2.html'"
+          >
+            Next Level
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      // NAVIGATION MENU
+
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.hidden = !dropdownMenu.hidden;
+      });
+
+      // PAGE ELEMENTS
+
+      const lessonIntro = document.getElementById("lesson-intro");
+      const lessonSteps = document.querySelectorAll(".lesson-step");
+      const challengeBox = document.getElementById("challenge-box");
+      const gameArea = document.getElementById("game-area");
+
+      const challengeTitle = document.getElementById("challenge-title");
+      const challengePrompt = document.getElementById("challenge-prompt");
+      const progress = document.getElementById("progress");
+      const feedback = document.getElementById("feedback");
+      const moveCounter = document.getElementById("move-counter");
+
+      const playArea = document.getElementById("play-area");
+      const player = document.getElementById("player");
+      const arrowPad = document.getElementById("arrow-pad");
+      const commandsIntro = document.getElementById("commands-intro");
+
+      const nextChallengeButton = document.getElementById(
+        "next-challenge-button",
+      );
+      const rewardButton = document.getElementById("reward-button");
+      const rewardContainer = document.getElementById("reward-container");
+
+      // BOARD SIZE (matches #play-area in style.css: 8 x 5 squares of 60px)
+
+      const cellSize = 60;
+      const columns = 8;
+      const rows = 5;
+
+      // CHALLENGES
+      // start:  where the animal begins
+      // goals:  things to reach (all of them must be collected)
+      // rocks:  squares the animal can't walk through
+      // best:   the fewest commands it can be done in
+
+      const challenges = [
+        {
+          title: "Challenge 1: Follow the Star!",
+          prompt:
+            "Use the arrow keys to walk your animal to the ⭐. Each key press is one command.",
+          start: { x: 0, y: 0 },
+          goals: [{ x: 5, y: 2, emoji: "⭐" }],
+          rocks: [],
+          best: 7,
+          success: "You reached the star!",
+        },
+
+        {
+          title: "Challenge 2: Around the Rocks!",
+          prompt:
+            "Rocks 🪨 are in the way! Computers can't walk through walls, and neither can your animal. Find a path around the rocks to the 🍎.",
+          start: { x: 0, y: 0 },
+          goals: [{ x: 6, y: 0, emoji: "🍎" }],
+          rocks: [
+            { x: 3, y: 0 },
+            { x: 3, y: 1 },
+            { x: 3, y: 2 },
+            { x: 3, y: 3 },
+          ],
+          best: 14,
+          success: "You found a way around the rocks!",
+        },
+
+        {
+          title: "Challenge 3: Snack Collector!",
+          prompt:
+            "Collect all three 🍌 bananas. You can grab them in any order. Can you find a short path?",
+          start: { x: 0, y: 4 },
+          goals: [
+            { x: 2, y: 1, emoji: "🍌" },
+            { x: 5, y: 3, emoji: "🍌" },
+            { x: 7, y: 0, emoji: "🍌" },
+          ],
+          rocks: [
+            { x: 4, y: 1 },
+            { x: 4, y: 2 },
+            { x: 6, y: 3 },
+          ],
+          best: 15,
+          success: "You collected every banana!",
+        },
+      ];
+
+      let currentChallenge = 0;
+      let x = 0;
+      let y = 0;
+      let moves = 0;
+      let goalsLeft = [];
+      let canMove = false;
+
+      // MOVE THROUGH THE LESSON
+
+      lessonSteps.forEach((step, index) => {
+        step.querySelector(".lesson-next-button").addEventListener("click", () => {
+          step.hidden = true;
+
+          if (index + 1 < lessonSteps.length) {
+            lessonSteps[index + 1].hidden = false;
+          } else {
+            startChallenges();
+          }
         });
+      });
 
-        // Arrow key movement on a grid
-        const player = document.getElementById('player');
-        const commandsIntro = document.getElementById('commands-intro');
-        const cellSize = 60;
-        const columns = 8;
-        const rows = 5;
-        let x = 0;
-        let y = 0;
-        let canMove = true;
+      // START THE CHALLENGES
 
-        function drawPlayer() {
-            player.style.left = (x * cellSize) + 'px';
-            player.style.top = (y * cellSize) + 'px';
-        }
+      function startChallenges() {
+        lessonIntro.hidden = true;
+        challengeBox.hidden = false;
+        gameArea.hidden = false;
 
-        document.addEventListener('keydown', (event) => {
-            if (!canMove) return;
+        showChallenge();
+      }
 
-            if (event.key === 'Enter') {
-                canMove = false;
-                commandsIntro.style.display = 'block';
-                return;
-            }
+      // SHOW CHALLENGE
 
-            // Stop the arrow keys from scrolling the page
-            if (event.key.startsWith('Arrow')) event.preventDefault();
+      function showChallenge() {
+        const challenge = challenges[currentChallenge];
 
-            // Only move if the character stays inside the play area
-            if (event.key === 'ArrowUp' && y > 0) y--;
-            if (event.key === 'ArrowDown' && y < rows - 1) y++;
-            if (event.key === 'ArrowLeft' && x > 0) x--;
-            if (event.key === 'ArrowRight' && x < columns - 1) x++;
+        progress.innerText = `Challenge ${currentChallenge + 1} of ${challenges.length}`;
+        challengeTitle.innerText = challenge.title;
+        challengePrompt.innerText = challenge.prompt;
+        feedback.innerText = "";
+        nextChallengeButton.hidden = true;
 
-            drawPlayer();
-        });
+        // Clear the old board items, then place the new ones.
+        playArea.querySelectorAll(".board-item").forEach((item) => item.remove());
 
+        challenge.rocks.forEach((rock) => addItem(rock, "🪨"));
+
+        goalsLeft = challenge.goals.map((goal) => ({
+          ...goal,
+          element: addItem(goal, goal.emoji),
+        }));
+
+        x = challenge.start.x;
+        y = challenge.start.y;
+        moves = 0;
+        moveCounter.innerText = "Commands given: 0";
         drawPlayer();
 
+        canMove = true;
+        playArea.focus();
+      }
+
+      function addItem(spot, emoji) {
+        const item = document.createElement("div");
+        item.className = "board-item";
+        item.textContent = emoji;
+        item.style.left = spot.x * cellSize + "px";
+        item.style.top = spot.y * cellSize + "px";
+        playArea.appendChild(item);
+        return item;
+      }
+
+      function drawPlayer() {
+        player.style.left = x * cellSize + "px";
+        player.style.top = y * cellSize + "px";
+      }
+
+      function isRock(newX, newY) {
+        return challenges[currentChallenge].rocks.some(
+          (rock) => rock.x === newX && rock.y === newY,
+        );
+      }
+
+      // MOVE THE ANIMAL
+
+      const directions = {
+        ArrowUp: { dx: 0, dy: -1 },
+        ArrowDown: { dx: 0, dy: 1 },
+        ArrowLeft: { dx: -1, dy: 0 },
+        ArrowRight: { dx: 1, dy: 0 },
+      };
+
+      function move(key) {
+        if (!canMove) return;
+
+        const direction = directions[key];
+        if (!direction) return;
+
+        const newX = x + direction.dx;
+        const newY = y + direction.dy;
+
+        // Every key press counts as a command, even a bump into a wall.
+        moves++;
+        moveCounter.innerText = `Commands given: ${moves}`;
+
+        if (newX < 0 || newY < 0 || newX >= columns || newY >= rows) {
+          feedback.style.color = "red";
+          feedback.innerText = "Bump! That's the edge of the board.";
+          return;
+        }
+
+        if (isRock(newX, newY)) {
+          feedback.style.color = "red";
+          feedback.innerText = "Bonk! A rock is in the way. Try another direction.";
+          return;
+        }
+
+        feedback.innerText = "";
+        x = newX;
+        y = newY;
+        drawPlayer();
+
+        collectGoals();
+      }
+
+      function collectGoals() {
+        const reached = goalsLeft.find((goal) => goal.x === x && goal.y === y);
+        if (!reached) return;
+
+        reached.element.classList.add("collected");
+        goalsLeft = goalsLeft.filter((goal) => goal !== reached);
+
+        if (goalsLeft.length > 0) {
+          feedback.style.color = "green";
+          feedback.innerText = `Got one! ${goalsLeft.length} more to go.`;
+          return;
+        }
+
+        finishChallenge();
+      }
+
+      function finishChallenge() {
+        const challenge = challenges[currentChallenge];
+        canMove = false;
+
+        const shortest =
+          moves <= challenge.best
+            ? `You used ${moves} commands. That's the shortest path! 🏆`
+            : `You used ${moves} commands. It can be done in ${challenge.best}!`;
+
+        feedback.style.color = "green";
+        feedback.innerText = `${challenge.success} ${shortest}`;
+
+        nextChallengeButton.innerText =
+          currentChallenge === challenges.length - 1
+            ? "Finish Challenges"
+            : "Next Challenge";
+        nextChallengeButton.hidden = false;
+      }
+
+      // KEYBOARD AND ON-SCREEN ARROWS
+
+      document.addEventListener("keydown", (event) => {
+        if (!canMove || !directions[event.key]) return;
+
+        // Stop the arrow keys from scrolling the page
+        event.preventDefault();
+        move(event.key);
+      });
+
+      arrowPad.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => move(button.dataset.key));
+      });
+
+      // MOVE TO THE NEXT CHALLENGE
+
+      nextChallengeButton.addEventListener("click", () => {
+        currentChallenge++;
+
+        if (currentChallenge < challenges.length) {
+          showChallenge();
+        } else {
+          showReward();
+        }
+      });
+
+      // SHOW REWARD
+
+      function showReward() {
+        progress.innerText = "All challenges completed!";
+        challengeTitle.innerText = "You did it! 🎉";
+        challengePrompt.innerText =
+          "You gave the computer step-by-step instructions, just like a real programmer!";
+
+        feedback.style.color = "green";
+        feedback.innerText = "Congratulations! You completed all 3 challenges!";
+        nextChallengeButton.hidden = true;
+
+        // HIDE THE GAME BOARD
+
+        playArea.hidden = true;
+        arrowPad.hidden = true;
+        moveCounter.hidden = true;
+
+        // SHOW WHAT'S NEXT AND THE COMPLETION BUTTON
+
+        commandsIntro.hidden = false;
+        rewardButton.hidden = false;
+      }
+
+      // UNLOCK REWARD
+
+      rewardButton.addEventListener("click", () => {
+        rewardButton.hidden = true;
+        rewardContainer.hidden = false;
+
+        // Save progress so the next level unlocks
+        import("./js/progress.js").then((p) => p.completeLevel(1));
+      });
     </script>
 
     <script type="module" src="js/auth-guard.js"></script>
-    </body>
+    <script type="module" src="js/character.js"></script>
+  </body>
 </html>

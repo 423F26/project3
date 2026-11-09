@@ -1,152 +1,449 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
- <body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 2 - Zoo Coding</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <header>
+  <body class="lesson-page">
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+      <div class="site-title">Zoo Coding</div>
 
-      <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+      <div class="menu-container">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+        >
+          <span>▦</span>
+        </button>
 
-            <div class="site-title">Zoo Coding</div>
-
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
-
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
-            </div>
-        </header>
-
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+          <a href="index.html">Levels</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
     </header>
-    <h1>Level 2</h1>
-    <button><a href="index.html">Back to the home page</a></button>
 
-        <button id="reward-button">I did it!</button>
-    <div id="reward-container">
-        <h2>You unlocked a new character!</h2>
-        <div id="character"><img src="Level2-Penguin.png"></div>
-    </div>
-    <h3>Type in a command to move the penguin. Don't forget the ()</h3>
-    
+    <main>
+      <h1>Level 2: Typing Commands!</h1>
 
-    <div id = 'gamescreen'>
-        <div id="penguin"><img src="Level2-Penguin.png"></div>
-    </div>
-    
+      <button
+        class="back-home-button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Back to the home page
+      </button>
 
-    <input type="text" id="commandInput" placeholder="Enter a command">
-    <button id="submitButton">Submit</button>
+      <!-- LESSON -->
 
+      <section id="lesson-intro">
+        <!-- STEP 1 -->
+
+        <div class="lesson-step">
+          <p class="lesson-progress">Step 1 of 4</p>
+          <h2>⌨️ From Keys to Commands</h2>
+
+          <p>
+            In Level 1, you moved your animal by pressing arrow keys. That
+            works for a game, but real programmers give instructions by
+            <strong>typing commands</strong>.
+          </p>
+
+          <p>
+            When you type commands, you can write down a whole plan first,
+            and then the computer follows it all at once!
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 2 of 4</p>
+          <h2>Your Four Commands</h2>
+
+          <div class="code-example">up()
+down()
+left()
+right()</div>
+
+          <ul>
+            <li>
+              The <strong>word</strong> says which way to move.
+            </li>
+            <li>
+              The <strong>( ) parentheses</strong> tell the computer "do it
+              now!" Every command needs them.
+            </li>
+            <li>
+              Each command moves your animal <strong>one square</strong>.
+            </li>
+          </ul>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 3 of 4</p>
+          <h2>🧐 Computers Are Picky!</h2>
+
+          <p>
+            A person can guess what you mean if you make a typo. A computer
+            can't! It needs every command spelled <strong>exactly</strong>
+            right.
+          </p>
+
+          <div class="code-example">right()   ✅ works!
+rigth()   ❌ misspelled
+right     ❌ missing ( )</div>
+
+          <p>
+            Don't worry if you make a mistake. The computer will tell you
+            which line to fix.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 4 of 4</p>
+          <h2>📜 Writing a Program</h2>
+
+          <p>
+            Put each command on its own line. The computer runs them
+            <strong>from top to bottom</strong>, one at a time:
+          </p>
+
+          <div class="code-example">right()
+right()
+down()</div>
+
+          <p>
+            This moves your animal right, right again, then down. A list of
+            commands like this is a <strong>program</strong>!
+          </p>
+
+          <strong>
+            Ready to write your first programs? Let's try three challenges!
+          </strong>
+
+          <button class="lesson-next-button">Next: Start Challenges</button>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+
+      <section id="challenge-box" hidden>
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title"></h2>
+
+        <p id="challenge-prompt"></p>
+
+        <p id="challenge-hint-label">Hint:</p>
+        <div class="code-example" id="hint"></div>
+
+        <textarea
+          id="commandInput"
+          rows="8"
+          placeholder="Write one command on each line"
+          spellcheck="false"
+        ></textarea>
+
+        <button id="submitButton">Run Code!</button>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>Next Challenge</button>
+      </section>
+
+      <!-- GAME BOARD AND REWARD -->
+
+      <section id="game-area" hidden>
+        <div id="board"></div>
+
+        <!-- COMPLETION BUTTON -->
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+          <h2>You unlocked a new character!</h2>
+
+          <div class="reward-animal" data-reward-for="2"></div>
+
+          <p>Congratulations! You completed Level 2!</p>
+
+          <button
+            id="next-level-button"
+            onclick="window.location.href = 'level3.html'"
+          >
+            Next Level
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <script src="js/code-board.js"></script>
     <script>
-        const button = document.getElementById('reward-button');
-        const rewardContainer = document.getElementById('reward-container');
-        button.addEventListener('click', () => {
-            rewardContainer.style.display = 'block';
+      // NAVIGATION MENU
 
-            button.disabled = true;
-            button.innerText = "Reward unlocked!";
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
 
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.hidden = !dropdownMenu.hidden;
+      });
+
+      // PAGE ELEMENTS
+
+      const lessonIntro = document.getElementById("lesson-intro");
+      const lessonSteps = document.querySelectorAll(".lesson-step");
+      const challengeBox = document.getElementById("challenge-box");
+      const gameArea = document.getElementById("game-area");
+
+      const commandInput = document.getElementById("commandInput");
+      const submitButton = document.getElementById("submitButton");
+      const feedback = document.getElementById("feedback");
+
+      const challengeTitle = document.getElementById("challenge-title");
+      const challengePrompt = document.getElementById("challenge-prompt");
+      const progress = document.getElementById("progress");
+      const hint = document.getElementById("hint");
+      const hintLabel = document.getElementById("challenge-hint-label");
+
+      const nextChallengeButton = document.getElementById(
+        "next-challenge-button",
+      );
+      const rewardButton = document.getElementById("reward-button");
+      const rewardContainer = document.getElementById("reward-container");
+
+      // THE GAME BOARD (see js/code-board.js)
+
+      const boardElement = document.getElementById("board");
+      const board = CodeBoard.createBoard(boardElement, { cols: 8, rows: 5 });
+
+      // CHALLENGES
+      // Each hint gives a little less help, so by challenge 3 the student
+      // writes the whole program on their own.
+
+      const challenges = [
+        {
+          title: "Challenge 1: Three Steps to the Star!",
+          prompt:
+            "The ⭐ is 3 squares to the right. Write a program that moves your animal right 3 times.",
+          hint: "right()\nright()\nright()",
+          start: { x: 0, y: 2 },
+          goals: [{ x: 3, y: 2, emoji: "⭐" }],
+          rocks: [],
+          success: "You reached the star! Your first program worked! 🎉",
+        },
+
+        {
+          title: "Challenge 2: Snack Time!",
+          prompt:
+            "Your animal wants the 🍎. Move right 3 times, then down 2 times. Fill in the missing commands.",
+          hint: "right()\nright()\nright()\n____()\n____()",
+          start: { x: 0, y: 0 },
+          goals: [{ x: 3, y: 2, emoji: "🍎" }],
+          rocks: [],
+          success: "Yum! You used two different commands in one program! 🍎",
+        },
+
+        {
+          title: "Challenge 3: Your Turn!",
+          prompt:
+            "A wall of rocks 🪨 is in the way! Write the whole program yourself to get your animal to the 🐟. Go up and over the rocks.",
+          hint: "Plan your path first: which way, and how many squares?",
+          start: { x: 0, y: 4 },
+          goals: [{ x: 4, y: 4, emoji: "🐟" }],
+          rocks: [
+            { x: 2, y: 4 },
+            { x: 2, y: 3 },
+            { x: 2, y: 2 },
+          ],
+          success: "You planned a path around the rocks like a real programmer! 🐟",
+        },
+      ];
+
+      let currentChallenge = 0;
+      let isAdvancing = false;
+      let isRunning = false;
+
+      // MOVE THROUGH THE LESSON
+
+      lessonSteps.forEach((step, index) => {
+        step.querySelector(".lesson-next-button").addEventListener("click", () => {
+          step.hidden = true;
+
+          if (index + 1 < lessonSteps.length) {
+            lessonSteps[index + 1].hidden = false;
+          } else {
+            startChallenges();
+          }
         });
+      });
 
-        let posX = 180;
-        let posY = 180;
-        const stepSize = 25;
+      // START THE CHALLENGES
 
-        const penguin = document.getElementById('penguin');
-        const commandInput = document.getElementById('commandInput');
-        const submitButton = document.getElementById('submitButton');
+      function startChallenges() {
+        lessonIntro.hidden = true;
+        challengeBox.hidden = false;
+        gameArea.hidden = false;
 
-        function movePenguin(direction) {
-            const command = direction.toLowerCase().trim();
-  
-            switch (command) {
-                case 'up()':
-                    posY -= stepSize;
-                    break;
-                case 'down()':
-                    posY += stepSize;
-                    break;
-                case 'left()':
-                    posX -= stepSize;
-                    break;
-                case 'right()':
-                    posX += stepSize;
-                    break;
+        showChallenge();
+      }
 
-                default:
-                    break;
-            }
-            penguin.style.left = posX + 'px';
-            penguin.style.top = posY + 'px';
+      // SHOW CHALLENGE
 
-            commandInput.value = '';
+      function showChallenge() {
+        const challenge = challenges[currentChallenge];
+
+        progress.innerText = `Challenge ${currentChallenge + 1} of ${challenges.length}`;
+
+        challengeTitle.innerText = challenge.title;
+        challengePrompt.innerText = challenge.prompt;
+        hint.innerText = challenge.hint;
+
+        feedback.innerText = "";
+        commandInput.value = "";
+
+        setEditing(true);
+        nextChallengeButton.hidden = true;
+
+        board.setup(challenge);
+      }
+
+      function setEditing(on) {
+        commandInput.disabled = !on;
+        submitButton.disabled = !on;
+      }
+
+      // RUN THE STUDENT'S PROGRAM
+
+      async function submitCode() {
+        if (isAdvancing || isRunning) return;
+
+        const challenge = challenges[currentChallenge];
+
+        if (commandInput.value.trim() === "") {
+          showFeedback(false, "Please enter some code first!");
+          return;
         }
 
-        submitButton.addEventListener('click', () => {
-            movePenguin(commandInput.value);
-        });
-        commandInput.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                movePenguin(commandInput.value);
-            }
-        });
+        board.reset();
 
-        
+        const compiled = CodeBoard.compile(commandInput.value);
 
-        function unlockReward() {
-            let unlockRewards = JSON.parse(localStorage.getItem('unlockRewards')) || [];
-            unlockRewards.push('level2');
-            localStorage.setItem('unlockRewards', JSON.stringify(unlockRewards));
-
-            if(!unlockRewards.includes(Level2-Penguin.png)){
-                ulockRewards.push(Level2-Penguin.png);
-                localStorage.setItem('unlockRewards', JSON.stringify(unlockRewards));
-            }
+        if (compiled.error) {
+          showFeedback(false, compiled.error);
+          return;
         }
 
+        isRunning = true;
+        setEditing(false);
+        showFeedback(true, "Running your program...");
 
+        const result = await board.run(compiled.steps);
 
+        isRunning = false;
+
+        if (!result.ok) {
+          setEditing(true);
+          showFeedback(false, result.message + " Fix your program and try again.");
+          return;
+        }
+
+        if (result.goalsLeft > 0) {
+          setEditing(true);
+          showFeedback(
+            false,
+            "Your program finished, but your animal didn't reach the goal yet. Count the squares again!",
+          );
+          return;
+        }
+
+        showFeedback(true, challenge.success);
+
+        isAdvancing = true;
+        nextChallengeButton.innerText =
+          currentChallenge === challenges.length - 1
+            ? "Finish Challenges"
+            : "Next Challenge";
+        nextChallengeButton.hidden = false;
+      }
+
+      function showFeedback(good, message) {
+        feedback.innerText = message;
+        feedback.style.color = good ? "green" : "red";
+      }
+
+      submitButton.addEventListener("click", submitCode);
+
+      // MOVE TO THE NEXT CHALLENGE
+
+      nextChallengeButton.addEventListener("click", () => {
+        if (!isAdvancing) return;
+
+        currentChallenge++;
+        isAdvancing = false;
+
+        if (currentChallenge < challenges.length) {
+          showChallenge();
+        } else {
+          showReward();
+        }
+      });
+
+      // SHOW REWARD
+
+      function showReward() {
+        progress.innerText = "All challenges completed!";
+        challengeTitle.innerText = "You did it! 🎉";
+
+        challengePrompt.innerText =
+          "You wrote programs with typed commands. The computer followed them one line at a time!";
+
+        hint.hidden = true;
+        hintLabel.hidden = true;
+        commandInput.hidden = true;
+        submitButton.hidden = true;
+        nextChallengeButton.hidden = true;
+
+        showFeedback(true, "Congratulations! You completed all 3 challenges!");
+
+        // HIDE THE GAME BOARD
+
+        boardElement.hidden = true;
+
+        // SHOW THE COMPLETION BUTTON
+
+        rewardButton.hidden = false;
+      }
+
+      // UNLOCK REWARD
+
+      rewardButton.addEventListener("click", () => {
+        rewardButton.hidden = true;
+        rewardContainer.hidden = false;
+
+        // Save progress so the next level unlocks
+        import("./js/progress.js").then((p) => p.completeLevel(2));
+      });
     </script>
 
-    <style>
-        #penguin{
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            transition: left 0.15s, top 0.15s;
-        }
-        #gamescreen{
-            position: relative; 
-            width: 700px;
-            height: 410px;
-            border: 1px solid black;
-            overflow: hidden;
-        }
-        #penguin img{
-            width: 100px;
-            height: auto;
-        }
-    </style>
-
-    
-<script type="module" src="js/auth-guard.js"></script>
-</body>
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/character.js"></script>
+  </body>
 </html>

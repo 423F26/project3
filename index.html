@@ -53,6 +53,15 @@
         </p>
       </section>
 
+      <section class="your-zoo" aria-labelledby="your-zoo-title">
+        <h2 id="your-zoo-title">Your Characters</h2>
+        <p class="zoo-help">
+          Finish levels to unlock new animals. Pick one to play as in every level!
+        </p>
+        <div id="character-grid" role="radiogroup" aria-labelledby="your-zoo-title"></div>
+        <p id="equipped-message" aria-live="polite"></p>
+      </section>
+
       <section class="adventure-area" id="levels">
         <div class="landscape-placeholder">
 
@@ -85,22 +94,22 @@
 
             <a href="level6.html" class="level-marker level-6">
               <span class="level-number">6</span>
-              <span class="level-name">Else Statements</span>
+              <span class="level-name">Debugging</span>
             </a>
 
             <a href="level7.html" class="level-marker level-7">
               <span class="level-number">7</span>
-              <span class="level-name">Functions</span>
+              <span class="level-name">Else Statements</span>
             </a>
 
             <a href="level8.html" class="level-marker level-8">
               <span class="level-number">8</span>
-              <span class="level-name">While Loops</span>
+              <span class="level-name">Functions</span>
             </a>
 
             <a href="level9.html" class="level-marker level-9">
               <span class="level-number">9</span>
-              <span class="level-name">Debugging</span>
+              <span class="level-name">While Loops</span>
             </a>
 
             <a href="level10.html" class="level-marker level-10">
@@ -110,7 +119,7 @@
 
             <a href="level11.html" class="level-marker level-11">
               <span class="level-number">11</span>
-              <span class="level-name">Booleans &Conditions</span>
+              <span class="level-name">Booleans &amp; Conditions</span>
             </a>
 
             <a href="level12.html" class="level-marker level-12">
@@ -142,7 +151,6 @@
     <script>
     const menuButton = document.getElementById("menuButton");
 const dropdownMenu = document.getElementById("dropdownMenu");
-const loginButton = document.getElementById("loginButton");
 
 menuButton.addEventListener("click", () => {
   const isOpen = !dropdownMenu.hidden;
@@ -167,29 +175,10 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-const unlockRewards = 
-  JSON.parse(localStorage.getItem('unlockRewards')) || [];
-  unlockRewards.push('level2');
-  localStorage.setItem('unlockRewards', JSON.stringify(unlockRewards));
-  console.log(unlockedRewards);
-
-
-const world = document.getElementById('world');
-unlockedRewards.forEach(reward => {
-  const img = document.createElement('img');
-  img.src = 'rewards/${reward}.png';
-  img.classList.add('reward');
-  world.appendChild(img);
-});
-
-if(localStorage.getItem("redPandaUnloked") === "true") {
-  const img = document.createElement('img');
-  img.src = 'rewards/Level4-RedPanda.png';
-  img.classList.add('reward');
-  world.appendChild(img);
-}
+// The "Your Zoo" animals are drawn by js/level-map.js from the player's saved progress.
   </script>
 
     <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/level-map.js"></script>
   </body>
 </html>

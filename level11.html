@@ -1,39 +1,704 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 11 - Zoo Coding</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+  <body class="lesson-page">
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+      <div class="site-title">Zoo Coding</div>
 
-            <div class="site-title">Zoo Coding</div>
+      <div class="menu-container">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+        >
+          <span>▦</span>
+        </button>
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+          <a href="index.html">Levels</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+    </header>
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
-            </div>
-        </header>
-    <h1>Level 11: Booleans and Conditions!</h1>
-    <button><a href="index.html">Back to the home page</a></button>
-    
-<script type="module" src="js/auth-guard.js"></script>
-</body>
+    <main>
+      <h1>Level 11: Booleans &amp; Conditions!</h1>
+
+      <button
+        class="back-home-button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Back to the home page
+      </button>
+
+      <!-- LESSON -->
+
+      <section id="lesson-intro">
+        <!-- STEP 1 -->
+
+        <div class="lesson-step" id="lesson-step-1">
+          <p class="lesson-progress">Step 1 of 5</p>
+          <h2>🐼 True or False?</h2>
+
+          <p>
+            A <strong>boolean</strong> is the simplest kind of value in coding.
+            It can only ever be one of two things:
+            <strong>true</strong> or <strong>false</strong>. Like a light
+            switch: on or off!
+          </p>
+
+          <div class="code-example">daytime = true
+raining = false</div>
+
+          <p>
+            You've already used booleans! In <code>if (hungry)</code>,
+            <strong>hungry</strong> is a boolean. It's either true or false.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="lesson-step" id="lesson-step-2" hidden>
+          <p class="lesson-progress">Step 2 of 5</p>
+          <h2>AND: &amp;&amp;</h2>
+
+          <p>
+            Sometimes you need to check <strong>two things at once</strong>.
+            <strong>&amp;&amp;</strong> means <strong>AND</strong>. It is only
+            true when <strong>both</strong> sides are true.
+          </p>
+
+          <div class="code-example">if (sunny && warm) {
+    swim()
+}</div>
+
+          <p>
+            Your animal only swims if it is sunny <strong>AND</strong> warm.
+            Sunny but cold? No swimming!
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="lesson-step" id="lesson-step-3" hidden>
+          <p class="lesson-progress">Step 3 of 5</p>
+          <h2>OR: ||</h2>
+
+          <p>
+            <strong>||</strong> means <strong>OR</strong>. It is true when
+            <strong>at least one</strong> side is true. (You type | by holding
+            Shift and pressing the key above Enter.)
+          </p>
+
+          <div class="code-example">if (hungry || bored) {
+    snack()
+}</div>
+
+          <p>
+            Your animal snacks if it is hungry <strong>OR</strong> bored, or
+            both! It only skips the snack if it is neither.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div class="lesson-step" id="lesson-step-4" hidden>
+          <p class="lesson-progress">Step 4 of 5</p>
+          <h2>NOT: !</h2>
+
+          <p>
+            <strong>!</strong> means <strong>NOT</strong>. It flips a boolean
+            to the opposite: true becomes false, and false becomes true.
+          </p>
+
+          <div class="code-example">if (!raining) {
+    goOutside()
+}</div>
+
+          <p>
+            Your animal goes outside if it is <strong>NOT</strong> raining.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 5 -->
+
+        <div class="lesson-step" id="lesson-step-5" hidden>
+          <p class="lesson-progress">Step 5 of 5</p>
+          <h2>Testing Every Situation</h2>
+
+          <p>
+            Good programmers test their code in <strong>every</strong>
+            situation. In these challenges, your code will be tested with every
+            mix of true and false, shown in a <strong>truth table</strong>:
+          </p>
+
+          <div class="code-example">sunny  warm   | sunny && warm
+true   true   | true   ✅ swim
+true   false  | false
+false  true   | false
+false  false  | false</div>
+
+          <strong>
+            Ready to help your animal make smart choices? Let's try three
+            challenges! Each one gives you a little less help than the one
+            before.
+          </strong>
+
+          <button class="lesson-next-button">Next: Start Challenges</button>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+
+      <section id="challenge-box" hidden>
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title"></h2>
+
+        <p id="challenge-prompt"></p>
+
+        <p id="challenge-hint-label">Hint:</p>
+        <div class="code-example" id="hint"></div>
+
+        <textarea
+          id="commandInput"
+          rows="4"
+          placeholder="Enter your code here"
+        ></textarea>
+
+        <button id="submitButton">Run Code!</button>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>Next Challenge</button>
+      </section>
+
+      <!-- GAME BOARD AND REWARD -->
+
+      <section id="game-area" hidden>
+        <h3 id="game-instructions">
+          Your code gets tested in every situation!
+        </h3>
+
+        <div id="gamescreen">
+          <div id="table-area"></div>
+
+          <div id="actor" data-character="70">
+            
+          </div>
+
+          <div id="action-display" aria-live="polite">
+            Waiting for your code...
+          </div>
+        </div>
+
+        <!-- COMPLETION BUTTON -->
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+          <h2>You unlocked a new character!</h2>
+
+          <div class="reward-animal" data-reward-for="11"></div>
+
+          <p>Congratulations! You completed Level 11!</p>
+
+          <button
+            id="next-level-button"
+            onclick="window.location.href = 'level12.html'"
+          >
+            Next Level
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      // NAVIGATION MENU
+
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.hidden = !dropdownMenu.hidden;
+      });
+
+      // PAGE ELEMENTS
+
+      const lessonIntro = document.getElementById("lesson-intro");
+      const lessonSteps = document.querySelectorAll(".lesson-step");
+      const challengeBox = document.getElementById("challenge-box");
+      const gameArea = document.getElementById("game-area");
+
+      // GAME ELEMENTS
+
+      const actor = document.getElementById("actor");
+      const commandInput = document.getElementById("commandInput");
+      const submitButton = document.getElementById("submitButton");
+      const feedback = document.getElementById("feedback");
+
+      const challengeTitle = document.getElementById("challenge-title");
+      const challengePrompt = document.getElementById("challenge-prompt");
+      const progress = document.getElementById("progress");
+      const hint = document.getElementById("hint");
+      const hintLabel = document.getElementById("challenge-hint-label");
+
+      const tableArea = document.getElementById("table-area");
+      const actionDisplay = document.getElementById("action-display");
+      const gameInstructions = document.getElementById("game-instructions");
+      const gamescreen = document.getElementById("gamescreen");
+
+      const nextChallengeButton = document.getElementById(
+        "next-challenge-button",
+      );
+      const rewardButton = document.getElementById("reward-button");
+      const rewardContainer = document.getElementById("reward-container");
+
+      // CHALLENGES
+      // `shouldAct` is the correct answer. The student's condition is tested
+      // against it in every true/false situation, so any correct way of
+      // writing it passes (for example, "keeper && daytime" works too).
+
+      const challenges = [
+        {
+          title: "Challenge 1: Open the Gate!",
+          prompt:
+            "Your animal's gate should only open when it is daytime AND the zookeeper is here. Write an if statement using && that calls openGate().",
+          hint: "if (daytime && keeper) {\n    openGate()\n}",
+          booleans: ["daytime", "keeper"],
+          action: "openGate",
+          shouldAct: (s) => s.daytime && s.keeper,
+          successText: "The gate only opens when it's safe. Nice!",
+        },
+
+        {
+          title: "Challenge 2: Nap Time!",
+          prompt:
+            "Your animal takes a nap() if it is tired OR if it is raining (or both!). Fill in the missing symbol.",
+          hint: "if (tired ____ raining) {\n    nap()\n}",
+          booleans: ["tired", "raining"],
+          action: "nap",
+          shouldAct: (s) => s.tired || s.raining,
+          successText: "Zzz... your animal naps at just the right times.",
+        },
+
+        {
+          title: "Challenge 3: Your Turn!",
+          prompt:
+            "Your animal should eat() bamboo when it is hungry AND it is NOT sleeping. Write the whole if statement yourself! You'll need && and !",
+          hint: "if (____________) {\n    eat()\n}",
+          booleans: ["hungry", "sleeping"],
+          action: "eat",
+          shouldAct: (s) => s.hungry && !s.sleeping,
+          successText: "Crunch! It only eats when it's hungry and awake.",
+        },
+      ];
+
+      let currentChallenge = 0;
+      let isAdvancing = false;
+
+      // MOVE THROUGH THE LESSON
+
+      lessonSteps.forEach((step, index) => {
+        step.querySelector(".lesson-next-button").addEventListener("click", () => {
+          step.hidden = true;
+
+          if (index + 1 < lessonSteps.length) {
+            lessonSteps[index + 1].hidden = false;
+          } else {
+            startChallenges();
+          }
+        });
+      });
+
+      // START THE CHALLENGES
+
+      function startChallenges() {
+        lessonIntro.hidden = true;
+        challengeBox.hidden = false;
+        gameArea.hidden = false;
+
+        showChallenge();
+      }
+
+      // SHOW CHALLENGE
+
+      function showChallenge() {
+        const challenge = challenges[currentChallenge];
+
+        progress.innerText = `Challenge ${currentChallenge + 1} of ${challenges.length}`;
+
+        challengeTitle.innerText = challenge.title;
+        challengePrompt.innerText = challenge.prompt;
+        hint.innerText = challenge.hint;
+
+        feedback.innerText = "";
+        commandInput.value = "";
+
+        commandInput.disabled = false;
+        submitButton.disabled = false;
+
+        submitButton.hidden = false;
+        hint.hidden = false;
+        hintLabel.hidden = false;
+        commandInput.hidden = false;
+
+        nextChallengeButton.hidden = true;
+
+        drawTable(null);
+        actor.style.left = "calc(50% - 35px)";
+        actor.style.top = "260px";
+        actor.style.transform = "rotate(0deg)";
+        actionDisplay.innerText = "Waiting for your code...";
+      }
+
+      // Every mix of true / false for the challenge's two booleans.
+      function situations() {
+        const [a, b] = challenges[currentChallenge].booleans;
+        return [
+          { [a]: true, [b]: true },
+          { [a]: true, [b]: false },
+          { [a]: false, [b]: true },
+          { [a]: false, [b]: false },
+        ];
+      }
+
+      // DRAW THE TRUTH TABLE
+      // results is null before the student runs code, or an array of
+      // true/false (did their code act?) for each situation.
+
+      function drawTable(results) {
+        const challenge = challenges[currentChallenge];
+        const [a, b] = challenge.booleans;
+
+        const table = document.createElement("table");
+        table.className = "truth-table";
+
+        const header = table.insertRow();
+        [a, b, `Should ${challenge.action}()?`, "Your code"].forEach((text) => {
+          const th = document.createElement("th");
+          th.textContent = text;
+          header.appendChild(th);
+        });
+
+        situations().forEach((situation, index) => {
+          const row = table.insertRow();
+          const should = challenge.shouldAct(situation);
+
+          row.insertCell().textContent = String(situation[a]);
+          row.insertCell().textContent = String(situation[b]);
+          row.insertCell().textContent = should ? "yes" : "no";
+
+          const yours = row.insertCell();
+
+          if (results === null) {
+            yours.textContent = "?";
+          } else {
+            const correct = results[index] === should;
+            yours.textContent = `${results[index] ? "yes" : "no"} ${correct ? "✅" : "❌"}`;
+            yours.className = correct ? "yes" : "no";
+          }
+        });
+
+        tableArea.replaceChildren(table);
+      }
+
+      // READ THE STUDENT'S CONDITION
+      // A tiny parser for conditions made of names, true, false, &&, ||, !
+      // and parentheses. It turns the text into a function we can test.
+
+      function tokenize(text) {
+        const tokens = [];
+        const pattern = /\s*(&&|\|\||!|\(|\)|[a-z]+)/iy;
+        let position = 0;
+
+        while (position < text.length) {
+          if (text.slice(position).trim() === "") break;
+
+          pattern.lastIndex = position;
+          const match = pattern.exec(text);
+
+          if (!match) {
+            const rest = text.slice(position).trim();
+
+            if (rest.startsWith("&")) throw new Error("For AND, use two of them: &&");
+            if (rest.startsWith("|")) throw new Error("For OR, use two of them: ||");
+            if (rest.startsWith("=")) throw new Error("You don't need = here. Just use the names with &&, || and !");
+
+            throw new Error(`I don't understand "${rest[0]}". Use names, &&, || and !`);
+          }
+
+          tokens.push(match[1]);
+          position = pattern.lastIndex;
+        }
+
+        return tokens;
+      }
+
+      function parseCondition(text, allowed) {
+        const tokens = tokenize(text);
+        let index = 0;
+
+        const peek = () => tokens[index];
+        const take = () => tokens[index++];
+
+        // or  -> and ( "||" and )*
+        function parseOr() {
+          let left = parseAnd();
+          while (peek() === "||") {
+            take();
+            const l = left, r = parseAnd();
+            left = (s) => l(s) || r(s);
+          }
+          return left;
+        }
+
+        // and -> not ( "&&" not )*
+        function parseAnd() {
+          let left = parseNot();
+          while (peek() === "&&") {
+            take();
+            const l = left, r = parseNot();
+            left = (s) => l(s) && r(s);
+          }
+          return left;
+        }
+
+        // not -> "!" not | value
+        function parseNot() {
+          if (peek() === "!") {
+            take();
+            const inner = parseNot();
+            return (s) => !inner(s);
+          }
+          return parseValue();
+        }
+
+        // value -> name | true | false | "(" or ")"
+        function parseValue() {
+          const token = take();
+
+          if (token === undefined) {
+            throw new Error("Your condition ends too early. Is something missing?");
+          }
+
+          if (token === "(") {
+            const inner = parseOr();
+            if (take() !== ")") throw new Error("A ( is missing its matching )");
+            return inner;
+          }
+
+          const word = token.toLowerCase();
+
+          if (word === "and") throw new Error("In code, AND is written as &&");
+          if (word === "or") throw new Error("In code, OR is written as ||");
+          if (word === "not") throw new Error("In code, NOT is written as !");
+          if (word === "true") return () => true;
+          if (word === "false") return () => false;
+
+          const name = allowed.find((b) => b.toLowerCase() === word);
+          if (!name) {
+            throw new Error(`"${token}" isn't part of this challenge. Use: ${allowed.join(" and ")}.`);
+          }
+
+          return (s) => s[name];
+        }
+
+        const condition = parseOr();
+
+        if (index < tokens.length) {
+          const extra = peek().toLowerCase();
+          if (extra === "and") throw new Error("In code, AND is written as &&");
+          if (extra === "or") throw new Error("In code, OR is written as ||");
+          throw new Error("Between two names you need && or ||");
+        }
+
+        return condition;
+      }
+
+      // CHECK STUDENT CODE
+
+      function checkCode(code) {
+        const challenge = challenges[currentChallenge];
+
+        const match = code.match(
+          /^\s*if\s*\((.*)\)\s*\{\s*([a-z]+)\s*\(\s*\)\s*;?\s*\}\s*$/is,
+        );
+
+        if (!match) {
+          if (!/^\s*if/i.test(code)) {
+            return { success: false, message: "Start with an if statement!" };
+          }
+          return {
+            success: false,
+            message: "Check your spelling, parentheses ( ), and curly brackets { }!",
+          };
+        }
+
+        if (match[1].trim() === "") {
+          return { success: false, message: "Put a condition inside the ( )!" };
+        }
+
+        if (match[2].toLowerCase() !== challenge.action.toLowerCase()) {
+          return {
+            success: false,
+            message: `Inside the { }, use the action ${challenge.action}().`,
+          };
+        }
+
+        let condition;
+        try {
+          condition = parseCondition(match[1], challenge.booleans);
+        } catch (error) {
+          return { success: false, message: error.message };
+        }
+
+        // Test the condition in every situation and show the results.
+        const results = situations().map((s) => Boolean(condition(s)));
+        drawTable(results);
+
+        const wrong = situations().filter(
+          (s, i) => results[i] !== challenge.shouldAct(s),
+        ).length;
+
+        if (wrong > 0) {
+          return {
+            success: false,
+            message: `Your code did the wrong thing in ${wrong} situation${wrong > 1 ? "s" : ""}. Look for the ❌ rows in the table and try again!`,
+          };
+        }
+
+        return {
+          success: true,
+          message: "Perfect! Your code made the right choice in every situation! 🎉",
+        };
+      }
+
+      // SUBMIT CODE
+
+      function submitCode() {
+        if (isAdvancing) return;
+
+        if (commandInput.value.trim() === "") {
+          feedback.style.color = "red";
+          feedback.innerText = "Please enter some code first!";
+          return;
+        }
+
+        drawTable(null);
+
+        const result = checkCode(commandInput.value);
+
+        feedback.innerText = result.message;
+        feedback.style.color = result.success ? "green" : "red";
+
+        if (result.success) {
+          actionDisplay.innerText = challenges[currentChallenge].successText;
+          actor.style.transform = "rotate(-10deg) scale(1.15)";
+
+          isAdvancing = true;
+
+          commandInput.disabled = true;
+          submitButton.disabled = true;
+
+          nextChallengeButton.innerText =
+            currentChallenge === challenges.length - 1
+              ? "Finish Challenges"
+              : "Next Challenge";
+
+          nextChallengeButton.hidden = false;
+        } else {
+          actionDisplay.innerText = "Hmm, let's try that again!";
+          actor.style.transform = "rotate(0deg)";
+        }
+      }
+
+      submitButton.addEventListener("click", submitCode);
+
+      // Enter runs the code, Shift + Enter adds a new line.
+      commandInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          submitCode();
+        }
+      });
+
+      // MOVE TO THE NEXT CHALLENGE
+
+      function nextChallenge() {
+        if (!isAdvancing) return;
+
+        currentChallenge++;
+
+        if (currentChallenge < challenges.length) {
+          showChallenge();
+        } else {
+          showReward();
+        }
+
+        isAdvancing = false;
+      }
+
+      nextChallengeButton.addEventListener("click", nextChallenge);
+
+      // SHOW REWARD
+
+      function showReward() {
+        progress.innerText = "All challenges completed!";
+        challengeTitle.innerText = "You did it! 🎉";
+
+        challengePrompt.innerText =
+          "You learned about booleans and how to combine conditions with &&, || and !. You think like a programmer!";
+
+        hint.hidden = true;
+        hintLabel.hidden = true;
+        commandInput.hidden = true;
+        submitButton.hidden = true;
+        nextChallengeButton.hidden = true;
+
+        feedback.innerText = "Congratulations! You completed all 3 challenges!";
+        feedback.style.color = "green";
+
+        // HIDE THE GAME BOARD
+
+        gamescreen.hidden = true;
+        gameInstructions.hidden = true;
+
+        // SHOW THE COMPLETION BUTTON
+
+        rewardButton.hidden = false;
+      }
+
+      // UNLOCK REWARD
+
+      rewardButton.addEventListener("click", () => {
+        rewardButton.hidden = true;
+        rewardContainer.hidden = false;
+
+        // Save progress so the next level unlocks
+        import("./js/progress.js").then((p) => p.completeLevel(11));
+      });
+    </script>
+
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/character.js"></script>
+  </body>
 </html>

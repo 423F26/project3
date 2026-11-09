@@ -1,39 +1,466 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 6 - Zoo Coding</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+  <body class="lesson-page">
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+      <div class="site-title">Zoo Coding</div>
 
-            <div class="site-title">Zoo Coding</div>
+      <div class="menu-container">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+        >
+          <span>▦</span>
+        </button>
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+          <a href="index.html">Levels</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+    </header>
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
-            </div>
-        </header>
-    <h1>Level 6: Else Statements!</h1>
-    <button><a href="index.html">Back to the home page</a></button>
-    
-<script type="module" src="js/auth-guard.js"></script>
-</body>
+    <main>
+      <h1>Level 6: Debugging!</h1>
+
+      <button
+        class="back-home-button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Back to the home page
+      </button>
+
+      <!-- LESSON -->
+
+      <section id="lesson-intro">
+        <!-- STEP 1 -->
+
+        <div class="lesson-step">
+          <p class="lesson-progress">Step 1 of 4</p>
+          <h2>🐛 What Is a Bug?</h2>
+
+          <p>
+            A <strong>bug</strong> is a mistake in a program that makes it do
+            the wrong thing, or not work at all.
+          </p>
+
+          <p>
+            Fun fact: in 1947, computer scientist
+            <strong>Grace Hopper's</strong> team found a real moth stuck
+            inside their computer! They taped it in their notebook and wrote
+            "first actual case of bug being found."
+          </p>
+
+          <p>
+            Finding and fixing mistakes in code is called
+            <strong>debugging</strong>.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 2 of 4</p>
+          <h2>Every Programmer Makes Bugs!</h2>
+
+          <p>
+            Even the best programmers in the world write bugs every day. A
+            bug doesn't mean you're bad at coding. Fixing bugs is a normal
+            part of the job!
+          </p>
+
+          <p>There are two main kinds of bugs:</p>
+
+          <ul>
+            <li>
+              <strong>Typing bugs:</strong> a misspelled word or a missing
+              symbol. The computer stops and tells you something is wrong.
+            </li>
+            <li>
+              <strong>Thinking bugs:</strong> the code runs, but it does the
+              wrong thing. These are sneakier!
+            </li>
+          </ul>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 3 of 4</p>
+          <h2>🔍 How to Squash a Bug</h2>
+
+          <ul>
+            <li>
+              <strong>1. Read the message.</strong> It usually tells you which
+              line has the problem.
+            </li>
+            <li>
+              <strong>2. Check that line carefully.</strong> Look at the
+              spelling, the ( ), and the { }.
+            </li>
+            <li>
+              <strong>3. Watch it run.</strong> Where does your animal go
+              wrong?
+            </li>
+            <li>
+              <strong>4. Fix one thing, then run it again.</strong>
+            </li>
+          </ul>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 4 of 4</p>
+          <h2>Your Mission</h2>
+
+          <p>
+            Someone wrote these programs for your animal, but each one has
+            bugs in it! The broken code will already be in the box. Your job
+            is to find the bugs and fix them.
+          </p>
+
+          <p>
+            If you get mixed up, press <strong>Reset Code</strong> to bring
+            back the original.
+          </p>
+
+          <strong>Ready, bug detective? Let's try three challenges!</strong>
+
+          <button class="lesson-next-button">Next: Start Challenges</button>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+
+      <section id="challenge-box" hidden>
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title"></h2>
+
+        <p id="challenge-prompt"></p>
+
+        <p id="challenge-hint-label">Hint:</p>
+        <div class="code-example" id="hint"></div>
+
+        <textarea id="commandInput" rows="8" spellcheck="false"></textarea>
+
+        <div class="button-row">
+          <button id="submitButton">Run Code!</button>
+          <button id="reset-code-button" class="secondary-button">
+            Reset Code
+          </button>
+        </div>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>Next Challenge</button>
+      </section>
+
+      <!-- GAME BOARD AND REWARD -->
+
+      <section id="game-area" hidden>
+        <div id="board"></div>
+
+        <!-- COMPLETION BUTTON -->
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+          <h2>You unlocked a new character!</h2>
+
+          <div class="reward-animal" data-reward-for="6"></div>
+
+          <p>Congratulations! You completed Level 6!</p>
+
+          <button
+            id="next-level-button"
+            onclick="window.location.href = 'level7.html'"
+          >
+            Next Level
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <script src="js/code-board.js"></script>
+    <script>
+      // NAVIGATION MENU
+
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.hidden = !dropdownMenu.hidden;
+      });
+
+      // PAGE ELEMENTS
+
+      const lessonIntro = document.getElementById("lesson-intro");
+      const lessonSteps = document.querySelectorAll(".lesson-step");
+      const challengeBox = document.getElementById("challenge-box");
+      const gameArea = document.getElementById("game-area");
+
+      const commandInput = document.getElementById("commandInput");
+      const submitButton = document.getElementById("submitButton");
+      const resetCodeButton = document.getElementById("reset-code-button");
+      const feedback = document.getElementById("feedback");
+
+      const challengeTitle = document.getElementById("challenge-title");
+      const challengePrompt = document.getElementById("challenge-prompt");
+      const progress = document.getElementById("progress");
+      const hint = document.getElementById("hint");
+      const hintLabel = document.getElementById("challenge-hint-label");
+
+      const nextChallengeButton = document.getElementById(
+        "next-challenge-button",
+      );
+      const rewardButton = document.getElementById("reward-button");
+      const rewardContainer = document.getElementById("reward-container");
+
+      // THE GAME BOARD (see js/code-board.js)
+
+      const boardElement = document.getElementById("board");
+      const board = CodeBoard.createBoard(boardElement, { cols: 8, rows: 5 });
+
+      // CHALLENGES
+      // `buggyCode` is put in the box for the student to fix.
+      // Challenge 1: a typing bug. Challenge 2: two typing bugs.
+      // Challenge 3: a thinking bug (the code runs, but does the wrong thing).
+
+      const challenges = [
+        {
+          title: "Challenge 1: The Misspelled Command",
+          prompt:
+            "This program should take your animal to the 🍌, but it won't run! Press Run Code to see the error message, then fix the bug.",
+          hint: "Read the error message. Which line does it point to? Check the spelling!",
+          buggyCode: "right()\nrigth()\ndown()\nright()",
+          start: { x: 0, y: 1 },
+          goals: [{ x: 3, y: 2, emoji: "🍌" }],
+          rocks: [],
+          success: "Bug squashed! 🐛 One misspelled word was all it took to break the program.",
+        },
+
+        {
+          title: "Challenge 2: Two Bugs Hiding!",
+          prompt:
+            "This program uses a loop from Level 3 to reach the 🍎, but it has TWO bugs. Fix one, run it, then fix the next!",
+          hint: "Every { needs a matching }. Every command needs ( ).",
+          buggyCode: "repeat(4) {\n    right()\n\ndown",
+          start: { x: 0, y: 0 },
+          goals: [{ x: 4, y: 1, emoji: "🍎" }],
+          rocks: [],
+          success: "Two bugs squashed! 🐛🐛 Fixing one bug at a time is exactly how real programmers do it.",
+        },
+
+        {
+          title: "Challenge 3: The Sneaky Bug!",
+          prompt:
+            "No typos this time! This code runs, but your animal walks straight into a rock. Watch where it goes wrong, then change the order of the commands so it reaches the 🐟.",
+          hint: "Should your animal go right first, or down first?",
+          buggyCode: "repeat(4) {\n    right()\n}\ndown()\ndown()",
+          start: { x: 0, y: 0 },
+          goals: [{ x: 4, y: 2, emoji: "🐟" }],
+          rocks: [
+            { x: 2, y: 0 },
+            { x: 2, y: 1 },
+          ],
+          success: "You found a thinking bug! 🕵️ The commands were all correct, they were just in the wrong order.",
+        },
+      ];
+
+      let currentChallenge = 0;
+      let isAdvancing = false;
+      let isRunning = false;
+
+      // MOVE THROUGH THE LESSON
+
+      lessonSteps.forEach((step, index) => {
+        step.querySelector(".lesson-next-button").addEventListener("click", () => {
+          step.hidden = true;
+
+          if (index + 1 < lessonSteps.length) {
+            lessonSteps[index + 1].hidden = false;
+          } else {
+            startChallenges();
+          }
+        });
+      });
+
+      // START THE CHALLENGES
+
+      function startChallenges() {
+        lessonIntro.hidden = true;
+        challengeBox.hidden = false;
+        gameArea.hidden = false;
+
+        showChallenge();
+      }
+
+      // SHOW CHALLENGE
+
+      function showChallenge() {
+        const challenge = challenges[currentChallenge];
+
+        progress.innerText = `Challenge ${currentChallenge + 1} of ${challenges.length}`;
+
+        challengeTitle.innerText = challenge.title;
+        challengePrompt.innerText = challenge.prompt;
+        hint.innerText = challenge.hint;
+
+        feedback.innerText = "";
+        commandInput.value = challenge.buggyCode;
+
+        setEditing(true);
+        nextChallengeButton.hidden = true;
+
+        board.setup(challenge);
+      }
+
+      function setEditing(on) {
+        commandInput.disabled = !on;
+        submitButton.disabled = !on;
+        resetCodeButton.disabled = !on;
+      }
+
+      resetCodeButton.addEventListener("click", () => {
+        commandInput.value = challenges[currentChallenge].buggyCode;
+        feedback.innerText = "";
+        board.reset();
+      });
+
+      // RUN THE STUDENT'S PROGRAM
+
+      async function submitCode() {
+        if (isAdvancing || isRunning) return;
+
+        const challenge = challenges[currentChallenge];
+
+        if (commandInput.value.trim() === "") {
+          showFeedback(false, "The box is empty! Press Reset Code to get the program back.");
+          return;
+        }
+
+        board.reset();
+
+        const compiled = CodeBoard.compile(commandInput.value);
+
+        if (compiled.error) {
+          showFeedback(false, `🐛 Bug found! ${compiled.error}`);
+          return;
+        }
+
+        isRunning = true;
+        setEditing(false);
+        showFeedback(true, "Running the program...");
+
+        const result = await board.run(compiled.steps);
+
+        isRunning = false;
+
+        if (!result.ok) {
+          setEditing(true);
+          showFeedback(false, `🐛 ${result.message} Can you figure out why?`);
+          return;
+        }
+
+        if (result.goalsLeft > 0) {
+          setEditing(true);
+          showFeedback(
+            false,
+            "The program ran, but your animal didn't reach the goal. There's still a bug somewhere!",
+          );
+          return;
+        }
+
+        showFeedback(true, challenge.success);
+
+        isAdvancing = true;
+        nextChallengeButton.innerText =
+          currentChallenge === challenges.length - 1
+            ? "Finish Challenges"
+            : "Next Challenge";
+        nextChallengeButton.hidden = false;
+      }
+
+      function showFeedback(good, message) {
+        feedback.innerText = message;
+        feedback.style.color = good ? "green" : "red";
+      }
+
+      submitButton.addEventListener("click", submitCode);
+
+      // MOVE TO THE NEXT CHALLENGE
+
+      nextChallengeButton.addEventListener("click", () => {
+        if (!isAdvancing) return;
+
+        currentChallenge++;
+        isAdvancing = false;
+
+        if (currentChallenge < challenges.length) {
+          showChallenge();
+        } else {
+          showReward();
+        }
+      });
+
+      // SHOW REWARD
+
+      function showReward() {
+        progress.innerText = "All challenges completed!";
+        challengeTitle.innerText = "You did it! 🎉";
+
+        challengePrompt.innerText =
+          "You're an official bug detective! You fixed typing bugs and a sneaky thinking bug.";
+
+        hint.hidden = true;
+        hintLabel.hidden = true;
+        commandInput.hidden = true;
+        submitButton.hidden = true;
+        resetCodeButton.hidden = true;
+        nextChallengeButton.hidden = true;
+
+        showFeedback(true, "Congratulations! You completed all 3 challenges!");
+
+        // HIDE THE GAME BOARD
+
+        boardElement.hidden = true;
+
+        // SHOW THE COMPLETION BUTTON
+
+        rewardButton.hidden = false;
+      }
+
+      // UNLOCK REWARD
+
+      rewardButton.addEventListener("click", () => {
+        rewardButton.hidden = true;
+        rewardContainer.hidden = false;
+
+        // Save progress so the next level unlocks
+        import("./js/progress.js").then((p) => p.completeLevel(6));
+      });
+    </script>
+
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/character.js"></script>
+  </body>
 </html>

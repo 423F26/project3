@@ -1,39 +1,631 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 7 - Zoo Coding</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+  <body class="lesson-page">
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+      <div class="site-title">Zoo Coding</div>
 
-            <div class="site-title">Zoo Coding</div>
+      <div class="menu-container">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+        >
+          <span>▦</span>
+        </button>
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+          <a href="index.html">Levels</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+    </header>
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
+    <main>
+      <h1>Level 7: Else Statements!</h1>
+
+      <button
+        class="back-home-button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Back to the home page
+      </button>
+
+      <!-- LESSON -->
+
+      <section id="lesson-intro">
+        <!-- STEP 1 -->
+
+        <div class="lesson-step" id="lesson-step-1">
+          <p class="lesson-progress">Step 1 of 4</p>
+          <h2>🦁 Remember If Statements?</h2>
+
+          <p>
+            In Level 5 you learned that an <strong>if statement</strong> checks
+            whether something is true. If it is true, the computer runs the
+            code inside the curly brackets.
+          </p>
+
+          <div class="code-example">if (hungry) {
+    eat()
+}</div>
+
+          <p>
+            But what if your animal is <strong>not</strong> hungry? Right now the
+            computer just skips the code and does nothing at all. Wouldn't it
+            be nice to tell your animal what to do instead?
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="lesson-step" id="lesson-step-2" hidden>
+          <p class="lesson-progress">Step 2 of 4</p>
+          <h2>Meet "else"!</h2>
+
+          <p>
+            <strong>else</strong> means <strong>"otherwise"</strong>. It gives
+            the computer a second plan for when the condition is
+            <strong>false</strong>.
+          </p>
+
+          <div class="code-example">if (hungry) {
+    eat()
+} else {
+    play()
+}</div>
+
+          <p>
+            This means: <strong>IF</strong> your animal is hungry, it eats.
+            <strong>OTHERWISE</strong>, it plays.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="lesson-step" id="lesson-step-3" hidden>
+          <p class="lesson-progress">Step 3 of 4</p>
+          <h2>What Do the Parts Mean?</h2>
+
+          <ul>
+            <li>
+              <strong>if (hungry)</strong> checks the condition, just like
+              before.
+            </li>
+            <li>
+              The <strong>first { }</strong> holds what to do when the
+              condition is <strong>true</strong>.
+            </li>
+            <li>
+              <strong>else</strong> comes right after the first closing
+              bracket <strong>}</strong>. It can never be used by itself.
+            </li>
+            <li>
+              The <strong>second { }</strong> holds what to do when the
+              condition is <strong>false</strong>.
+            </li>
+          </ul>
+
+          <p>
+            Here's the most important rule:
+            <strong>only ONE of the two parts ever runs.</strong> Never both,
+            and never neither!
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div class="lesson-step" id="lesson-step-4" hidden>
+          <p class="lesson-progress">Step 4 of 4</p>
+          <h2>Picking a Path</h2>
+
+          <p>
+            Think of if / else like a fork in a path. Your animal always walks
+            down exactly one side:
+          </p>
+
+          <div class="code-example">if (raining) {
+    umbrella()   // path 1: it IS raining
+} else {
+    sunglasses() // path 2: it is NOT raining
+}</div>
+
+          <strong>
+            Ready to help your animal choose its path? Let's try three challenges!
+            Each one gives you a little less help than the one before.
+          </strong>
+
+          <button class="lesson-next-button">Next: Start Challenges</button>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+
+      <section id="challenge-box" hidden>
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title"></h2>
+
+        <p id="challenge-prompt"></p>
+
+        <p id="challenge-hint-label">Hint:</p>
+        <div class="code-example" id="hint"></div>
+
+        <textarea
+          id="commandInput"
+          rows="5"
+          placeholder="Enter your code here"
+        ></textarea>
+
+        <button id="submitButton">Run Code!</button>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>Next Challenge</button>
+      </section>
+
+      <!-- GAME BOARD AND REWARD -->
+
+      <section id="game-area" hidden>
+        <h3 id="game-instructions">
+          Watch which path your animal takes!
+        </h3>
+
+        <div id="gamescreen">
+          <div id="scene">
+            <div class="scene-item" id="condition-icon">
+              <span class="scene-emoji" id="condition-emoji"></span>
+              <span class="scene-label" id="condition-label"></span>
             </div>
-        </header>
-    <h1>Level 7: Functions!</h1>
-    <button><a href="index.html">Back to the home page</a></button>
-    
-<script type="module" src="js/auth-guard.js"></script>
-</body>
+
+            <div class="branch-box" id="if-box">
+              <span class="scene-emoji" id="if-emoji"></span>
+              <span id="if-label"></span>
+            </div>
+
+            <div class="branch-box" id="else-box">
+              <span class="scene-emoji" id="else-emoji"></span>
+              <span id="else-label"></span>
+            </div>
+          </div>
+
+          <div id="actor" data-character="70">
+            
+          </div>
+
+          <div id="action-display" aria-live="polite">
+            Waiting for your code...
+          </div>
+        </div>
+
+        <!-- COMPLETION BUTTON -->
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+          <h2>You unlocked a new character!</h2>
+
+          <div class="reward-animal" data-reward-for="7"></div>
+
+          <p>Congratulations! You completed Level 7!</p>
+
+          <button
+            id="next-level-button"
+            onclick="window.location.href = 'level8.html'"
+          >
+            Next Level
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      // NAVIGATION MENU
+
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.hidden = !dropdownMenu.hidden;
+      });
+
+      // PAGE ELEMENTS
+
+      const lessonIntro = document.getElementById("lesson-intro");
+      const lessonSteps = document.querySelectorAll(".lesson-step");
+      const challengeBox = document.getElementById("challenge-box");
+      const gameArea = document.getElementById("game-area");
+
+      // GAME ELEMENTS
+
+      const actor = document.getElementById("actor");
+      const commandInput = document.getElementById("commandInput");
+      const submitButton = document.getElementById("submitButton");
+      const feedback = document.getElementById("feedback");
+
+      const challengeTitle = document.getElementById("challenge-title");
+      const challengePrompt = document.getElementById("challenge-prompt");
+      const progress = document.getElementById("progress");
+      const hint = document.getElementById("hint");
+      const hintLabel = document.getElementById("challenge-hint-label");
+
+      const conditionEmoji = document.getElementById("condition-emoji");
+      const conditionLabel = document.getElementById("condition-label");
+      const ifBox = document.getElementById("if-box");
+      const elseBox = document.getElementById("else-box");
+
+      const actionDisplay = document.getElementById("action-display");
+      const gameInstructions = document.getElementById("game-instructions");
+      const gamescreen = document.getElementById("gamescreen");
+
+      const nextChallengeButton = document.getElementById(
+        "next-challenge-button",
+      );
+      const rewardButton = document.getElementById("reward-button");
+      const rewardContainer = document.getElementById("reward-container");
+
+      // CHALLENGES
+      // Each hint gives a little less help, so by challenge 3 the student
+      // writes the whole if / else on their own.
+
+      const challenges = [
+        {
+          title: "Challenge 1: Snack or Play?",
+          prompt:
+            "Your animal is NOT hungry right now. Write an if / else statement: if your animal is hungry, it should eat(). Otherwise, it should play().",
+          hint: "if (hungry) {\n    eat()\n} else {\n    play()\n}",
+          condition: "hungry",
+          value: false,
+          ifAction: "eat",
+          elseAction: "play",
+          scene: { emoji: "🍖", label: "Hungry: NO", ifEmoji: "🍖", elseEmoji: "⚽" },
+          actionText: { eat: "ate a big snack 🍖", play: "played with its ball ⚽" },
+        },
+
+        {
+          title: "Challenge 2: Rain or Shine?",
+          prompt:
+            "Dark clouds are here and it IS raining! If it is raining, your animal needs its umbrella(). Otherwise, it should wear its sunglasses(). Fill in the missing action.",
+          hint: "if (raining) {\n    umbrella()\n} else {\n    ______()\n}",
+          condition: "raining",
+          value: true,
+          ifAction: "umbrella",
+          elseAction: "sunglasses",
+          scene: { emoji: "🌧️", label: "Raining: YES", ifEmoji: "☂️", elseEmoji: "😎" },
+          actionText: {
+            umbrella: "opened its umbrella ☂️",
+            sunglasses: "put on its sunglasses 😎",
+          },
+        },
+
+        {
+          title: "Challenge 3: Your Turn!",
+          prompt:
+            "The sun is up, so it is NOT dark. If it is dark, your animal should sleep(). Otherwise, it should explore(). Write the whole if / else statement yourself!",
+          hint: "if (____) {\n    ____()\n} else {\n    ____()\n}",
+          condition: "dark",
+          value: false,
+          ifAction: "sleep",
+          elseAction: "explore",
+          scene: { emoji: "☀️", label: "Dark: NO", ifEmoji: "🛏️", elseEmoji: "🧭" },
+          actionText: {
+            sleep: "curled up and went to sleep 🛏️",
+            explore: "went off to explore the zoo 🧭",
+          },
+        },
+      ];
+
+      let currentChallenge = 0;
+      let isAdvancing = false;
+
+      // MOVE THROUGH THE LESSON
+
+      lessonSteps.forEach((step, index) => {
+        step.querySelector(".lesson-next-button").addEventListener("click", () => {
+          step.hidden = true;
+
+          if (index + 1 < lessonSteps.length) {
+            lessonSteps[index + 1].hidden = false;
+          } else {
+            startChallenges();
+          }
+        });
+      });
+
+      // START THE CHALLENGES
+
+      function startChallenges() {
+        lessonIntro.hidden = true;
+        challengeBox.hidden = false;
+        gameArea.hidden = false;
+
+        showChallenge();
+      }
+
+      // SHOW CHALLENGE
+
+      function showChallenge() {
+        const challenge = challenges[currentChallenge];
+
+        progress.innerText = `Challenge ${currentChallenge + 1} of ${challenges.length}`;
+
+        challengeTitle.innerText = challenge.title;
+        challengePrompt.innerText = challenge.prompt;
+        hint.innerText = challenge.hint;
+
+        conditionEmoji.innerText = challenge.scene.emoji;
+        conditionLabel.innerText = challenge.scene.label;
+        document.getElementById("if-emoji").innerText = challenge.scene.ifEmoji;
+        document.getElementById("if-label").innerText = `if: ${challenge.ifAction}()`;
+        document.getElementById("else-emoji").innerText = challenge.scene.elseEmoji;
+        document.getElementById("else-label").innerText = `else: ${challenge.elseAction}()`;
+
+        feedback.innerText = "";
+        commandInput.value = "";
+
+        commandInput.disabled = false;
+        submitButton.disabled = false;
+
+        submitButton.hidden = false;
+        hint.hidden = false;
+        hintLabel.hidden = false;
+        commandInput.hidden = false;
+
+        nextChallengeButton.hidden = true;
+
+        resetScene();
+      }
+
+      function resetScene() {
+        ifBox.classList.remove("ran", "skipped");
+        elseBox.classList.remove("ran", "skipped");
+
+        actor.style.left = "calc(16.7% - 35px)";
+        actor.style.top = "220px";
+
+        actionDisplay.innerText = "Waiting for your code...";
+      }
+
+      // READ THE STUDENT'S CODE
+      // Returns { condition, ifAction, elseAction } or { error }.
+
+      function parseCode(code) {
+        const ifElse =
+          /^\s*if\s*\(\s*([a-z]+)\s*\)\s*\{\s*([a-z]+)\s*\(\s*\)\s*;?\s*\}\s*else\s*\{\s*([a-z]+)\s*\(\s*\)\s*;?\s*\}\s*$/i;
+        const ifOnly =
+          /^\s*if\s*\(\s*([a-z]+)\s*\)\s*\{\s*([a-z]+)\s*\(\s*\)\s*;?\s*\}\s*$/i;
+
+        const match = code.match(ifElse);
+
+        if (match) {
+          return {
+            condition: match[1].toLowerCase(),
+            ifAction: match[2].toLowerCase(),
+            elseAction: match[3].toLowerCase(),
+          };
+        }
+
+        if (ifOnly.test(code)) {
+          return {
+            error:
+              "Great if statement! Now add the else part after the closing } so your animal knows what to do otherwise.",
+          };
+        }
+
+        if (/^\s*else/i.test(code)) {
+          return {
+            error: "else can't be by itself. It always comes right after an if statement!",
+          };
+        }
+
+        if (!/^\s*if/i.test(code)) {
+          return { error: "Start with an if statement!" };
+        }
+
+        return {
+          error: "Check your spelling, parentheses ( ), and curly brackets { }!",
+        };
+      }
+
+      // CHECK STUDENT CODE
+
+      function checkCode(code) {
+        const challenge = challenges[currentChallenge];
+        const parsed = parseCode(code);
+
+        if (parsed.error) {
+          return { success: false, message: parsed.error };
+        }
+
+        const knownActions = [challenge.ifAction, challenge.elseAction];
+
+        if (parsed.condition !== challenge.condition) {
+          return {
+            success: false,
+            message: `This challenge is checking whether it is "${challenge.condition}". Put that inside the ( ).`,
+          };
+        }
+
+        if (
+          !knownActions.includes(parsed.ifAction) ||
+          !knownActions.includes(parsed.elseAction)
+        ) {
+          return {
+            success: false,
+            message: `Use the actions from this challenge: ${challenge.ifAction}() and ${challenge.elseAction}().`,
+          };
+        }
+
+        // The code is valid, so show the student what it really does,
+        // even if it isn't the answer yet.
+        const ranIf = runScene(parsed);
+
+        if (parsed.ifAction === parsed.elseAction) {
+          return {
+            success: false,
+            message:
+              "Both paths do the same thing! The if part and the else part should do different actions.",
+          };
+        }
+
+        if (
+          parsed.ifAction !== challenge.ifAction ||
+          parsed.elseAction !== challenge.elseAction
+        ) {
+          return {
+            success: false,
+            message:
+              "Close! Your two actions are swapped. The action for when the condition is TRUE goes in the first { }.",
+          };
+        }
+
+        const path = ranIf ? "the if part" : "the else part";
+        const truth = challenge.value ? "true" : "false";
+
+        return {
+          success: true,
+          message: `Awesome! "${challenge.condition}" was ${truth}, so ${path} ran. 🎉`,
+        };
+      }
+
+      // SHOW WHICH PATH THE ANIMAL TAKES
+      // Returns true if the "if" part ran, false if the "else" part ran.
+
+      function runScene(parsed) {
+        const challenge = challenges[currentChallenge];
+        const ranIf = challenge.value;
+        const action = ranIf ? parsed.ifAction : parsed.elseAction;
+
+        ifBox.classList.toggle("ran", ranIf);
+        ifBox.classList.toggle("skipped", !ranIf);
+        elseBox.classList.toggle("ran", !ranIf);
+        elseBox.classList.toggle("skipped", ranIf);
+
+        actor.style.left = ranIf ? "calc(50% - 35px)" : "calc(83.3% - 35px)";
+        actor.style.top = "170px";
+
+        actionDisplay.innerText = `Your animal ${challenge.actionText[action]}`;
+
+        return ranIf;
+      }
+
+      // SUBMIT CODE
+
+      function submitCode() {
+        if (isAdvancing) return;
+
+        if (commandInput.value.trim() === "") {
+          feedback.style.color = "red";
+          feedback.innerText = "Please enter some code first!";
+          return;
+        }
+
+        resetScene();
+
+        const result = checkCode(commandInput.value);
+
+        feedback.innerText = result.message;
+        feedback.style.color = result.success ? "green" : "red";
+
+        if (result.success) {
+          isAdvancing = true;
+
+          commandInput.disabled = true;
+          submitButton.disabled = true;
+
+          nextChallengeButton.innerText =
+            currentChallenge === challenges.length - 1
+              ? "Finish Challenges"
+              : "Next Challenge";
+
+          nextChallengeButton.hidden = false;
+        }
+      }
+
+      submitButton.addEventListener("click", submitCode);
+
+      // Enter runs the code, Shift + Enter adds a new line.
+      commandInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          submitCode();
+        }
+      });
+
+      // MOVE TO THE NEXT CHALLENGE
+
+      function nextChallenge() {
+        if (!isAdvancing) return;
+
+        currentChallenge++;
+
+        if (currentChallenge < challenges.length) {
+          showChallenge();
+        } else {
+          showReward();
+        }
+
+        isAdvancing = false;
+      }
+
+      nextChallengeButton.addEventListener("click", nextChallenge);
+
+      // SHOW REWARD
+
+      function showReward() {
+        progress.innerText = "All challenges completed!";
+        challengeTitle.innerText = "You did it! 🎉";
+
+        challengePrompt.innerText =
+          "You learned how to use if / else statements to give the computer two different plans. Great work!";
+
+        hint.hidden = true;
+        hintLabel.hidden = true;
+        commandInput.hidden = true;
+        submitButton.hidden = true;
+        nextChallengeButton.hidden = true;
+
+        feedback.innerText = "Congratulations! You completed all 3 challenges!";
+        feedback.style.color = "green";
+
+        // HIDE THE GAME BOARD
+
+        gamescreen.hidden = true;
+        gameInstructions.hidden = true;
+
+        // SHOW THE COMPLETION BUTTON
+
+        rewardButton.hidden = false;
+      }
+
+      // UNLOCK REWARD
+
+      rewardButton.addEventListener("click", () => {
+        rewardButton.hidden = true;
+        rewardContainer.hidden = false;
+
+        // Save progress so the next level unlocks
+        import("./js/progress.js").then((p) => p.completeLevel(7));
+      });
+    </script>
+
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/character.js"></script>
+  </body>
 </html>

@@ -53,7 +53,7 @@
             </p>
 
             <p>
-                For example, our penguin might want to move forward 5 spaces.
+                For example, your animal might want to move forward 5 spaces.
                 Instead of writing "right()" five times, we can use a loop!
             </p>
 
@@ -72,7 +72,7 @@
     right()
 }</div>
 
-            <p>This tells the penguin to move right 5 times!</p>
+            <p>This tells your animal to move right 5 times!</p>
 
             <button class="next-lesson-button">Next</button>
         </div>
@@ -93,7 +93,7 @@
 
                 <li>
                     <strong>right():</strong>
-                    This tells our penguin which action to do!
+                    This tells your animal which action to do!
                 </li>
             </ul>
 
@@ -136,10 +136,10 @@ right()</div>
 
         <p id="progress">Challenge 1 of 3</p>
 
-        <h2 id="challenge-title">Challenge 1: Move the Penguin!</h2>
+        <h2 id="challenge-title">Challenge 1: Move Your Animal!</h2>
 
         <p id="challenge-prompt">
-            Make the penguin move forward 5 spaces using a loop!
+            Make your animal move forward 5 spaces using a loop!
         </p>
 
         <p>
@@ -167,12 +167,12 @@ right()</div>
 
     <section id="game-area" hidden>
 
-        <h3 id="game-instructions">Help the penguin complete its challenges!</h3>
+        <h3 id="game-instructions">Help your animal complete its challenges!</h3>
 
         <div id="gamescreen">
 
-            <div id="penguin">
-                <img src="rewards/Level2-Penguin.png" alt="Penguin">
+            <div id="penguin" data-character="60">
+                
             </div>
 
             <div id="destination">🏠</div>
@@ -190,7 +190,7 @@ right()</div>
             <h2>You unlocked a new character!</h2>
 
             <div id="character">
-                <img src="rewards/level3-koala.png" alt="New zoo animal">
+                <div class="reward-animal" data-reward-for="3"></div>
             </div>
 
             <p>Congratulations! You completed Level 3!</p>
@@ -290,8 +290,8 @@ let posY = startY;
 const challenges = [
 
     {
-        title: "Challenge 1: Move the Penguin!",
-        prompt: "Make the penguin move forward 5 spaces using a loop!",
+        title: "Challenge 1: Move Your Animal!",
+        prompt: "Make your animal move forward 5 spaces using a loop!",
         hint: "repeat(number) {\n    right()\n}",
 
         check: (x, y, spins) =>
@@ -301,8 +301,8 @@ const challenges = [
     },
 
     {
-        title: "Challenge 2: Make the Penguin Spin!",
-        prompt: "Make the penguin spin around 4 times using a loop!",
+        title: "Challenge 2: Make Your Animal Spin!",
+        prompt: "Make your animal spin around 4 times using a loop!",
         hint: "repeat(number) {\n    spin()\n}",
 
         check: (x, y, spins) =>
@@ -312,7 +312,7 @@ const challenges = [
     },
 
     {
-        title: "Challenge 3: Find the Penguin's Home!",
+        title: "Challenge 3: Find Your Animal's Home!",
         prompt: "Move right 2 spaces and down 2 spaces using a loop!",
         hint: "repeat(number) {\n    right()\n    down()\n}",
 
@@ -570,6 +570,9 @@ rewardButton.addEventListener("click", () => {
     rewardButton.hidden = true;
     rewardContainer.hidden = false;
 
+    // Save progress so the next level unlocks
+    import("./js/progress.js").then(p => p.completeLevel(3));
+
     // SAVE THE UNLOCKED CHARACTER
 
     let unlockRewards =
@@ -589,6 +592,7 @@ rewardButton.addEventListener("click", () => {
 </script>
 
 <script type="module" src="js/auth-guard.js"></script>
+<script type="module" src="js/character.js"></script>
 
 </body>
 </html>

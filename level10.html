@@ -1,39 +1,835 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 10 - Zoo Coding</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Level 10 only: the stage where your animal talks */
+      #stage {
+        position: relative;
+        width: 700px;
+        max-width: 100%;
+        min-height: 260px;
+        margin: 20px auto;
+        padding: 24px 16px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        border: 2px solid #234c38;
+        border-radius: 8px;
+        background: #f4f8e9;
+        box-sizing: border-box;
+      }
 
-        <header class="navbar">
-            <a href="index.html" class="logo" aria-label="Zoo Coding home">
-                🦁
-            </a>
+      #actor {
+        width: 100px;
+        height: 100px;
+      }
 
-            <div class="site-title">Zoo Coding</div>
+      #bubble {
+        position: relative;
+        max-width: 80%;
+        padding: 14px 20px;
+        background: white;
+        border: 3px solid #234c38;
+        border-radius: 18px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #263238;
+        overflow-wrap: anywhere;
+      }
 
-            <div class="menu-container">
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
-                    <span>▦</span>
-                </button>
+      #bubble::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -14px;
+        transform: translateX(-50%);
+        border: 12px solid transparent;
+        border-top-color: #234c38;
+        border-bottom: 0;
+      }
 
-                <nav class="dropdown-menu" id="dropdownMenu" hidden>
-                    <a href="index.html">Levels</a>
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="index.html">Home</a>
-                </nav>
-            </div>
-        </header>
-    <h1>Level 10: Accepting User Input!</h1>
-    <button><a href="index.html">Back to the home page</a></button>
-    
-<script type="module" src="js/auth-guard.js"></script>
-</body>
+      #bubble.asking {
+        border-color: #d39a42;
+      }
+
+      #answer-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin: 10px auto;
+      }
+
+      #answer-input {
+        width: 260px;
+        max-width: 90vw;
+        padding: 10px;
+        font-size: 16px;
+        border: 3px solid #d39a42;
+        border-radius: 8px;
+      }
+
+      #answer-button {
+        margin: 0;
+        padding: 10px 20px;
+        background: #d39a42;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body class="lesson-page">
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="Zoo Coding home">🦁</a>
+      <div class="site-title">Zoo Coding</div>
+
+      <div class="menu-container">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+        >
+          <span>▦</span>
+        </button>
+
+        <nav class="dropdown-menu" id="dropdownMenu" hidden>
+          <a href="index.html">Levels</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h1>Level 10: User Input!</h1>
+
+      <button
+        class="back-home-button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Back to the home page
+      </button>
+
+      <!-- LESSON -->
+
+      <section id="lesson-intro">
+        <!-- STEP 1 -->
+
+        <div class="lesson-step">
+          <p class="lesson-progress">Step 1 of 4</p>
+          <h2>💬 Programs That Listen</h2>
+
+          <p>
+            So far, your programs have done the exact same thing every time
+            they run. But most programs you use <strong>listen</strong> to
+            you!
+          </p>
+
+          <p>
+            A game asks for your name. A search box waits for you to type.
+            Anything the user types or clicks is called
+            <strong>user input</strong>.
+          </p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 2 of 4</p>
+          <h2>❓ Asking a Question</h2>
+
+          <div class="code-example">name = ask("What is your name?")</div>
+
+          <ul>
+            <li>
+              <strong>ask( )</strong> shows a question and
+              <strong>waits</strong> for the user to type an answer.
+            </li>
+            <li>
+              The question goes inside <strong>" " quotes</strong>.
+            </li>
+            <li>
+              <strong>name =</strong> saves the answer in a
+              <strong>variable</strong> called name, so you can use it later.
+            </li>
+          </ul>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 3 of 4</p>
+          <h2>🗣️ Using the Answer</h2>
+
+          <div class="code-example">name = ask("What is your name?")
+say("Hello " + name)</div>
+
+          <ul>
+            <li>
+              <strong>say( )</strong> makes your animal say something.
+            </li>
+            <li>
+              <strong>"Hello "</strong> has quotes, so it says those exact
+              words.
+            </li>
+            <li>
+              <strong>name</strong> has no quotes, so it uses whatever the
+              user typed!
+            </li>
+            <li><strong>+</strong> joins them together.</li>
+          </ul>
+
+          <p>If you type <em>Sam</em>, your animal says "Hello Sam"!</p>
+
+          <button class="lesson-next-button">Next</button>
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div class="lesson-step" hidden>
+          <p class="lesson-progress">Step 4 of 4</p>
+          <h2>🔀 Different Answers, Different Results</h2>
+
+          <p>
+            Remember if / else from Level 7? You can use it to check what the
+            user typed. <strong>==</strong> checks if two things are the same:
+          </p>
+
+          <div class="code-example">answer = ask("Are you hungry?")
+if (answer == "yes") {
+    say("Let's eat!")
+} else {
+    say("Let's play!")
+}</div>
+
+          <strong>
+            Ready to make your animal talk? Let's try three challenges! Each
+            one gives you a little less help than the one before.
+          </strong>
+
+          <button class="lesson-next-button">Next: Start Challenges</button>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+
+      <section id="challenge-box" hidden>
+        <p id="progress">Challenge 1 of 3</p>
+
+        <h2 id="challenge-title"></h2>
+
+        <p id="challenge-prompt"></p>
+
+        <p id="challenge-hint-label">Hint:</p>
+        <div class="code-example" id="hint"></div>
+
+        <textarea
+          id="commandInput"
+          rows="8"
+          placeholder="Enter your code here"
+          spellcheck="false"
+        ></textarea>
+
+        <button id="submitButton">Run Code!</button>
+
+        <p id="feedback" aria-live="polite"></p>
+
+        <button id="next-challenge-button" hidden>Next Challenge</button>
+      </section>
+
+      <!-- GAME AREA AND REWARD -->
+
+      <section id="game-area" hidden>
+        <div id="stage">
+          <div id="bubble" aria-live="polite">Waiting for your code...</div>
+          <div id="actor" data-character="90"></div>
+        </div>
+
+        <form id="answer-row" hidden>
+          <input
+            id="answer-input"
+            type="text"
+            autocomplete="off"
+            aria-label="Your answer"
+            placeholder="Type your answer"
+          />
+          <button id="answer-button" type="submit">Answer</button>
+        </form>
+
+        <!-- COMPLETION BUTTON -->
+
+        <button id="reward-button" hidden>I did it!</button>
+
+        <!-- REWARD -->
+
+        <section id="reward-container" hidden>
+          <h2>You unlocked a new character!</h2>
+
+          <div class="reward-animal" data-reward-for="10"></div>
+
+          <p>Congratulations! You completed Level 10!</p>
+
+          <button
+            id="next-level-button"
+            onclick="window.location.href = 'level11.html'"
+          >
+            Next Level
+          </button>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      // NAVIGATION MENU
+
+      const menuButton = document.getElementById("menuButton");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      menuButton.addEventListener("click", () => {
+        dropdownMenu.hidden = !dropdownMenu.hidden;
+      });
+
+      // PAGE ELEMENTS
+
+      const lessonIntro = document.getElementById("lesson-intro");
+      const lessonSteps = document.querySelectorAll(".lesson-step");
+      const challengeBox = document.getElementById("challenge-box");
+      const gameArea = document.getElementById("game-area");
+
+      const commandInput = document.getElementById("commandInput");
+      const submitButton = document.getElementById("submitButton");
+      const feedback = document.getElementById("feedback");
+
+      const challengeTitle = document.getElementById("challenge-title");
+      const challengePrompt = document.getElementById("challenge-prompt");
+      const progress = document.getElementById("progress");
+      const hint = document.getElementById("hint");
+      const hintLabel = document.getElementById("challenge-hint-label");
+
+      const stage = document.getElementById("stage");
+      const bubble = document.getElementById("bubble");
+      const answerRow = document.getElementById("answer-row");
+      const answerInput = document.getElementById("answer-input");
+
+      const nextChallengeButton = document.getElementById(
+        "next-challenge-button",
+      );
+      const rewardButton = document.getElementById("reward-button");
+      const rewardContainer = document.getElementById("reward-container");
+
+      // CHALLENGES
+      // needsIfElse: challenge 3 must check the answer with if / else, and
+      // the student has to test BOTH paths by running it twice.
+
+      const challenges = [
+        {
+          title: "Challenge 1: What's Your Name?",
+          prompt:
+            "Make your animal ask for your name, then say hello to you using your answer.",
+          hint: 'name = ask("What is your name?")\nsay("Hello " + name)',
+          needsIfElse: false,
+          success: "Your animal said hello to you! The program used YOUR answer. 👋",
+        },
+
+        {
+          title: "Challenge 2: Favorite Food",
+          prompt:
+            'Ask the user for their favorite food. Then make your animal say "I love ___ too!" with their answer in the blank. Fill in the missing part.',
+          hint: 'food = ask("What is your favorite food?")\nsay("I love " + ____ + " too!")',
+          needsIfElse: false,
+          success: "Yum! You joined words and an answer together with +. 🍕",
+        },
+
+        {
+          title: "Challenge 3: Your Turn!",
+          prompt:
+            'Ask the user if they want to play. If they answer "yes", your animal should say something excited. Otherwise, it should say something else. Then test it: run it once answering yes, and once with a different answer!',
+          hint: 'answer = ask("...")\nif (answer == "yes") {\n    ...\n} else {\n    ...\n}',
+          needsIfElse: true,
+          success: "You tested both paths, and your program answered differently each time! 🎉",
+        },
+      ];
+
+      let currentChallenge = 0;
+      let isAdvancing = false;
+      let isRunning = false;
+      let pathsTested = new Set();
+
+      // ---- READING THE CODE ----
+      // The language for this level:
+      //   name = ask("question")
+      //   say("words" + name)
+      //   if (name == "yes") { ... } else { ... }
+
+      function codeError(message, line) {
+        const error = new Error(`Line ${line}: ${message}`);
+        error.isCodeError = true;
+        return error;
+      }
+
+      function tokenize(code) {
+        const tokens = [];
+        let line = 1;
+        let i = 0;
+
+        while (i < code.length) {
+          const ch = code[i];
+
+          if (ch === "\n") { line++; i++; continue; }
+          if (/\s/.test(ch) || ch === ";") { i++; continue; }
+
+          if (ch === '"' || ch === "'" || ch === "“" || ch === "”") {
+            const close = ch === "“" ? "”" : ch;
+            let j = i + 1;
+            while (j < code.length && code[j] !== close && code[j] !== "”" && code[j] !== "\n") j++;
+            if (j >= code.length || code[j] === "\n") {
+              throw codeError("A \" quote is missing its partner at the end.", line);
+            }
+            tokens.push({ type: "string", value: code.slice(i + 1, j), line });
+            i = j + 1;
+            continue;
+          }
+
+          if (/[a-z_]/i.test(ch)) {
+            let j = i;
+            while (j < code.length && /[a-z0-9_]/i.test(code[j])) j++;
+            tokens.push({ type: "word", value: code.slice(i, j), line });
+            i = j;
+            continue;
+          }
+
+          if (code.startsWith("==", i)) {
+            tokens.push({ type: "==", line });
+            i += 2;
+            continue;
+          }
+
+          if ("(){}+=".includes(ch)) {
+            tokens.push({ type: ch, line });
+            i++;
+            continue;
+          }
+
+          throw codeError(`I don't understand the symbol "${ch}".`, line);
+        }
+
+        return tokens;
+      }
+
+      function parse(code) {
+        const tokens = tokenize(code);
+        let pos = 0;
+
+        const peek = (offset = 0) => tokens[pos + offset];
+        const next = () => tokens[pos++];
+        const lastLine = () => (tokens.length ? tokens[tokens.length - 1].line : 1);
+
+        function expect(type, message, line) {
+          const token = next();
+          if (!token || token.type !== type) {
+            throw codeError(message, token ? token.line : line || lastLine());
+          }
+          return token;
+        }
+
+        // "Hello " + name + "!"
+        function readExpression(line) {
+          const parts = [readTerm(line)];
+          while (peek() && peek().type === "+") {
+            next();
+            parts.push(readTerm(line));
+          }
+          return parts;
+        }
+
+        function readTerm(line) {
+          const token = next();
+          if (!token) throw codeError("Something is missing at the end.", line);
+          if (token.type === "string") return { text: token.value };
+          if (token.type === "word") return { variable: token.value, line: token.line };
+          throw codeError('Put words in "quotes", or use a variable name.', token.line);
+        }
+
+        function block(line) {
+          expect("{", "Put a { here to start the commands.", line);
+          const body = [];
+          while (peek() && peek().type !== "}") body.push(readStatement());
+          if (!peek()) throw codeError("A { is missing its closing }.", line);
+          next();
+          return body;
+        }
+
+        function readStatement() {
+          const token = next();
+          const line = token.line;
+
+          if (token.type !== "word") {
+            throw codeError("Every line should start with a word, like say or if.", line);
+          }
+
+          const word = token.value.toLowerCase();
+
+          // name = ask("question")
+          if (peek() && peek().type === "=") {
+            next();
+            const askWord = next();
+            if (!askWord || askWord.type !== "word" || askWord.value.toLowerCase() !== "ask") {
+              throw codeError(`After ${token.value} = write ask("your question").`, line);
+            }
+            expect("(", 'ask needs ( ) around the question: ask("...")', line);
+            const question = next();
+            if (!question || question.type !== "string") {
+              throw codeError('Put your question in "quotes" inside ask( ).', line);
+            }
+            expect(")", "Close the parentheses after the question.", line);
+            return { type: "ask", variable: token.value, question: question.value, line };
+          }
+
+          if (word === "ask") {
+            throw codeError(`Save the answer in a variable, like: name = ask("...")`, line);
+          }
+
+          // say(...)
+          if (word === "say") {
+            expect("(", 'say needs ( ) around what to say: say("hi")', line);
+            const parts = readExpression(line);
+            if (peek() && peek().type !== ")") {
+              throw codeError('Use + to join things together, and put words in "quotes".', line);
+            }
+            expect(")", "Close the parentheses at the end of say( ).", line);
+            return { type: "say", parts, line };
+          }
+
+          // if (a == b) { ... } else { ... }
+          if (word === "if") {
+            expect("(", "if needs ( ) around what it checks.", line);
+            const left = readExpression(line);
+            if (peek() && peek().type === "=") {
+              throw codeError("To check if two things are the same, use two equals signs: ==", line);
+            }
+            expect("==", 'Use == to compare, like: if (answer == "yes")', line);
+            const right = readExpression(line);
+            expect(")", "Close the parentheses after the condition.", line);
+            const ifBody = block(line);
+            let elseBody = null;
+            if (peek() && peek().type === "word" && peek().value.toLowerCase() === "else") {
+              next();
+              elseBody = block(line);
+            }
+            return { type: "if", left, right, ifBody, elseBody, line };
+          }
+
+          if (word === "else") {
+            throw codeError("else can't be by itself. It always comes right after an if { }.", line);
+          }
+
+          throw codeError(`I don't know "${token.value}". Try say, ask, or if.`, line);
+        }
+
+        const program = [];
+        while (pos < tokens.length) program.push(readStatement());
+        return program;
+      }
+
+      // Look through the program for what each challenge needs.
+      function describe(program) {
+        const asked = new Set();
+        let saysAnswer = false;
+        let ifElseOnAnswer = false;
+
+        function usesAnswer(parts) {
+          return parts.some((p) => p.variable && asked.has(p.variable));
+        }
+
+        function walk(list) {
+          list.forEach((s) => {
+            if (s.type === "ask") asked.add(s.variable);
+            if (s.type === "say" && usesAnswer(s.parts)) saysAnswer = true;
+            if (s.type === "if") {
+              if (s.elseBody && (usesAnswer(s.left) || usesAnswer(s.right))) ifElseOnAnswer = true;
+              walk(s.ifBody);
+              if (s.elseBody) walk(s.elseBody);
+            }
+          });
+        }
+
+        walk(program);
+        return { asked: asked.size > 0, saysAnswer, ifElseOnAnswer };
+      }
+
+      // ---- RUNNING THE CODE ----
+
+      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+      function showBubble(text, asking) {
+        bubble.textContent = text;
+        bubble.classList.toggle("asking", Boolean(asking));
+      }
+
+      function waitForAnswer(question) {
+        showBubble(question, true);
+        answerInput.value = "";
+        answerRow.hidden = false;
+        answerInput.focus();
+
+        return new Promise((resolve) => {
+          answerRow.onsubmit = (event) => {
+            event.preventDefault();
+            const answer = answerInput.value.trim();
+            if (answer === "") {
+              answerInput.focus();
+              return;
+            }
+            answerRow.hidden = true;
+            answerRow.onsubmit = null;
+            resolve(answer);
+          };
+        });
+      }
+
+      function evaluate(parts, variables) {
+        return parts
+          .map((part) => {
+            if ("text" in part) return part.text;
+            if (part.variable in variables) return variables[part.variable];
+            throw codeError(
+              `${part.variable} doesn't have a value yet. If you meant the word, put it in quotes: "${part.variable}"`,
+              part.line,
+            );
+          })
+          .join("");
+      }
+
+      // Runs the program. Returns the list of if / else paths that ran.
+      async function execute(program) {
+        const variables = {};
+        const paths = [];
+
+        async function run(list) {
+          for (const s of list) {
+            if (s.type === "ask") {
+              variables[s.variable] = await waitForAnswer(s.question);
+            } else if (s.type === "say") {
+              showBubble(evaluate(s.parts, variables), false);
+              await sleep(1600);
+            } else if (s.type === "if") {
+              // Compare without worrying about capital letters or extra spaces.
+              const left = evaluate(s.left, variables).trim().toLowerCase();
+              const right = evaluate(s.right, variables).trim().toLowerCase();
+              if (left === right) {
+                paths.push("if");
+                await run(s.ifBody);
+              } else {
+                paths.push("else");
+                if (s.elseBody) await run(s.elseBody);
+              }
+            }
+          }
+        }
+
+        await run(program);
+        return paths;
+      }
+
+      // ---- LESSON AND CHALLENGES ----
+
+      lessonSteps.forEach((step, index) => {
+        step.querySelector(".lesson-next-button").addEventListener("click", () => {
+          step.hidden = true;
+
+          if (index + 1 < lessonSteps.length) {
+            lessonSteps[index + 1].hidden = false;
+          } else {
+            startChallenges();
+          }
+        });
+      });
+
+      function startChallenges() {
+        lessonIntro.hidden = true;
+        challengeBox.hidden = false;
+        gameArea.hidden = false;
+
+        showChallenge();
+      }
+
+      function showChallenge() {
+        const challenge = challenges[currentChallenge];
+
+        progress.innerText = `Challenge ${currentChallenge + 1} of ${challenges.length}`;
+
+        challengeTitle.innerText = challenge.title;
+        challengePrompt.innerText = challenge.prompt;
+        hint.innerText = challenge.hint;
+
+        feedback.innerText = "";
+        commandInput.value = "";
+        pathsTested = new Set();
+
+        setEditing(true);
+        nextChallengeButton.hidden = true;
+        answerRow.hidden = true;
+
+        showBubble("Waiting for your code...", false);
+      }
+
+      function setEditing(on) {
+        commandInput.disabled = !on;
+        submitButton.disabled = !on;
+      }
+
+      function showFeedback(good, message) {
+        feedback.innerText = message;
+        feedback.style.color = good ? "green" : "red";
+      }
+
+      async function submitCode() {
+        if (isAdvancing || isRunning) return;
+
+        const challenge = challenges[currentChallenge];
+
+        if (commandInput.value.trim() === "") {
+          showFeedback(false, "Please enter some code first!");
+          return;
+        }
+
+        let program;
+        try {
+          program = parse(commandInput.value);
+        } catch (error) {
+          if (!error.isCodeError) throw error;
+          showFeedback(false, error.message);
+          return;
+        }
+
+        const info = describe(program);
+
+        if (!info.asked) {
+          showFeedback(false, 'Your program needs to ask a question! Try: name = ask("...")');
+          return;
+        }
+
+        if (challenge.needsIfElse && !info.ifElseOnAnswer) {
+          showFeedback(false, "Use if / else to check the answer, like: if (answer == \"yes\") { ... } else { ... }");
+          return;
+        }
+
+        if (!challenge.needsIfElse && !info.saysAnswer) {
+          showFeedback(false, "Your animal should say something that uses the answer. Put the variable name inside say( ) without quotes.");
+          return;
+        }
+
+        // Run it!
+        isRunning = true;
+        setEditing(false);
+        showFeedback(true, "Running... answer the question below your animal!");
+        stage.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        let paths;
+        try {
+          paths = await execute(program);
+        } catch (error) {
+          isRunning = false;
+          setEditing(true);
+          answerRow.hidden = true;
+          if (!error.isCodeError) throw error;
+          showFeedback(false, error.message);
+          return;
+        }
+
+        isRunning = false;
+        setEditing(true);
+
+        if (challenge.needsIfElse) {
+          paths.forEach((path) => pathsTested.add(path));
+
+          if (pathsTested.size < 2) {
+            const other = pathsTested.has("if")
+              ? 'something that is NOT "yes"'
+              : '"yes"';
+            showFeedback(
+              true,
+              `It works! Now run it again and answer ${other} to test the other path.`,
+            );
+            return;
+          }
+        }
+
+        showFeedback(true, challenge.success);
+
+        setEditing(false);
+        isAdvancing = true;
+        nextChallengeButton.innerText =
+          currentChallenge === challenges.length - 1
+            ? "Finish Challenges"
+            : "Next Challenge";
+        nextChallengeButton.hidden = false;
+      }
+
+      submitButton.addEventListener("click", submitCode);
+
+      nextChallengeButton.addEventListener("click", () => {
+        if (!isAdvancing) return;
+
+        currentChallenge++;
+        isAdvancing = false;
+
+        if (currentChallenge < challenges.length) {
+          showChallenge();
+        } else {
+          showReward();
+        }
+      });
+
+      // SHOW REWARD
+
+      function showReward() {
+        progress.innerText = "All challenges completed!";
+        challengeTitle.innerText = "You did it! 🎉";
+
+        challengePrompt.innerText =
+          "You made programs that listen to the user and respond to what they type!";
+
+        hint.hidden = true;
+        hintLabel.hidden = true;
+        commandInput.hidden = true;
+        submitButton.hidden = true;
+        nextChallengeButton.hidden = true;
+
+        showFeedback(true, "Congratulations! You completed all 3 challenges!");
+
+        stage.hidden = true;
+
+        rewardButton.hidden = false;
+      }
+
+      // UNLOCK REWARD
+
+      rewardButton.addEventListener("click", () => {
+        rewardButton.hidden = true;
+        rewardContainer.hidden = false;
+
+        // Save progress so the next level unlocks
+        import("./js/progress.js").then((p) => p.completeLevel(10));
+      });
+    </script>
+
+    <script type="module" src="js/auth-guard.js"></script>
+    <script type="module" src="js/character.js"></script>
+  </body>
 </html>
