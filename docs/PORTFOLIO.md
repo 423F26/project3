@@ -33,7 +33,8 @@ User documentation can be found [here](https://423f26.github.io/project3/user.ht
 Developer documentation can be found [here](https://github.com/423F26/project3/blob/main/docs/Developer.md).
 
 **Section 5: UML**  
-**![][image1]**  
+<img width="1102" height="631" alt="Screenshot 2026-11-08 212659" src="https://github.com/user-attachments/assets/827c22ed-2c07-43cc-b8e0-51f62ce025e1" />
+ 
 **Section 6: Design Trade-Offs**
 
 One significant design tradeoff we faced was the setup of our levels when it comes to coding within our web application. Considering we are working on a coding education game, we had to decide how our clients (students) would be coding within the browser on our website (since it is not an IDE).
